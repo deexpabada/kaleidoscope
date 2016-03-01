@@ -1,6 +1,35 @@
-p {
-    text-align: center;
-    font-family: Garamond, serif;
-    font-size: 18px;
-    color: forestgreen;
+#header {
+    font-family:"Century Gothic";
+    font-weight:bolder;
+    font-size:12px;
+    text-align:left;
+    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
+    padding:0;
+    position: relative;
+    top:0;
+    width: 100%;
 }
+h1{
+    font-size: 30px;
+}
+
+
+
+#footer {
+    background-color: #BCD2EE;
+    font-family:"Century Gothic";
+    color:white;
+    clear:both;
+    text-align:right;
+    position:relative;
+    bottom:0;
+    width:100%;
+
+}
+
+#audio {
+    position: relative;
+    bottom:0px;
+    Left:5px;
+}
+
