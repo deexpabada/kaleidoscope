@@ -1,7 +1,7 @@
 $(function() {
-    var canvas = $('#kaleidoscope')
-    console.log(canvas)
-    var g = canvas[0].getContext('2d')
+    var canvas = $('#kaleidoscope');
+    console.log(canvas);
+    var g = canvas[0].getContext('2d');
 
 
     //draw CIRCLE
@@ -11,7 +11,7 @@ $(function() {
 
     //show image and rotate the image
     var img = new Image();
-    img.src = "../images/p.jpg"
+    img.src = "../images/PaulAlt.jpg";
 
     var img_x1 = img.height;
     var img_x2 = img.width;
@@ -31,7 +31,7 @@ $(function() {
         drawHex();
         g.restore();
 
-        g.save()
+        g.save();
         g.translate(300, Math.sqrt(40000-10000));
         drawHex();
         g.restore();
@@ -43,18 +43,19 @@ $(function() {
     }
 
     function drawHex(){
-        var symettry = 6;
+        var symettry = 8;
         for(i = 0; i< symettry; i++) {
             if(i%2 == 0){
                 drawTriangle();
             }
             if(i%2 == 1){
                 g.save();
+                g.rotate(45*Math.PI/180);
                 g.scale(-1,1);
                 drawTriangle();
                 g.restore()
             }
-            g.rotate((60) * Math.PI / 180);
+            g.rotate(45 * Math.PI / 180);
 
         }
     }
@@ -68,7 +69,8 @@ $(function() {
         g.save();
         g.beginPath();
         g.moveTo(200,0);
-        g.lineTo(100, Math.sqrt(40000-10000));
+        //g.lineTo(100, Math.sqrt(40000-10000));
+        g.arc(0, 0, Math.sqrt(30000), 0,.25*Math.PI);
         g.lineTo(0, 0);
         g.clip();
         g.drawImage(img, 0, 0);
