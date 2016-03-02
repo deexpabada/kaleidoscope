@@ -1,7 +1,7 @@
 #header {
     font-family:"Century Gothic";
     font-weight:bolder;
-    font-size:12px;
+    font-size:24px;
     text-align:left;
     background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
     padding:0;
@@ -9,11 +9,6 @@
     top:0;
     width: 100%;
 }
-h1{
-    font-size: 30px;
-}
-
-
 
 #footer {
     background-color: #BCD2EE;
@@ -24,12 +19,71 @@ h1{
     position:relative;
     bottom:0;
     width:100%;
-
+    overflow: hidden;
 }
 
-#audio {
+
+.optionsBtn {
+    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
+    color: black;
+    font-weight: bold;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position:fixed;
+    font-family: "Century Gothic";
+    top:250px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+
+.playBtn {
+    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Century Gothic";
+    top:250px;
+    right:10px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+
+.dropdown {
     position: relative;
-    bottom:0px;
-    Left:5px;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: fixed;
+    font-family: "Century Gothic";
+    top: 280px;
+    background-color: #c1f9f5;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    font-family: "Century Gothic";
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .optionsBtn {
+    background-color: #3e8e41;
 }
 

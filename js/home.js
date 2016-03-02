@@ -96,3 +96,13 @@ $(function() {
 
 });
 
+function aud_play_pause(songTitle) {
+    var thisAudio = document.getElementById(songTitle);
+    if (thisAudio.paused) {
+        thisAudio.play();
+    } else {
+        thisAudio.pause();
+    }
+}
+
+
