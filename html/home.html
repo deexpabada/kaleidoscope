@@ -6,113 +6,29 @@
 </head>
 
 <body>
-<div id = "header">
-    <h1>KALEIDOSCOPE</h1>
-</div>
-
-
-<head>
-    <style>
-        .dropbtn {
-            background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
-            color: #5f8dd5;
-            font-weight: bold;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            position:fixed;
-            font-family: "Century Gothic";
-            top:250px;
-            -moz-border-radius: 15px;
-            -webkit-border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .playBtn {
-            background-image: url("http://www.carswatcher.com/images/play-icon.png");
-            color: #5f8dd5;
-            font-weight: bold;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            position:fixed;
-            font-family: "Century Gothic";
-            top:0px;
-            right: 0;
-            -moz-border-radius: 15px;
-            -webkit-border-radius: 15px;
-            cursor: pointer;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: fixed;
-            top: 280px;
-            background-color: #c1f9f5;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            font-family: "Century Gothic";
-            display: block;
-        }
-
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }
-
-    </style>
-</head>
-
-<body>
-
+<div id = "header"> <h1>KALEIDOSCOPE</h1> </div>
 
 <div class="dropdown" style="float:left;">
-    <button class="dropbtn">Options</button>
+    <button class="optionsBtn">Options</button>
     <div class="dropdown-content" style="left:0;">
         <a href="#">Save</a>
         <a href="#">Share</a>
     </div>
 </div>
 
-
 <div class="dropdown" style="float:left;">
     <button class="playBtn">Playlist</button>
-    <div class="dropdown-content" style="right:0; top: 50px;">
-        <a href="#">Song 1</a>
-        <a href="#">Song2</a>
+    <div class="dropdown-content" style="right:0;">
+        <a href= "#" onclick="aud_play_pause('intro')"> The xx</a>
+        <a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>
     </div>
 </div>
 
-
-
 <canvas id="kaleidoscope" width="1000" height="600" style="border:1px solid chartreuse;"></canvas>
-<div id="footer">
-    DOGAQITA 2016
+
+<div id="footer"> DOGAQITA 2016
+    <audio id = "intro" src="intro.mp3" preload="auto" loop></audio>
+    <audio id = "birdy" src="birdy.mp3" preload="auto" loop></audio>
 </div>
-
-<audio id = "audio" src="slide.mp3" controls autoplay loop >
-</audio>
-
 </body>
-
-
-
-
 </html>
