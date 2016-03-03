@@ -56,6 +56,14 @@
     cursor: pointer;
 }
 
+canvas {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 /*Switching images button*/
 .switchBtn {
     background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");

@@ -13,15 +13,15 @@ $(function() {
 
     //show image and rotate the image
     var img = new Image();
-    img.src = "../images/j.png";
+    img.src = "../images/p.jpg";
 
 
+    var pixelBuffer = 20;
     var width = 1000;
-    var height = 600;
+    var height = 650;
     var centerW = (width/2);
     var centerH = (height/2);
     var TriLength = 200;
-    //TriLength at 300 and 250 look WEIRD
     var TriHeight = Math.sqrt((TriLength*TriLength) - (TriLength*TriLength/4));
 
     function drawMultipleHexs(){
@@ -107,7 +107,7 @@ $(function() {
         g.restore();
     }
 
-    function draw(){
+    /*function draw(){
 
         g.save();
         g.beginPath();
@@ -117,6 +117,35 @@ $(function() {
         g.restore();
 
 
+    }*/
+
+    function draw(){
+        var grd = g.createLinearGradient(0, 0, width, 0);
+        grd.addColorStop(0, "sandybrown");
+        grd.addColorStop(1, "lightblue");
+        g.fillStyle = grd;
+
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH, 0, 2 * Math.PI);
+        g.clip();
+        g.fillRect(0, 0, width, height);
+        g.restore();
+
+        //draw hexagons in circle
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH-pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        drawMultipleHexs();
+        g.restore();
+/*
+        //draw CIRCLE button
+        var grd2 = g.createLinearGradient(5, 5, 11, 0);
+        grd2.addColorStop(0, "forestgreen");
+        grd2.addColorStop(1, "gray");
+        g.fillStyle = grd2;
+        g.fillRect(880, 300, 20,20);*/
     }
 
     //showing img rotating at different angles on the screen
