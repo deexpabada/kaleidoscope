@@ -13,7 +13,7 @@ $(function() {
 
     //show image and rotate the image
     var img = new Image();
-    img.src = "../images/p.jpg";
+    img.src = "../images/Fries.jpg";
 
 
     var pixelBuffer = 20;
@@ -21,7 +21,7 @@ $(function() {
     var height = 650;
     var centerW = (width/2);
     var centerH = (height/2);
-    var TriLength = 200;
+    var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength*TriLength) - (TriLength*TriLength/4));
 
     function drawMultipleHexs(){
@@ -107,18 +107,6 @@ $(function() {
         g.restore();
     }
 
-    /*function draw(){
-
-        g.save();
-        g.beginPath();
-        g.arc(centerW, centerH, centerH, 0, 2 * Math.PI);
-        g.clip();
-        drawMultipleHexs();
-        g.restore();
-
-
-    }*/
-
     function draw(){
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "sandybrown");
@@ -139,7 +127,8 @@ $(function() {
         g.clip();
         drawMultipleHexs();
         g.restore();
-/*
+
+        /*
         //draw CIRCLE button
         var grd2 = g.createLinearGradient(5, 5, 11, 0);
         grd2.addColorStop(0, "forestgreen");
@@ -148,7 +137,22 @@ $(function() {
         g.fillRect(880, 300, 20,20);*/
     }
 
-    //showing img rotating at different angles on the screen
+
+    function aud_play_pause(songTitle) {
+        var thisAudio = document.getElementById(songTitle);
+        if (thisAudio.paused) {
+            thisAudio.play();
+        } else {
+            thisAudio.pause();
+        }
+    }
+
+    // Download Image
+    function download(){
+        document.getElementById("downloader").download = "image.png";
+        document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    }
+
     img.onload = draw;
 
 });
