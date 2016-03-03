@@ -119,4 +119,10 @@ function aud_play_pause(songTitle) {
     }
 }
 
+// Download Image
+function download(){
+    document.getElementById("downloader").download = "image.png";
+    document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+}
+
 
