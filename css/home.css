@@ -3,16 +3,17 @@
     font-weight:bolder;
     font-size:24px;
     text-align:left;
-    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
-    padding:0;
+    color: white;
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
     position: relative;
     top:0;
     width: 100%;
 }
 
 #footer {
-    background-color: #BCD2EE;
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
     font-family:"Century Gothic";
+    font-weight: bold;
     color:white;
     clear:both;
     text-align:right;
@@ -22,28 +23,13 @@
     overflow: hidden;
 }
 
-
+/*Options button*/
 .optionsBtn {
-    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
-    color: black;
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    color: white;
     font-weight: bold;
     padding: 16px;
     font-size: 16px;
-    border: none;
-    position:fixed;
-    font-family: "Century Gothic";
-    top:250px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    cursor: pointer;
-}
-
-.playBtn {
-    background-image: url("http://il2.picdn.net/shutterstock/videos/5453114/thumb/11.jpg");
-    color: black;
-    font-weight: bold;
-    font-size: 16px;
-    padding:16px;
     border: none;
     position:fixed;
     font-family: "Century Gothic";
@@ -54,6 +40,39 @@
     cursor: pointer;
 }
 
+/*Play music button*/
+.playBtn {
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Century Gothic";
+    top:200px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+
+/*Switching images button*/
+.switchBtn {
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Century Gothic";
+    top:400px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+
+/*Drop down menu*/
 .dropdown {
     position: relative;
     display: inline-block;
