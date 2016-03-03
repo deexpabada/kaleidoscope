@@ -14,10 +14,19 @@ $(function() {
         img.src = "../images/p.jpg";
     })
 
+
+
+
+    //setInterval()
+
+
     $('.sw').click(function() {
-        console.log("clicked")
-        shift = Math.random() * -40;
-        draw();
+        for(i = -40; i < 0; i++){
+            shift = i;
+            draw();
+        }
+        //shift = Math.random() * -40;
+
     })
 
 
