@@ -15,6 +15,10 @@ $(function() {
     var img = new Image();
     img.src = "../images/Fries.jpg";
 
+    $('.switchBtn').click(function() {
+        console.log("clicked")
+        img.src = "../images/p.jpg";
+    })
 
     var pixelBuffer = 20;
     var width = 1000;
