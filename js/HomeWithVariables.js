@@ -15,13 +15,11 @@ $(function() {
     })
 
     $('.sw').click(function() {
-        i = -40;
-        while(i < 0){
-            setInterval(shifteroo(i), 1000)
-        }
+        shift = Math.random() * -40;
+        draw();
     })
 
-    //BUGGY AS HELL
+    //scroll bar feature for rotaing images
     window.onscroll = function() {shifteroo()};
     function shifteroo(){
         if(document.body.scrollTop > 10 || document.documentElement.scrollTop > 10){
@@ -33,7 +31,7 @@ $(function() {
         }
         if(document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10){
             shift = shift - 5;
-            if(shift <= 40){
+            if(shift >= 40){
                 shift +=5;
             }
             draw();
