@@ -1,18 +1,18 @@
 #header {
-    font-family:"Century Gothic";
+    font-family:"Verdana";
     font-weight:bolder;
     font-size:24px;
     text-align:left;
-    color: white;
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    color: whitesmoke;
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     position: relative;
     top:0;
     width: 100%;
 }
 
 #footer {
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
-    font-family:"Century Gothic";
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
+    font-family:"Verdana";
     font-weight: bold;
     color:white;
     clear:both;
@@ -25,14 +25,14 @@
 
 /*Options button*/
 .optionsBtn {
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     color: white;
     font-weight: bold;
     padding: 16px;
     font-size: 16px;
     border: none;
     position:fixed;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     top:250px;
     right:10px;
     -moz-border-radius: 15px;
@@ -42,14 +42,14 @@
 
 /*Play music button*/
 .playBtn {
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     color: white;
     font-weight: bold;
     font-size: 16px;
     padding:16px;
     border: none;
     position:fixed;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     top:200px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -66,14 +66,14 @@ canvas {
 
 /*Switching images button*/
 .switchBtn {
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     color: white;
     font-weight: bold;
     font-size: 16px;
     padding:16px;
     border: none;
     position:fixed;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     top:400px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -83,14 +83,14 @@ canvas {
 /*Shuffle button*/
 
 .shuffleBtn {
-    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     color: white;
     font-weight: bold;
     font-size: 16px;
     padding:16px;
     border: none;
     position:fixed;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     top:100px;
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
@@ -105,7 +105,7 @@ canvas {
 .dropdown-content {
     display: none;
     position: fixed;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     top: 280px;
     background-color: #90b8c3;
     min-width: 160px;
@@ -116,7 +116,7 @@ canvas {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    font-family: "Century Gothic";
+    font-family: "Verdana";
     display: block;
 }
 
