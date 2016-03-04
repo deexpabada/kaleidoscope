@@ -80,6 +80,22 @@ canvas {
     cursor: pointer;
 }
 
+/*Shuffle button*/
+
+.shuffleBtn {
+    background-image: url("http://naldzgraphics.net/wp-content/uploads/2010/02/21-3D-Mirrors-iPad-Wallpaper.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Century Gothic";
+    top:100px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
 /*Drop down menu*/
 .dropdown {
     position: relative;
