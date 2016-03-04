@@ -23,24 +23,27 @@ $(function() {
     window.onscroll = function () {
         shifteroo()
     };
+
     function shifteroo() {
         if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-            shift += 5;
-            if (shift >= 40) {
-                shift += 5;
+            shift += shiftIncrement;
+            if (shift >= shiftLimit) {
+                shift += shiftIncrement;
             }
             draw();
         }
         if (document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10) {
-            shift = shift - 5;
-            if (shift >= 40) {
-                shift += 5;
+            shift = shift - shiftIncrement;
+            if (shift >= shiftLimit) {
+                shift += shiftIncrement;
             }
             draw();
         }
     }
 
     var i;
+    var shiftIncrement = 5;
+    var shiftLimit = 40;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
