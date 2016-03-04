@@ -1,27 +1,53 @@
-/**
- * Created by talhaahsan on 2/24/16.
- */
+
 $(function() {
     var canvas = $('#kaleidoscope');
     console.log(canvas);
     var g = canvas[0].getContext('2d');
 
-    //draw CIRCLE
-    //g.beginPath();
-    //g.arc(95, 50, 40, 0, 2 * Math.PI);
-    //g.stroke();
-
-    //show image and rotate the image
+    //set img source
     var img = new Image();
-    img.src = "../images/j.png";
+    img.src = "../images/k.jpg";
 
+    // button to switch picture
+    $('.switchBtn').click(function() {
+        console.log("clicked")
+        img.src = "../images/p.jpg";
+    })
 
+    $('.sw').click(function() {
+        i = -40;
+        while(i < 0){
+            setInterval(shifteroo(i), 1000)
+        }
+    })
+
+    //BUGGY AS HELL
+    window.onscroll = function() {shifteroo()};
+    function shifteroo(){
+        if(document.body.scrollTop > 10 || document.documentElement.scrollTop > 10){
+            shift += 5;
+            if(shift >= 40){
+                shift +=5;
+            }
+            draw();
+        }
+        if(document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10){
+            shift = shift - 5;
+            if(shift <= 40){
+                shift +=5;
+            }
+            draw();
+        }
+    }
+
+    var i;
+    var shift = 0;
+    var pixelBuffer = 20;
     var width = 1000;
-    var height = 600;
+    var height = 650;
     var centerW = (width/2);
     var centerH = (height/2);
-    var TriLength = 200;
-    //TriLength at 300 and 250 look WEIRD
+    var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength*TriLength) - (TriLength*TriLength/4));
 
     function drawMultipleHexs(){
@@ -81,45 +107,73 @@ $(function() {
     function drawHex(){
         for(i = 0; i< 6; i++) {
             if(i%2 == 0){
-                drawTriangle();
+                drawTriangle(shift);
             }
             if(i%2 == 1){
                 g.save();
                 g.scale(-1,1);
-                drawTriangle();
+                drawTriangle(shift);
                 g.restore()
             }
             g.rotate(60 * Math.PI / 180);
 
         }
     }
-    function drawTriangle() {
-        //assuming image is 200x200, we want a triangle with a length of XYZ
-        //g.drawImage(img, 0, 0, 200, 200);
 
+    // Draw a single triangle
+
+    function drawTriangle(shift) {
         g.save();
         g.beginPath();
         g.moveTo(TriLength,0);
         g.lineTo(TriLength/2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, 0, 0);
+        g.drawImage(img, shift, shift);
         g.restore();
     }
 
+    //
     function draw(){
+        var grd = g.createLinearGradient(0, 0, width, 0);
+        grd.addColorStop(0, "sandybrown");
+        grd.addColorStop(1, "lightblue");
+        g.fillStyle = grd;
 
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH, 0, 2 * Math.PI);
         g.clip();
-        drawMultipleHexs();
+        g.fillRect(0, 0, width, height);
         g.restore();
 
-
+        //draw hexagons in circle
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH-pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        drawMultipleHexs();
+        g.restore();
     }
 
-    //showing img rotating at different angles on the screen
+
+
+
+    function aud_play_pause(songTitle) {
+        var thisAudio = document.getElementById(songTitle);
+        if (thisAudio.paused) {
+            thisAudio.play();
+        } else {
+            thisAudio.pause();
+        }
+    }
+
+    // Download Image
+    function download(){
+        document.getElementById("downloader").download = "image.png";
+        document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    }
+
     img.onload = draw;
 
 });
