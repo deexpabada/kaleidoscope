@@ -1,5 +1,6 @@
 
 $(function() {
+    //initialize the canvas
     var canvas = $('#kaleidoscope');
     console.log(canvas);
     var g = canvas[0].getContext('2d');
@@ -11,9 +12,10 @@ $(function() {
     // button to switch picture
     $('.switchBtn').click(function () {
         console.log("clicked")
-        img.src = "../images/PaulAlt.jpg";
+        img.src = "../images/p.jpg";
     })
 
+    //Zooming in and out effect
     $('.shuffleBtn').click(function () {
         if(shift > shiftLimitMin && !toggle){
             shift--;
@@ -43,8 +45,27 @@ $(function() {
         setTimeout(swigglepiggle(d), t);
     }
 
+    //scrolling feature
+    //window.onscroll = function () {
+    //    shifteroo()
+    //};
+    //function shifteroo() {
+    //    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
+    //        shift += shiftIncrement;
+    //        if (shift >= shiftLimit) {
+    //            shift += shiftIncrement;
+    //        }
+    //        draw();
+    //    }
+    //    if (document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10) {
+    //        shift = shift - shiftIncrement;
+    //        if (shift >= shiftLimit) {
+    //            shift += shiftIncrement;
+    //        }
+    //        draw();
+    //    }
+    //}
 
-    var i;
     var shiftIncrement = 5;
     var shiftLimitMin = -40;
     var shiftLimitMax = 0;
@@ -129,7 +150,6 @@ $(function() {
     }
 
     // Draw a single triangle
-
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
@@ -141,7 +161,7 @@ $(function() {
         g.restore();
     }
 
-    //
+    //Draw the huge Kalei on the center
     function draw() {
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "sandybrown");
@@ -168,6 +188,7 @@ $(function() {
     img.onload = draw;
 });
 
+    //Play and pause the song
     function aud_play_pause(songTitle) {
         var thisAudio = document.getElementById(songTitle);
         if (thisAudio.paused) {
