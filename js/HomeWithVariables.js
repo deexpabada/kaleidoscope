@@ -34,16 +34,6 @@ $(function() {
         draw();
     })
 
-    function swigglepiggle(d, t){
-        if(d < -10){
-            return;
-        }
-        t+=500;
-        d--;
-        shift+=d;
-        draw();
-        setTimeout(swigglepiggle(d), t);
-    }
 
     //scrolling feature
     //window.onscroll = function () {
