@@ -1,4 +1,3 @@
-
 $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
@@ -7,13 +6,20 @@ $(function() {
 
     //set img source
     var img = new Image();
-    img.src = "../images/k.jpg";
+    img.src = "../images/SPACE.png";
+    changed = false;
 
     // button to switch picture
     $('.switchBtn').click(function () {
-        console.log("clicked")
-        img.src = "../images/p.jpg";
-    })
+        console.log("clicked");
+        if (changed != false) {
+            img.src = "../images/SPACE.png";
+            changed = false;
+        } else {
+            img.src = "../images/p.jpg";
+            changed = true;
+        }
+    });
 
     //Zooming in and out effect
     $('.shuffleBtn').click(function () {
@@ -32,7 +38,7 @@ $(function() {
             shift--;
         }
         draw();
-    })
+    });
 
 
     //scrolling feature
@@ -193,6 +199,3 @@ $(function() {
         document.getElementById("downloader").download = "image.png";
         document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
     }
-
-
-
