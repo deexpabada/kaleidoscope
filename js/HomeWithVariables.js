@@ -11,39 +11,44 @@ $(function() {
     // button to switch picture
     $('.switchBtn').click(function () {
         console.log("clicked")
-        img.src = "../images/p.jpg";
+        img.src = "../images/PaulAlt.jpg";
     })
 
     $('.shuffleBtn').click(function () {
-        shift = Math.random() * -40;
+        if(shift > shiftLimitMin && !toggle){
+            shift--;
+        }
+        else if(shift == shiftLimitMin && toggle == false){
+            toggle = !toggle;
+            shift++;
+        }
+        else if(shift < shiftLimitMax && toggle){
+            shift++;
+        }
+        else if(shift == shiftLimitMax && toggle){
+            toggle=!toggle;
+            shift--;
+        }
         draw();
     })
 
-    //scroll bar feature for rotaing images
-    window.onscroll = function () {
-        shifteroo()
-    };
-
-    function shifteroo() {
-        if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-            shift += shiftIncrement;
-            if (shift >= shiftLimit) {
-                shift += shiftIncrement;
-            }
-            draw();
+    function swigglepiggle(d, t){
+        if(d < -10){
+            return;
         }
-        if (document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10) {
-            shift = shift - shiftIncrement;
-            if (shift >= shiftLimit) {
-                shift += shiftIncrement;
-            }
-            draw();
-        }
+        t+=500;
+        d--;
+        shift+=d;
+        draw();
+        setTimeout(swigglepiggle(d), t);
     }
+
 
     var i;
     var shiftIncrement = 5;
-    var shiftLimit = 40;
+    var shiftLimitMin = -40;
+    var shiftLimitMax = 0;
+    var toggle = false;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
