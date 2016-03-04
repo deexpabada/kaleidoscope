@@ -14,23 +14,33 @@ $(function() {
         img.src = "../images/p.jpg";
     })
 
-
-
-
-    //setInterval()
-
-
     $('.sw').click(function() {
-        for(i = -40; i < 0; i++){
-            shift = i;
-            draw();
+        i = -40;
+        while(i < 0){
+            setInterval(shifteroo(i), 1000)
         }
-        //shift = Math.random() * -40;
-
     })
 
+    //BUGGY AS HELL
+    window.onscroll = function() {shifteroo()};
+    function shifteroo(){
+        if(document.body.scrollTop > 10 || document.documentElement.scrollTop > 10){
+            shift += 5;
+            if(shift >= 40){
+                shift +=5;
+            }
+            draw();
+        }
+        if(document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10){
+            shift = shift - 5;
+            if(shift <= 40){
+                shift +=5;
+            }
+            draw();
+        }
+    }
 
-
+    var i;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
