@@ -1,22 +1,23 @@
-
 $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
     console.log(canvas);
     var g = canvas[0].getContext('2d');
 
-    //set img source
-    var img = new Image();
-    img.src = "../images/k.jpg";
-
     // button to switch picture
     $('.switchBtn').click(function () {
-        console.log("clicked")
-        img.src = "../images/p.jpg";
-    })
+        console.log("clicked");
+        if (changed != false) {
+            img.src = imgSource;
+            changed = false;
+        } else {
+            img.src = "../images/SPACE.png";
+            changed = true;
+        }
+    });
 
     //Zooming in and out effect
-    $('.shuffleBtn').click(function () {
+    var animate = function () {
         if(shift > shiftLimitMin && !toggle){
             shift--;
         }
@@ -32,7 +33,18 @@ $(function() {
             shift--;
         }
         draw();
-    })
+    };
+
+    $('.shuffleBtn').click(function(){
+        if(animating == false) {
+            intervalVal = setInterval(animate, 100);
+            animating = true;
+        }
+        else{
+            animating = false;
+            clearInterval(intervalVal);
+        }
+    });
 
 
     //scrolling feature
@@ -56,6 +68,9 @@ $(function() {
     //    }
     //}
 
+    var animating = false;
+    var intervalVal = 0;
+    var imgSource = "../images/k.jpg";
     var shiftIncrement = 5;
     var shiftLimitMin = -40;
     var shiftLimitMax = 0;
@@ -69,6 +84,9 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
 
+    var img = new Image();
+    img.src = imgSource;
+    changed = false;
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
         g.save();
@@ -193,6 +211,3 @@ $(function() {
         document.getElementById("downloader").download = "image.png";
         document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
     }
-
-
-
