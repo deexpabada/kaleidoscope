@@ -11,7 +11,7 @@ $(function() {
             img.src = imgSource;
             changed = false;
         } else {
-            img.src = "../images/SPACE.png";
+            img.src = "../images/PaulAlt.jpg";
             changed = true;
         }
     });
