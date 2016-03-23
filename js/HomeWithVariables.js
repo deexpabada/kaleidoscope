@@ -11,7 +11,7 @@ $(function() {
             img.src = imgSource;
             changed = false;
         } else {
-            img.src = "../images/SPACE.png";
+            img.src = "../images/squirrel.jpg";
             changed = true;
         }
     });
@@ -36,42 +36,17 @@ $(function() {
     };
 
     $('.shuffleBtn').click(function(){
-        if(animating == false) {
-            intervalVal = setInterval(animate, 100);
-            animating = true;
+        if(animationTimer == null) {
+            animationTimer = setInterval(animate, 100);
         }
         else{
-            animating = false;
-            clearInterval(intervalVal);
+            clearInterval(animationTimer);
+            animationTimer = null;
         }
     });
 
-
-    //scrolling feature
-    //window.onscroll = function () {
-    //    shifteroo()
-    //};
-    //function shifteroo() {
-    //    if (document.body.scrollTop > 10 || document.documentElement.scrollTop > 10) {
-    //        shift += shiftIncrement;
-    //        if (shift >= shiftLimit) {
-    //            shift += shiftIncrement;
-    //        }
-    //        draw();
-    //    }
-    //    if (document.body.scrollWidth > 10 || document.documentElement.scrollWidth > 10) {
-    //        shift = shift - shiftIncrement;
-    //        if (shift >= shiftLimit) {
-    //            shift += shiftIncrement;
-    //        }
-    //        draw();
-    //    }
-    //}
-
-    var animating = false;
-    var intervalVal = 0;
+    var animationTimer = null;
     var imgSource = "../images/k.jpg";
-    var shiftIncrement = 5;
     var shiftLimitMin = -40;
     var shiftLimitMax = 0;
     var toggle = false;
@@ -93,6 +68,7 @@ $(function() {
         drawHex();
         g.restore();
 
+        /*
         //above
         g.save();
         g.translate(0, -2 * TriHeight);
@@ -139,6 +115,28 @@ $(function() {
         g.translate(1.5 * TriLength, -1 * TriHeight);
         drawHex();
         g.restore();
+
+        g.save();
+        drawHex();
+        g.restore();
+        */
+
+        //todo: fix this code below
+        //this loop creates the start of the columns of images
+        for(var t = -3; t < 10; t++) {
+            g.save();
+            g.translate(TriLength*4*t, 0);
+            //this loop actually renders the image
+            for (var i = -3; i < 4; i++) {
+                g.save();
+                g.translate(0, i * 2 * TriHeight);
+                drawHex();
+                g.translate(TriLength*2, TriHeight);
+                drawHex();
+                g.restore();
+            }
+            g.restore();
+        }
     }
 
     function drawHex() {
@@ -194,7 +192,7 @@ $(function() {
 
 
     img.onload = draw;
-});
+
 
     //Play and pause the song
     function aud_play_pause(songTitle) {
@@ -206,8 +204,10 @@ $(function() {
         }
     }
 
+    //todo: fix the download button
     // Download Image
     function download(){
         document.getElementById("downloader").download = "image.png";
         document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
     }
+});
