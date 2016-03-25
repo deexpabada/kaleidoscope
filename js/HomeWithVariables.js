@@ -7,13 +7,14 @@ $(function() {
     // button to switch picture
     $('.switchBtn').click(function () {
         console.log("clicked");
-        if (changed != false) {
-            img.src = imgSource;
-            changed = false;
-        } else {
-            img.src = "../images/squirrel.jpg";
-            changed = true;
+        newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
+        if(newSrc === img.src){
+            newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         }
+        img.src = newSrc;
+        //todo: find a new way to create image array without having to manually load everything
+        //todo: fix bug where sometimes the new source is the same as the previous source leading to no change
+        //todo: fix a bug where occasionally animating after changing the image will break it all
     });
 
     //Zooming in and out effect
@@ -45,6 +46,7 @@ $(function() {
         }
     });
 
+    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../SPACE.png"];
     var animationTimer = null;
     var imgSource = "../images/k.jpg";
     var shiftLimitMin = -40;
@@ -68,70 +70,14 @@ $(function() {
         drawHex();
         g.restore();
 
-        /*
-        //above
-        g.save();
-        g.translate(0, -2 * TriHeight);
-        drawHex();
-        g.restore();
-
-        //lower right diagonal
-        g.save();
-        g.translate(1.5 * TriLength, TriHeight);
-        drawHex();
-        g.restore();
-
-        //directly below
-        g.save();
-        g.translate(0, 2 * TriHeight);
-        drawHex();
-        g.restore();
-
-        //upper left
-        g.save();
-        g.translate(-1.5 * TriLength, -1 * TriHeight);
-        drawHex();
-        g.restore();
-
-        //lower left
-        g.save();
-        g.translate(-1.5 * TriLength, TriHeight);
-        drawHex();
-        g.restore();
-
-        //???
-        g.save();
-        g.translate(3 * TriLength, 1 / 200 * TriHeight); //1/200??
-        drawHex();
-        g.restore();
-
-        g.save();
-        g.translate(1.5 * TriLength, 3 * TriHeight);
-        drawHex();
-        g.restore();
-
-        //upper right diagonal
-        g.save();
-        g.translate(1.5 * TriLength, -1 * TriHeight);
-        drawHex();
-        g.restore();
-
-        g.save();
-        drawHex();
-        g.restore();
-        */
-
-        //todo: fix this code below
         //this loop creates the start of the columns of images
-        for(var t = -3; t < 10; t++) {
+        for(var t = -5; t < 10; t++) {
             g.save();
-            g.translate(TriLength*4*t, 0);
+            g.translate(TriLength *1.5 * t, TriHeight * t);
             //this loop actually renders the image
             for (var i = -3; i < 4; i++) {
                 g.save();
                 g.translate(0, i * 2 * TriHeight);
-                drawHex();
-                g.translate(TriLength*2, TriHeight);
                 drawHex();
                 g.restore();
             }
