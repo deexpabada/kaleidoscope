@@ -80,6 +80,21 @@ canvas {
     cursor: pointer;
 }
 
+.ShadingBtn {
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Verdana";
+    top:500px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+
 /*Shuffle button*/
 
 .shuffleBtn {

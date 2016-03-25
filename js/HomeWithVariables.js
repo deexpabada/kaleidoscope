@@ -46,6 +46,28 @@ $(function() {
         }
     });
 
+    /*
+    * ShadingBtn allows for a translucent circle to go on top of the image, allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
+    *
+    * Bugs: When used with any of the animate or shuffle actions, the image will lose its nice gray scale attempt and instead be somewhat "cloudy" where the vibrance of the image is lost
+    * Additionally it seems to cause images when changing to stack on top of each other so that Paul's head can be found over some fries during animation. The question is, is that a bug or a feature? xD
+    *
+    * */
+    $('.ShadingBtn').click(function(){
+        var canvas2=document.getElementById("kaleidoscope"); // grabs the canvas element
+        var context=canvas2.getContext("2d"); // returns the 2d context object
+        context.fillStyle= "#a3a3a3";
+        context.globalAlpha=.5; // Half opacity
+
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        g.fillRect(0,0, 1000, 1000);
+        g.restore();
+        context.globalAlpha=1.0; //return to full opacity
+    });
+
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../SPACE.png"];
     var animationTimer = null;
     var imgSource = "../images/k.jpg";
@@ -66,9 +88,7 @@ $(function() {
     changed = false;
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
-        g.save();
-        drawHex();
-        g.restore();
+
 
         //this loop creates the start of the columns of images
         for(var t = -5; t < 10; t++) {
@@ -115,6 +135,18 @@ $(function() {
 
     //Draw the huge Kalei on the center
     function draw() {
+        drawCircle();
+
+        //draw hexagons in circle
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        drawMultipleHexs();
+        g.restore();
+    }
+
+    function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "sandybrown");
         grd.addColorStop(1, "lightblue");
@@ -126,16 +158,7 @@ $(function() {
         g.clip();
         g.fillRect(0, 0, width, height);
         g.restore();
-
-        //draw hexagons in circle
-        g.save();
-        g.beginPath();
-        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
-        g.clip();
-        drawMultipleHexs();
-        g.restore();
     }
-
 
     img.onload = draw;
 
