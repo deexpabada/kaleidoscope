@@ -18,8 +18,8 @@ $(function() {
         //todo: fix a bug where occasionally animating after changing the image will break it all
     });
 
-    //Zooming in and out effect
-    var animate = function () {
+    //animation effect
+    var SingleFrameAnimation = function () {
         if(shift > shiftLimitMin && !toggle){
             shift--;
         }
@@ -49,7 +49,7 @@ $(function() {
 
     $('.shuffleBtn').click(function(){
         if(animationTimer == null) {
-            animationTimer = setInterval(animate, 100);
+            animationTimer = setInterval(SingleFrameAnimation, 100);
         }
         else{
             clearInterval(animationTimer);
@@ -196,8 +196,12 @@ $(function() {
 
     //todo: fix the download button
     // Download Image
-    function download(){
-        document.getElementById("downloader").download = "image.png";
-        document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    function downloadCanvas(link, canvasId, filename) {
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
     }
+
+    document.getElementById('btn-download').addEventListener('click', function() {
+        downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
+    }, false);
 });
