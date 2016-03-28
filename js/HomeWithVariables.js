@@ -57,17 +57,25 @@ $(function() {
         var canvas2=document.getElementById("kaleidoscope"); // grabs the canvas element
         var context=canvas2.getContext("2d"); // returns the 2d context object
         context.fillStyle= "#a3a3a3";
-        context.globalAlpha=.5; // Half opacity
+         // Half opacity
 
-        g.save();
-        g.beginPath();
-        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
-        g.clip();
-        g.fillRect(0,0, 1000, 1000);
-        g.restore();
-        context.globalAlpha=1.0; //return to full opacity
+        shadingLensPresence = !shadingLensPresence;
+        draw();
+        if(shadingLensPresence){
+            context.globalAlpha=.5;
+            g.save();
+            g.beginPath();
+            g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
+            g.clip();
+            g.fillRect(0,0, 1000, 1000);
+            g.restore();
+            context.globalAlpha=1.0; //return to full opacity
+
+        }
+
     });
 
+    var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../SPACE.png"];
     var animationTimer = null;
     var imgSource = "../images/k.jpg";
