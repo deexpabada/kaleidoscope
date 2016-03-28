@@ -70,6 +70,7 @@ $(function() {
             g.fillRect(0,0, 1000, 1000);
             g.restore();
             context.globalAlpha=1.0; //return to full opacity
+            //todo change fill rect to use canvas dimensions, not a pair of arbitrary ones. Ayy lmao.
 
         }
 
