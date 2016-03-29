@@ -89,7 +89,7 @@ $(function() {
 
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
-    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png"];
+    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
     var imgSource = "../images/k.jpg";
     var shiftLimitMin = -40;
