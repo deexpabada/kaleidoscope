@@ -95,8 +95,36 @@ canvas {
     cursor: pointer;
 }
 
-/*Shuffle button*/
+.ZoomInBtn {
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Verdana";
+    top:600px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
 
+.ZoomOutBtn {
+    background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding:16px;
+    border: none;
+    position:fixed;
+    font-family: "Verdana";
+    top:655px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    cursor: pointer;
+}
+/*Shuffle button*/
 .shuffleBtn {
     background-image: url("http://2.bp.blogspot.com/-prBwnISkSRs/T7G0TSwyMHI/AAAAAAAACOI/MSjza7rlEvk/s640/trippy+dmt+art+drawing+wallpaperc.jpg");
     color: white;

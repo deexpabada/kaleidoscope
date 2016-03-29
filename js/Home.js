@@ -11,14 +11,15 @@ $(function() {
         if(newSrc === img.src){
             newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         }
+        zoomMultiplier = 1.0;
         img.src = newSrc;
         //todo: find a new way to create image array without having to manually load everything
         //todo: fix bug where sometimes the new source is the same as the previous source leading to no change
         //todo: fix a bug where occasionally animating after changing the image will break it all
     });
 
-    //Zooming in and out effect
-    var animate = function () {
+    //animation effect
+    var SingleFrameAnimation = function () {
         if(shift > shiftLimitMin && !toggle){
             shift--;
         }
@@ -36,9 +37,19 @@ $(function() {
         draw();
     };
 
+    $('.ZoomInBtn').click(function(){
+        zoomMultiplier += .1;
+        draw();
+    });
+
+    $('.ZoomOutBtn').click(function(){
+        zoomMultiplier -= .1;
+        draw();
+    });
+
     $('.shuffleBtn').click(function(){
         if(animationTimer == null) {
-            animationTimer = setInterval(animate, 100);
+            animationTimer = setInterval(SingleFrameAnimation, 100);
         }
         else{
             clearInterval(animationTimer);
@@ -76,8 +87,9 @@ $(function() {
 
     });
 
+    var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
-    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../SPACE.png"];
+    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
     var imgSource = "../images/k.jpg";
     var shiftLimitMin = -40;
@@ -137,7 +149,7 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, shift, shift);
+        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
@@ -183,8 +195,12 @@ $(function() {
 
     //todo: fix the download button
     // Download Image
-    function download(){
-        document.getElementById("downloader").download = "image.png";
-        document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    function downloadCanvas(link, canvasId, filename) {
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
     }
+
+    document.getElementById('btn-download').addEventListener('click', function() {
+        downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
+    }, false);
 });
