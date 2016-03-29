@@ -2,7 +2,7 @@
 <head>
     <link type="text/css" rel="stylesheet" href="../css/home.css"/>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="../js/HomeWithVariables.js"></script>
+    <script src="../js/Home.js"></script>
 </head>
 
 <body bgcolor= #f0fff0>
@@ -12,7 +12,7 @@
 <div class="dropdown" style="float:left;">
     <button class="optionsBtn">Options</button>
     <div class="dropdown-content" style="right:0;">
-        <a href="#" onclick="download()" download=kaleidoscope>Save</a>
+        <a href="#" class="button" id="btn-download" download="image.png">Download</a>
         <a href= "https://www.facebook.com/">Share</a>
     </div>
 </div>
@@ -30,7 +30,9 @@
 <div class="button" style="float:left;">
     <button class="switchBtn">Switch Picture</button>
     <button class="shuffleBtn">Animate</button>
+    <button class="ShadingBtn">Tint</button>
 </div>
+
 
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" width="1000" height="650" style="border:0px solid #000000;" ></canvas>
