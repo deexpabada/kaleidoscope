@@ -5,57 +5,67 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="../js/Home.js"></script>
 </head>
+    <body bgcolor= #f0fff0>
 
-<body bgcolor= #f0fff0>
+        <div id="main">
 
-<div id="main">
+            <!-- title --->
+            <div class="header"> KALEIDOSCOPE </div>
 
-    <!-- title --->
-    <div class="header"> KALEIDOSCOPE </div>
+            <!--Interaction Sidebar-->
+            <div id="InteractionBtn" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#" class="ZoomInBtn">Zoom In</a>
+                <a href="#" class="ZoomOutBtn">Zoom Out</a>
+                <a href="#" class="animateBtn">Animate</a>
+                <a href="#" class="switchBtn">Switch Picture</a>
+                <a href="#" class="shapesBtn">Switch Shape</a>
+                <a href="#" class="dragBtn">Draggable</a>
+                <a href="#" class="upload">Upload</a>
+            </div>
 
-    <!--Interaction Sidebar-->
-    <div id="InteractionBtn" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#" class="ZoomInBtn">Zoom In</a>
-        <a href="#" class="ZoomOutBtn">Zoom Out</a>
-        <a href="#" class="animateBtn">Animate</a>
-        <a href="#" class="switchBtn">Switch Picture</a>
-        <a href="#" class="shapesBtn">Switch Shape</a>
-        <a href="#" class="dragBtn">Draggable</a>
-        <a href="#" class="upload">Upload</a>
-    </div>
+            <!--Interaction Button-->
+            <div class = interactionButton>
+                <!--<img src="http://www.pricingengine.net/wp-content/uploads/2013/01/ColorWheel.png" width="70" height="70" onclick="openNav()"/>-->
+                <span onclick="openNav()"> Interaction </span>
+            </div>
 
-    <!--Interaction Button-->
-    <div class = interactionButton>
-        <!--<img src="http://www.pricingengine.net/wp-content/uploads/2013/01/ColorWheel.png" width="70" height="70" onclick="openNav()"/>-->
-        <span onclick="openNav()"> Interaction </span>
-    </div>
 
-    <!--Options Button-->
-    <div class="dropdown" style="float:left;">
-        <button class="optionsBtn">Options</button>
-        <div class="dropdown-content" style="right:0;">
-            <a href="#" class="button" id="btn-download" download="image.png">Download</a>
-            <a href= "https://www.facebook.com/">Share</a>
+            <!-- Download Button -->
+            <div>
+                <a href = "#" class="downloadBtn" id="downloadBtn"> Download </a>
+            </div>
+
+            <!--Kaleidoscope Canvas-->
+            <canvas id="kaleidoscope" width="1000" height="650"  style="position:absolute; right:10%;" ></canvas>
+
+
+
+
+
+
+            <!-- Everything below is work in progress -->
+
+            <!--&lt;!&ndash;Options Button&ndash;&gt;-->
+            <!--<div class="dropdown" style="float:left;">-->
+                <!--<button class="optionsBtn">Options</button>-->
+                <!--<div class="dropdown-content" style="right:0;">-->
+                    <!--<a href="#" class="button" id="btn-download" download="image.png">Download</a>-->
+                    <!--<a href= "https://www.facebook.com/">Share</a>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;Play Music Button&ndash;&gt;-->
+            <!--<div class="dropdown" style="float:left;">-->
+                <!--<button class="playBtn">Playlist</button>-->
+                <!--<audio id = "intro" src=../songs/intro.mp3 preload="auto" loop></audio>-->
+                <!--<audio id = "birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>-->
+                <!--<div class="dropdown-content" style="left:0; top: 230px;">-->
+                    <!--<a href= "#" onclick="aud_play_pause('intro')"> The xx</a>-->
+                    <!--<a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>-->
+                <!--</div>-->
+            <!--</div>-->
+
         </div>
-    </div>
-
-    <!--Play Music Button-->
-    <div class="dropdown" style="float:left;">
-        <button class="playBtn">Playlist</button>
-        <audio id = "intro" src=../songs/intro.mp3 preload="auto" loop></audio>
-        <audio id = "birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
-        <div class="dropdown-content" style="left:0; top: 230px;">
-            <a href= "#" onclick="aud_play_pause('intro')"> The xx</a>
-            <a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>
-        </div>
-    </div>
-
-    <!--Kaleidoscope Canvas-->
-    <canvas id="kaleidoscope" width="1000" height="650"  style="position:absolute; right:10%;"  ></canvas>
-
-
-</div>
-
-</body>
+    </body>
 </html>

@@ -8,7 +8,7 @@ body {margin:0;}
     height:60px;
     font-family: "Helvetica Neue", Helvetica;
     font-size: 50px;
-    margin-bottom:50px;
+    margin-bottom:30px;
 }
 
 
@@ -44,19 +44,5 @@ body {margin:0;}
 
 .dropdown:hover .optionsBtn {
     background-color: #3e8e41;
-}
-.interactionButton {
-    position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    left:5%;
-    top:30%;
-    font-size:30px;
-    font-family:"Helvetica Neue", Helvetica;
-    cursor:pointer;
-    display: inline-block;
 }
 

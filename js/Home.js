@@ -200,7 +200,7 @@ $(function() {
         link.download = filename;
     }
 
-    document.getElementById('btn-download').addEventListener('click', function() {
+    document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
