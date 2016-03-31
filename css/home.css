@@ -7,7 +7,9 @@ body {margin:0;}
     background-color: #93bcee;
     height:60px;
     font-family: "Helvetica Neue", Helvetica;
+    font-weight: bold;
     font-size: 50px;
+    color: #fffcff;
     margin-bottom:30px;
 }
 

@@ -45,7 +45,7 @@
 }
 
 /* Interaction Button */
-.interactionButton {
+.interactionBtn {
     position:absolute;
     border: 2px solid #000000;
     padding:16px 32px;
@@ -76,3 +76,18 @@
     display: inline-block;
 }
 
+/* Effects Button*/
+.effectsBtn {
+    position:absolute;
+    border: 2px solid #000000;
+    padding:16px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    left:5%;
+    top:50%;
+    font-size:30px;
+    font-family:"Helvetica Neue", Helvetica;
+    cursor:pointer;
+    display: inline-block;
+}
