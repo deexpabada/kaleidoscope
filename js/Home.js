@@ -47,7 +47,7 @@ $(function() {
         draw();
     });
 
-    $('.shuffleBtn').click(function(){
+    $('.animateBtn').click(function(){
         if(animationTimer == null) {
             animationTimer = setInterval(SingleFrameAnimation, 100);
         }
@@ -203,4 +203,20 @@ $(function() {
     document.getElementById('btn-download').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
+
 });
+
+
+function openNav() {
+    document.getElementById("InteractionBtn").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+    document.getElementById("InteractionBtn").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function myFunction() {
+    document.getElementsByClassName("topnav")[0].classList.toggle("responsive");
+}
