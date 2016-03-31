@@ -218,6 +218,15 @@ function closeMusicNav() {
     document.getElementById("main").style.marginLeft= "0";
 }
 
+function openEffectsNav() {
+    document.getElementById("effectsBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeEffectsNav() {
+    document.getElementById("effectsBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
 //Play and pause the song
 function aud_play_pause(songTitle) {
     var thisAudio = document.getElementById(songTitle);
