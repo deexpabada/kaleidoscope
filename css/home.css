@@ -14,37 +14,4 @@ body {margin:0;}
 }
 
 
-/*Drop down menu*/
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: fixed;
-    font-family: "Verdana";
-    top: 280px;
-    background-color: #90b8c3;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    font-family: "Verdana";
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .optionsBtn {
-    background-color: #3e8e41;
-}
 
