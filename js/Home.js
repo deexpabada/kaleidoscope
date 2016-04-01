@@ -5,9 +5,8 @@ $(function() {
     var g = canvas[0].getContext('2d');
 
 
-
+    /////Testing for dragging
     var myElement = document.getElementById('myElement');
-
 // create a simple instance
 // by default, it only adds horizontal recognizers
     var mc = new Hammer(myElement);
