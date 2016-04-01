@@ -55,6 +55,11 @@ $(function() {
         draw();
     };
 
+    $('.SquirrelBtn').click(function(){
+        img.src = "../images/squirrel.jpg";
+        draw();
+    });
+
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
         draw();
@@ -96,15 +101,30 @@ $(function() {
             g.beginPath();
             g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
             g.clip();
-            g.fillRect(0,0, 1000, 1000);
+            g.fillRect(0,0, width, height);
             g.restore();
             context.globalAlpha=1.0; //return to full opacity
-            //todo change fill rect to use canvas dimensions, not a pair of arbitrary ones. Ayy lmao.
 
         }
-
     });
 
+    $('#ImageUpload').change(function(){
+            var file = document.getElementById("ImageUpload").files[0];
+            var imageType = /image.*/;
+
+            if (file.type.match(imageType)) {
+                var reader = new FileReader();
+
+                reader.onload = function(){
+                    img.src = reader.result;
+                    draw();
+                    zoomMultiplier = 1.0;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                fileDisplayArea.innerHTML = "File not supported!"
+            }
+    });
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
@@ -202,11 +222,23 @@ $(function() {
 
 
 
-    //todo: fix the download button
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
+    }
+
+    function downloadGif(){
+        // todo: get this library and implement it https://github.com/antimatter15/jsgif
+        var encoder = new GIFEncoder();
+        encoder.setRepeat(0);
+        encoder.setDelay(100);
+        encoder.start();
+        encoder.addFrame(g);
+
+        encoder.finish();
+        var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
+        var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
     }
 
     document.getElementById('downloadBtn').addEventListener('click', function() {
