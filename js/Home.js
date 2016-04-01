@@ -37,6 +37,11 @@ $(function() {
         draw();
     };
 
+    $('.SquirrelBtn').click(function(){
+        img.src = "../images/squirrel.jpg";
+        draw();
+    });
+
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
         draw();
