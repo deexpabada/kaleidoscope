@@ -1,11 +1,18 @@
 <html>
 <head>
     <link type="text/css" rel="stylesheet" href="../css/home.css"/>
+<<<<<<< HEAD
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
+=======
+    <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+>>>>>>> c3b3ab5b786ac2ef895e2af1900645b6e0a2a494
     <script src="../js/Home.js"></script>
 </head>
+    <body bgcolor= #f0fff0>
 
+<<<<<<< HEAD
 <body bgcolor= #f0fff0>
 <div id = "header"> <h1>KALEIDOSCOPE</h1> </div>
 <div id="myElement">test</div>
@@ -47,4 +54,66 @@
 </div>
 
 </body>
+=======
+        <div id="main">
+            <audio id = "intro" src=../songs/intro.mp3 preload="auto" loop></audio>
+            <audio id = "birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
+
+            <!-- title --->
+            <div class="header" id="header"> KALEIDOSCOPE </div>
+
+            <!--Interaction Sidebar-->
+            <div id="InteractionBar" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeInteractNav()">&times;</a>
+                <a href="#" class="ZoomInBtn">Zoom In</a>
+                <a href="#" class="ZoomOutBtn">Zoom Out</a>
+                <a href="#" class="animateBtn">Animate</a>
+                <a href="#" class="switchBtn">Switch Picture</a>
+                <a href="#" class="shapesBtn">Switch Shape</a>
+                <a href="#" class="dragBtn">Draggable</a>
+                <a href="#" class="upload">Upload</a>
+            </div>
+
+            <!--Interaction Button-->
+            <div class = interactionBtn>
+                <!--<img src="http://www.pricingengine.net/wp-content/uploads/2013/01/ColorWheel.png" width="70" height="70" onclick="openNav()"/>-->
+                <span onclick="openInteractNav()"> Interaction </span>
+            </div>
+
+
+            <!--Effects Sidebar -->
+            <div id = "effectsBar" class = "sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeEffectsNav()">&times;</a>
+                <a href= "#">Squirrels</a>
+            </div>
+
+            <!-- Effects Button -->
+            <div class="effectsBtn">
+                <span onclick="openEffectsNav()"> Effects </span>
+            </div>
+
+            <!--Music Sidebar -->
+            <div id = "musicBar" class = "sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeMusicNav()">&times;</a>
+                <a href= "#" onclick="aud_play_pause('intro')"> The xx</a>
+                <a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>
+
+            </div>
+
+            <!--Music Button-->
+            <div class="musicBtn">
+                <span onclick="openMusicNav()"> Music </span>
+            </div>
+
+            <!-- Download Button -->
+            <div>
+                <a href = "#" class="downloadBtn" id="downloadBtn"> Download </a>
+            </div>
+
+            <!--Kaleidoscope Canvas-->
+            <canvas id="kaleidoscope" width="1000" height="650"  style="position:absolute; right:10%;" ></canvas>
+
+        </div>
+    </body>
+>>>>>>> c3b3ab5b786ac2ef895e2af1900645b6e0a2a494
 </html>

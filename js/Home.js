@@ -65,7 +65,7 @@ $(function() {
         draw();
     });
 
-    $('.shuffleBtn').click(function(){
+    $('.animateBtn').click(function(){
         if(animationTimer == null) {
             animationTimer = setInterval(SingleFrameAnimation, 100);
         }
@@ -201,15 +201,6 @@ $(function() {
     img.onload = draw;
 
 
-    //Play and pause the song
-    function aud_play_pause(songTitle) {
-        var thisAudio = document.getElementById(songTitle);
-        if (thisAudio.paused) {
-            thisAudio.play();
-        } else {
-            thisAudio.pause();
-        }
-    }
 
     //todo: fix the download button
     // Download Image
@@ -218,7 +209,48 @@ $(function() {
         link.download = filename;
     }
 
-    document.getElementById('btn-download').addEventListener('click', function() {
+    document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
+
 });
+
+
+function openInteractNav() {
+    document.getElementById("InteractionBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeInteractNav() {
+    document.getElementById("InteractionBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function openMusicNav() {
+    document.getElementById("musicBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeMusicNav() {
+    document.getElementById("musicBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function openEffectsNav() {
+    document.getElementById("effectsBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeEffectsNav() {
+    document.getElementById("effectsBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+//Play and pause the song
+function aud_play_pause(songTitle) {
+    var thisAudio = document.getElementById(songTitle);
+    if (thisAudio.paused) {
+        thisAudio.play();
+    } else {
+        thisAudio.pause();
+    }
+}
