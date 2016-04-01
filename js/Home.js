@@ -47,7 +47,7 @@ $(function() {
         draw();
     });
 
-    $('.shuffleBtn').click(function(){
+    $('.animateBtn').click(function(){
         if(animationTimer == null) {
             animationTimer = setInterval(SingleFrameAnimation, 100);
         }
@@ -78,15 +78,30 @@ $(function() {
             g.beginPath();
             g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
             g.clip();
-            g.fillRect(0,0, 1000, 1000);
+            g.fillRect(0,0, width, height);
             g.restore();
             context.globalAlpha=1.0; //return to full opacity
-            //todo change fill rect to use canvas dimensions, not a pair of arbitrary ones. Ayy lmao.
 
         }
-
     });
 
+    $('#ImageUpload').change(function(){
+            var file = document.getElementById("ImageUpload").files[0];
+            var imageType = /image.*/;
+
+            if (file.type.match(imageType)) {
+                var reader = new FileReader();
+
+                reader.onload = function(){
+                    img.src = reader.result;
+                    draw();
+                    zoomMultiplier = 1.0;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                fileDisplayArea.innerHTML = "File not supported!"
+            }
+    });
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
@@ -183,24 +198,68 @@ $(function() {
     img.onload = draw;
 
 
-    //Play and pause the song
-    function aud_play_pause(songTitle) {
-        var thisAudio = document.getElementById(songTitle);
-        if (thisAudio.paused) {
-            thisAudio.play();
-        } else {
-            thisAudio.pause();
-        }
-    }
 
-    //todo: fix the download button
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
 
-    document.getElementById('btn-download').addEventListener('click', function() {
+    function downloadGif(){
+        // todo: get this library and implement it https://github.com/antimatter15/jsgif
+        var encoder = new GIFEncoder();
+        encoder.setRepeat(0);
+        encoder.setDelay(100);
+        encoder.start();
+        encoder.addFrame(g);
+
+        encoder.finish();
+        var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
+        var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
+
 });
+
+
+function openInteractNav() {
+    document.getElementById("InteractionBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeInteractNav() {
+    document.getElementById("InteractionBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function openMusicNav() {
+    document.getElementById("musicBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeMusicNav() {
+    document.getElementById("musicBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function openEffectsNav() {
+    document.getElementById("effectsBar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeEffectsNav() {
+    document.getElementById("effectsBar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+//Play and pause the song
+function aud_play_pause(songTitle) {
+    var thisAudio = document.getElementById(songTitle);
+    if (thisAudio.paused) {
+        thisAudio.play();
+    } else {
+        thisAudio.pause();
+    }
+}
