@@ -3,22 +3,20 @@ $(function() {
     var canvas = $('#kaleidoscope');
     console.log(canvas);
     var g = canvas[0].getContext('2d');
+    //canvas.addEventListener("mc",false);
 
-
-    /////Testing for dragging
-    var myElement = document.getElementById('myElement');
-// create a simple instance
-// by default, it only adds horizontal recognizers
+    //#####Testing for dragging######//
+    var myElement = document.getElementById('testEvent');
+    //var myElement = document.getElementById('kaleidoscope');
     var mc = new Hammer(myElement);
-
-// let the pan gesture support all directions.
-// this will block the vertical scrolling on a touch-device while on the element
     mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-
-// listen to events...
     mc.on("panleft panright panup pandown tap press", function(ev) {
-        myElement.textContent = ev.type +" gesture detected.";
+        myElement.textContent = ev.type +" detected.";
     });
+    //mc.on("drag", function(event){
+    //    myElement.style.left = event.gestuure.touches[0].pageX;
+    //    myElement.style.top = event.gestuure.touches[0].pageY;
+    //});
 
 
     // button to switch picture
@@ -124,6 +122,7 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
     });
+
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
