@@ -185,7 +185,7 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
