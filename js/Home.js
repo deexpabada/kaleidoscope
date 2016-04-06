@@ -247,8 +247,8 @@ $(function() {
 
 
 function openInteractNav() {
-    document.getElementById("InteractionBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("InteractionBar").style.width = "20%";
+    document.getElementById("main").style.marginLeft = "20%";
 }
 
 function closeInteractNav() {
@@ -257,8 +257,8 @@ function closeInteractNav() {
 }
 
 function openMusicNav() {
-    document.getElementById("musicBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("musicBar").style.width = "20%";
+    document.getElementById("main").style.marginLeft = "20%";
 }
 
 function closeMusicNav() {
@@ -267,8 +267,8 @@ function closeMusicNav() {
 }
 
 function openEffectsNav() {
-    document.getElementById("effectsBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("effectsBar").style.width = "20%";
+    document.getElementById("main").style.marginLeft = "20%";
 }
 
 function closeEffectsNav() {
