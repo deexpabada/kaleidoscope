@@ -6,12 +6,12 @@ $(function() {
     //canvas.addEventListener("mc",false);
 
     //#####Testing for dragging######//
-    var myElement = document.getElementById('testEvent');
+    var myElement = document.getElementById('kaleidoscope');
     //var myElement = document.getElementById('kaleidoscope');
     var mc = new Hammer(myElement);
     mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
     mc.on("panleft panright panup pandown tap press", function(ev) {
-        myElement.textContent = ev.type +" detected.";
+        console.log(ev);
     });
     //mc.on("drag", function(event){
     //    myElement.style.left = event.gestuure.touches[0].pageX;
@@ -192,6 +192,16 @@ $(function() {
     //Draw the huge Kalei on the center
     function draw() {
         drawCircle();
+        //draw hexagons in circle
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        drawMultipleHexs();
+        g.restore();
+    }
+
+    function drawStar() {
         //draw hexagons in circle
         g.save();
         g.beginPath();
