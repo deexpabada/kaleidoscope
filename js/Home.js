@@ -245,17 +245,6 @@ $(function() {
 
 });
 
-function interactNav(navBar, open) {
-    var width;
-    if (open) {
-        width = "20%";
-    } else {
-        width = "0%"
-    }
-    document.getElementById(navBar).style.width = width;
-    document.getElementbyID("main").style.marginLeft = width;
-}
-
 
 
 //Play and pause the song
