@@ -185,7 +185,7 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
@@ -256,35 +256,7 @@ $(function() {
 });
 
 
-function openInteractNav() {
-    document.getElementById("InteractionBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
 
-function closeInteractNav() {
-    document.getElementById("InteractionBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function openMusicNav() {
-    document.getElementById("musicBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeMusicNav() {
-    document.getElementById("musicBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function openEffectsNav() {
-    document.getElementById("effectsBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeEffectsNav() {
-    document.getElementById("effectsBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
 //Play and pause the song
 function aud_play_pause(songTitle) {
     var thisAudio = document.getElementById(songTitle);
