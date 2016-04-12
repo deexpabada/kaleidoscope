@@ -18,7 +18,7 @@
 
             <!--Interaction Sidebar-->
             <div id="InteractionBar" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeInteractNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="interactNav('InteractionBar', false)">&times;</a>
                 <a href="#" class="ZoomInBtn">Zoom In</a>
                 <a href="#" class="ZoomOutBtn">Zoom Out</a>
                 <a href="#" class="animateBtn">Animate</a>
@@ -36,24 +36,24 @@
             <!--Interaction Button-->
             <div class = interactionBtn>
                 <!--<img src="http://www.pricingengine.net/wp-content/uploads/2013/01/ColorWheel.png" width="70" height="70" onclick="openNav()"/>-->
-                <span onclick="openInteractNav()"> Interaction </span>
+                <span onclick="interactNav('InteractionBar', true)"> Interaction </span>
             </div>
 
 
             <!--Effects Sidebar -->
             <div id = "effectsBar" class = "sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeEffectsNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="interactNav('effectsBar', false)">&times;</a>
                 <a href= "#" class="SquirrelBtn">Squirrels</a>
             </div>
 
             <!-- Effects Button -->
             <div class="effectsBtn">
-                <span onclick="openEffectsNav()"> Effects </span>
+                <span onclick="interactNav(effectsBar, true)"> Effects </span>
             </div>
 
             <!--Music Sidebar -->
             <div id = "musicBar" class = "sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeMusicNav()">&times;</a>
+                <a href="javascript:void(0)" class="closebtn" onclick="interactNav('musicBar', false)">&times;</a>
                 <a href= "#" onclick="aud_play_pause('intro')"> The xx</a>
                 <a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>
 
@@ -61,7 +61,7 @@
 
             <!--Music Button-->
             <div class="musicBtn">
-                <span onclick="openMusicNav()"> Music </span>
+                <span onclick="interactNav('musicBar', true)"> Music </span>
             </div>
 
             <!-- Download Button -->

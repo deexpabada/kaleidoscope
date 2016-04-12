@@ -245,36 +245,19 @@ $(function() {
 
 });
 
-
-function openInteractNav() {
-    document.getElementById("InteractionBar").style.width = "20%";
-    document.getElementById("main").style.marginLeft = "20%";
+function interactNav(navBar, open) {
+    var width;
+    if (open) {
+        width = "20%";
+    } else {
+        width = "0%"
+    }
+    document.getElementById(navBar).style.width = width;
+    document.getElementbyID("main").style.marginLeft = width;
 }
 
-function closeInteractNav() {
-    document.getElementById("InteractionBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
 
-function openMusicNav() {
-    document.getElementById("musicBar").style.width = "20%";
-    document.getElementById("main").style.marginLeft = "20%";
-}
 
-function closeMusicNav() {
-    document.getElementById("musicBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function openEffectsNav() {
-    document.getElementById("effectsBar").style.width = "20%";
-    document.getElementById("main").style.marginLeft = "20%";
-}
-
-function closeEffectsNav() {
-    document.getElementById("effectsBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
 //Play and pause the song
 function aud_play_pause(songTitle) {
     var thisAudio = document.getElementById(songTitle);
