@@ -178,6 +178,7 @@ $(function() {
     }
 
     // Draw a single triangle
+    //todo: ITS bROKEN FIX IT PLS
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
@@ -185,7 +186,14 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        patternWidth = Math.floor(img.width *zoomMultiplier);
+        patternHeight = Math.floor(img.height*zoomMultiplier);
+        var newImage = new Image(patternWidth, patternHeight);
+        newImage.src = img;
+        g.fillStyle = g.createPattern(newImage, "repeat");
+        g.rect(0, 0, 500, 500);
+        g.fill();
+        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
