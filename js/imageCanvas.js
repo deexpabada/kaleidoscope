@@ -8,14 +8,20 @@ $(function() {
     var UserImageArray = [];
     var img = new Image();
 
-
+    function resizeImg(img, height, width) {
+        img.height = height;
+        img.width = width;
+    }
 
     function drawImages(UserImageArray){
         totalX = 0;
         for (image in UserImageArray) {
             img.src = image;
+            resizeImg(img, 100,100);
             g.drawImage(img,totalX, 0);
-            totalX += image.naturalWidth;
+            totalX += img.width;
+            console.log(img.width);
+            console.log(totalX);
         }
     }
 
@@ -26,12 +32,9 @@ $(function() {
             var reader = new FileReader();
             reader.onload = function(){
                 img.src = reader.result;
-            //    draw();
-            //    zoomMultiplier = 1.0;
             };
             reader.readAsDataURL(file);
             UserImageArray.push(file);
-            console.log(UserImageArray);
         } else {
             fileDisplayArea.innerHTML = "File not supported!"
         }
@@ -42,6 +45,8 @@ $(function() {
     }
 
 
-    img.onload = draw;});
+    img.onload = draw;
+
+});
 
 
