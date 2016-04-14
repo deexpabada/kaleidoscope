@@ -2,6 +2,7 @@
 <head>
 
     <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/home.css"/>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="../js/Home.js"></script>
@@ -24,32 +25,13 @@
                 <a href="#" class="ZoomOutBtn">Zoom Out</a>
                 <a href="#" class="animateBtn">Animate</a>
                 <a href="#" class="switchBtn">Switch Picture</a>
-                <a href="#" class="shapesBtn">Switch Shape</a>
-                <a href="#" class="dragBtn">Draggable</a>
-                <a href="#" class="dragUpBtn">Draggable</a>
-                <a href="#" class="dragDnBtn">Draggable</a>
-                <a href="#" class="dragLtBtn">Draggable</a>
-                <a href="#" class="dragRtBtn">Draggable</a>
 
                 <input type="file" id="ImageUpload"/>
             </div>
 
             <!--Interaction Button-->
             <div class = interactionBtn>
-                <!--<img src="http://www.pricingengine.net/wp-content/uploads/2013/01/ColorWheel.png" width="70" height="70" onclick="openNav()"/>-->
                 <span onclick="toggleNav('InteractionBar', true)"> Interaction </span>
-            </div>
-
-
-            <!--Effects Sidebar -->
-            <div id = "effectsBar" class = "sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('effectsBar', false)">&times;</a>
-                <a href= "#" class="SquirrelBtn">Squirrels</a>
-            </div>
-
-            <!-- Effects Button -->
-            <div class="effectsBtn">
-                <span onclick="toggleNav('effectsBar', true)"> Effects </span>
             </div>
 
             <!--Music Sidebar -->
@@ -71,7 +53,7 @@
             </div>
 
             <!--Kaleidoscope Canvas-->
-            <canvas id="kaleidoscope" width="1000" height="650"  style="position:absolute; right:10%;" ></canvas>
+            <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650" ></canvas>
             <!-- test --->
             <div id="testEvent"></div>
 

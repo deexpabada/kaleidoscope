@@ -266,3 +266,17 @@ function aud_play_pause(songTitle) {
         thisAudio.pause();
     }
 }
+
+
+//Resize Kaleidoscope Canvas
+function resize() {
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+    var kaleidoscopeCanvas = document.querySelector('canvas');
+
+    kaleidoscopeCanvas.style.width = height * 1.3;
+    kaleidoscopeCanvas.style.height = height * 0.9;
+}
+
+window.addEventListener('load', resize, false);
+window.addEventListener('resize', resize, false);
