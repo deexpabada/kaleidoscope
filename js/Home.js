@@ -3,22 +3,20 @@ $(function() {
     var canvas = $('#kaleidoscope');
     console.log(canvas);
     var g = canvas[0].getContext('2d');
+    //canvas.addEventListener("mc",false);
 
-
-    /////Testing for dragging
-    var myElement = document.getElementById('myElement');
-// create a simple instance
-// by default, it only adds horizontal recognizers
+    //#####Testing for dragging######//
+    var myElement = document.getElementById('kaleidoscope');
+    //var myElement = document.getElementById('kaleidoscope');
     var mc = new Hammer(myElement);
-
-// let the pan gesture support all directions.
-// this will block the vertical scrolling on a touch-device while on the element
     mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-
-// listen to events...
     mc.on("panleft panright panup pandown tap press", function(ev) {
-        myElement.textContent = ev.type +" gesture detected.";
+        console.log(ev);
     });
+    //mc.on("drag", function(event){
+    //    myElement.style.left = event.gestuure.touches[0].pageX;
+    //    myElement.style.top = event.gestuure.touches[0].pageY;
+    //});
 
 
     // button to switch picture
@@ -124,6 +122,7 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
     });
+
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
@@ -186,13 +185,23 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
     //Draw the huge Kalei on the center
     function draw() {
         drawCircle();
+        //draw hexagons in circle
+        g.save();
+        g.beginPath();
+        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
+        g.clip();
+        drawMultipleHexs();
+        g.restore();
+    }
+
+    function drawStar() {
         //draw hexagons in circle
         g.save();
         g.beginPath();
@@ -247,35 +256,7 @@ $(function() {
 });
 
 
-function openInteractNav() {
-    document.getElementById("InteractionBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
 
-function closeInteractNav() {
-    document.getElementById("InteractionBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function openMusicNav() {
-    document.getElementById("musicBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeMusicNav() {
-    document.getElementById("musicBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function openEffectsNav() {
-    document.getElementById("effectsBar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
-
-function closeEffectsNav() {
-    document.getElementById("effectsBar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
 //Play and pause the song
 function aud_play_pause(songTitle) {
     var thisAudio = document.getElementById(songTitle);
