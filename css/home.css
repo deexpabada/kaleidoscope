@@ -4,7 +4,7 @@ body {margin:0;}
     margin:0;
     padding:0;
     overflow: hidden;
-    background-color: #93bcee;
+    background-color: #3a7791;
     height:60px;
     font-family: "Helvetica Neue", Helvetica;
     font-weight: bold;
@@ -13,5 +13,12 @@ body {margin:0;}
     margin-bottom:30px;
 }
 
+.kaleidoscope {
+    position:absolute;
+    top: 10%;
+    left: 15%;
+    border-color: black;
+    border-width: thick;
 
+}
 
