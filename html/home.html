@@ -10,53 +10,51 @@
 </head>
 <body bgcolor= #f0fff0>
 
-        <div id="main">
-            <audio id = "intro" src=../songs/intro.mp3 preload="auto" loop></audio>
-            <audio id = "birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
+<audio id="intro" src=../songs/intro.mp3 preload="auto" loop></audio>
+<audio id="birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
 
 
-            <!-- title --->
-            <div class="header" id="header"> KALEIDOSCOPE </div>
+<!-- title --->
+<div class="header" id="header"> KALEIDOSCOPE</div>
 
-            <!--Interaction Sidebar-->
-            <div id="InteractionBar" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)">&times;</a>
-                <a href="#" class="ZoomInBtn">Zoom In</a>
-                <a href="#" class="ZoomOutBtn">Zoom Out</a>
-                <a href="#" class="animateBtn">Animate</a>
-                <a href="#" class="switchBtn">Switch Picture</a>
+<!--Interaction Sidebar-->
+<div id="InteractionBar" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)">&times;</a>
+    <a href="#" class="ZoomInBtn">Zoom In</a>
+    <a href="#" class="ZoomOutBtn">Zoom Out</a>
+    <a href="#" class="animateBtn">Animate</a>
+    <a href="#" class="switchBtn">Switch Picture</a>
 
-                <input type="file" id="ImageUpload"/>
-            </div>
+    <input type="file" id="ImageUpload"/>
+</div>
 
-            <!--Interaction Button-->
-            <div class = interactionBtn>
-                <span onclick="toggleNav('InteractionBar', true)"> Interaction </span>
-            </div>
+<!--Interaction Button-->
+<div class=interactionBtn>
+    <span onclick="toggleNav('InteractionBar', true)"> Interaction </span>
+</div>
 
-            <!--Music Sidebar -->
-            <div id = "musicBar" class = "sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('musicBar', false)">&times;</a>
-                <a href= "#" onclick="aud_play_pause('intro')"> The xx</a>
-                <a href= "#" onclick="aud_play_pause('birdy')"> Birdy</a>
+<!--Music Sidebar -->
+<div id="musicBar" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('musicBar', false)">&times;</a>
+    <a href="#" onclick="aud_play_pause('intro')"> The xx</a>
+    <a href="#" onclick="aud_play_pause('birdy')"> Birdy</a>
 
-            </div>
+</div>
 
-            <!--Music Button-->
-            <div class="musicBtn">
-                <span onclick="toggleNav('musicBar', true)"> Music </span>
-            </div>
+<!--Music Button-->
+<div class="musicBtn">
+    <span onclick="toggleNav('musicBar', true)"> Music </span>
+</div>
 
-            <!-- Download Button -->
-            <div>
-                <a href = "#" class="downloadBtn" id="downloadBtn"> Download </a>
-            </div>
+<!-- Download Button -->
+<div>
+    <a href="#" class="downloadBtn" id="downloadBtn"> Download </a>
+</div>
 
-            <!--Kaleidoscope Canvas-->
-            <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650" ></canvas>
-            <!-- test --->
-            <div id="testEvent"></div>
+<!--Kaleidoscope Canvas-->
+<canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
+<!-- test --->
+<div id="testEvent"></div>
 
-        </div>
-    </body>
+</body>
 </html>
