@@ -54,20 +54,6 @@ $(function() {
         drawImages(UserImageArray);
     }
 
-    //set the fill style to base itself off the image from the canvas
-    //newImage is just the img file that’s normally printed on the kaleidoscope
-    //with changed dimension (to allow zoom etc) and then new Image is the source of the pattern and hte pattern should fill in the rectangle
-
-    function drawTriangle(shift) {
-        g.save();
-        g.beginPath();
-        g.moveTo(TriLength, 0);
-        g.lineTo(TriLength / 2, TriHeight);
-        g.lineTo(0, 0);
-        g.clip();
-        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
-        g.restore();
-    }
 
     img.onload = draw;
 
