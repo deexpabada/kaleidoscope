@@ -280,3 +280,4 @@ function resize() {
 
 window.addEventListener('load', resize, false);
 window.addEventListener('resize', resize, false);
+
