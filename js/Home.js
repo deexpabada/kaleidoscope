@@ -1,7 +1,6 @@
 $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
-    console.log(canvas);
     var g = canvas[0].getContext('2d');
     //canvas.addEventListener("mc",false);
 
@@ -202,7 +201,6 @@ $(function() {
     }
 
     function drawStar() {
-        //draw hexagons in circle
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
