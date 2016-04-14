@@ -2,7 +2,7 @@ $(function() {
     //initialize the canvas
     var canvas2 = $('#imagewall');
     var g = canvas2[0].getContext('2d');
-
+    //canvas2.style.display="none";
 
     var ImgageNum = 4;
     var UserImageArray = [];
@@ -18,11 +18,21 @@ $(function() {
         for (image in UserImageArray) {
             img.src = image;
             resizeImg(img, 100,100);
+            //clipping fill
+            g.save();
+            g.beginPath();
+            g.moveTo(100, 100);
+            g.lineTo(150, 150);
+            g.lineTo(300, 100);
+            g.clip();
             g.drawImage(img,totalX, 0);
             totalX += img.width;
+            g.restore();
             console.log(img.width);
             console.log(totalX);
         }
+
+
     }
 
     $('#ImageUpload').change(function(){
@@ -44,6 +54,20 @@ $(function() {
         drawImages(UserImageArray);
     }
 
+    //set the fill style to base itself off the image from the canvas
+    //newImage is just the img file that’s normally printed on the kaleidoscope
+    //with changed dimension (to allow zoom etc) and then new Image is the source of the pattern and hte pattern should fill in the rectangle
+
+    function drawTriangle(shift) {
+        g.save();
+        g.beginPath();
+        g.moveTo(TriLength, 0);
+        g.lineTo(TriLength / 2, TriHeight);
+        g.lineTo(0, 0);
+        g.clip();
+        g.drawImage(img, shift, shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.restore();
+    }
 
     img.onload = draw;
 
