@@ -58,11 +58,17 @@ $(function() {
 
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
         draw();
     });
 
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
+        if(zoomMultiplier < 0.1){
+            zoomMultiplier = .01;
+        }
         draw();
     });
 
@@ -184,15 +190,11 @@ $(function() {
         g.moveTo(TriLength, 0);
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
-        g.clip();
-        /*patternWidth = Math.floor(img.width *zoomMultiplier);
-        patternHeight = Math.floor(img.height*zoomMultiplier);
-        var newImage = new Image(patternWidth, patternHeight);
-        newImage.src = img;
         g.fillStyle = g.createPattern(img, "repeat");
-        g.rect(0, 0, 500, 500);
-        g.fill();*/
-        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.scale(zoomMultiplier, zoomMultiplier);
+        g.translate(shift, shift);
+        g.fill(); //Translate before fill but after clip, to get animation
+        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
