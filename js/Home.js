@@ -126,7 +126,7 @@ $(function() {
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
-    var imgSource = "../images/k.jpg";
+    var imgSource = "../images/SPACE.png";
     var shiftLimitMin = -40;
     var shiftLimitMax = 0;
     var toggle = false;
@@ -185,14 +185,14 @@ $(function() {
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
         g.clip();
-        patternWidth = Math.floor(img.width *zoomMultiplier);
+        /*patternWidth = Math.floor(img.width *zoomMultiplier);
         patternHeight = Math.floor(img.height*zoomMultiplier);
         var newImage = new Image(patternWidth, patternHeight);
         newImage.src = img;
-        g.fillStyle = g.createPattern(newImage, "repeat");
+        g.fillStyle = g.createPattern(img, "repeat");
         g.rect(0, 0, 500, 500);
-        g.fill();
-        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.fill();*/
+        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
