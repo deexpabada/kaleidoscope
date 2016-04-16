@@ -210,21 +210,31 @@ $(function() {
         }
     }
 
-    // Draw a single triangle
-    //todo: ITS bROKEN FIX IT PLS
+    //function drawTriangle(shift) {
+    //    g.save();
+    //    g.beginPath();
+    //    g.moveTo(TriLength, 0);
+    //    g.lineTo(TriLength / 2, TriHeight);
+    //    g.lineTo(0, 0);
+    //    g.fillStyle = g.createPattern(img, "repeat");
+    //    g.scale(zoomMultiplier, zoomMultiplier);
+    //    g.translate(shift, shift);
+    //    g.fill(); //Translate before fill but after clip, to get animation
+    //    //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+    //    g.restore();
+    //}
+    
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
         g.moveTo(TriLength, 0);
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
-        g.fillStyle = g.createPattern(img, "repeat");
-        g.scale(zoomMultiplier, zoomMultiplier);
-        g.translate(shift, shift);
-        g.fill(); //Translate before fill but after clip, to get animation
-        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.clip();
+        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
+
 
     //Draw the huge Kalei on the center
     function draw() {
