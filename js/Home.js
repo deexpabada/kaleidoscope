@@ -4,20 +4,6 @@ $(function() {
     var g = canvas[0].getContext('2d');
     //canvas.addEventListener("mc",false);
 
-    //#####Testing for dragging######//
-    var myElement = document.getElementById('kaleidoscope');
-    //var myElement = document.getElementById('kaleidoscope');
-    var mc = new Hammer(myElement);
-    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    mc.on("panleft panright panup pandown tap press", function(ev) {
-        console.log(ev);
-    });
-    //mc.on("drag", function(event){
-    //    myElement.style.left = event.gestuure.touches[0].pageX;
-    //    myElement.style.top = event.gestuure.touches[0].pageY;
-    //});
-
-
     // button to switch picture
     $('.switchBtn').click(function () {
         console.log("clicked");
