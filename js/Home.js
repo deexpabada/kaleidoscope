@@ -82,6 +82,34 @@ $(function() {
         }
     });
 
+    //Quick Button Implementation
+
+    $('.autoplayKaleidoBtn').click(function(){
+        if(animationTimer == null) {
+            animationTimer = setInterval(SingleFrameAnimation, 100);
+        }
+        else{
+            clearInterval(animationTimer);
+            animationTimer = null;
+        }
+    });
+
+    $('.quickZoomInBtn').click(function(){
+        zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
+    });
+
+    $('.quickZoomOutBtn').click(function(){
+        zoomMultiplier -= .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
+    });
+
     /*
     * ShadingBtn allows for a translucent circle to go on top of the image, allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
     *
@@ -262,7 +290,6 @@ $(function() {
     }, false);
 
 });
-
 
 
 //Play and pause the song
