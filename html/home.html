@@ -8,7 +8,7 @@
     <script src="../js/Home.js"></script>
     <script src="../js/Sidebar.js"></script>
 </head>
-<body background="../images/gridgrey.jpg">
+<body bgcolor= #f0fff0>
 
 <audio id="intro" src=../songs/intro.mp3 preload="auto" loop></audio>
 <audio id="birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
@@ -26,6 +26,11 @@
     <a href="#" class="switchBtn">Switch Picture</a>
 
     <input type="file" id="ImageUpload"/>
+
+    <!----multiupload------>
+    <p>Upload multiple images</p>
+    <a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>
+    <input type="file" class="multi with-preview" multiple />
 </div>
 
 <!--Interaction Button-->
@@ -33,34 +38,55 @@
     <span onclick="toggleNav('InteractionBar', true)"> Interaction </span>
 </div>
 
-<!-- Spotify Webplayer -->
-<iframe id = "music" class = "music"src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A444MDFpUraOidJU5nTYI6n"
-        width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+<!--Music Sidebar -->
+<div id="musicBar" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('musicBar', false)">&times;</a>
+    <a href="#" onclick="aud_play_pause('intro')"> The xx</a>
+    <a href="#" onclick="aud_play_pause('birdy')"> Birdy</a>
+
+</div>
+
+<!--Music Button-->
+<div class="musicBtn">
+    <span onclick="toggleNav('musicBar', true)"> Music </span>
+</div>
+
+
+
+
+
+
+
+ <!--Download Button-->
+<div>
+    <a href="#" class="downloadBtn" id="downloadBtn"> Download </a>
+</div>
+
+<!-- Quick Access Music Control Button -->
+<div>
+    <a href="#" class="quickMusicControlBtn" id="quickMusicControlBtn"> Music </a>
+</div>
+
+<!-- Quick Autoplay Kaleido Button -->
+<div>
+    <a href="#" class="autoplayKaleidoBtn" id="autoplayKaleidoBtn"> Autoplay </a>
+</div>
+
+<!-- Quick Zoom In Button -->
+<div>
+    <a href="#" class="quickZoomInBtn" id="quickZoomInBtn"> Zoom In </a>
+</div>
+
+<!-- Quick Zoom Out Button -->
+<div>
+    <a href="#" class="quickZoomOutBtn" id="quickZoomOutBtn"> Zoom Out </a>
+</div>
 
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
+<!-- test --->
+<canvas id="imagewall" class="imagewall" width="1000" height="650"></canvas>
 
-<!--&lt;!&ndash; test -&ndash;&gt;-->
-<!--<div id="testEvent"></div>-->
-
-
-<!--&lt;!&ndash;Music Sidebar &ndash;&gt;-->
-<!--<div id="musicBar" class="sidenav">-->
-<!--<a href="javascript:void(0)" class="closebtn" onclick="toggleNav('musicBar', false)">&times;</a>-->
-<!--<a href="#" onclick="aud_play_pause('intro')"> The xx</a>-->
-<!--<a href="#" onclick="aud_play_pause('birdy')"> Birdy</a>-->
-
-<!--</div>-->
-
-<!--&lt;!&ndash;Music Button&ndash;&gt;-->
-<!--<div class="musicBtn">-->
-<!--<span onclick="toggleNav('musicBar', true)"> Music </span>-->
-<!--</div>-->
-
-<!--&lt;!&ndash; Download Button &ndash;&gt;-->
-<!--<div>-->
-<!--<a href="#" class="downloadBtn" id="downloadBtn"> Download </a>-->
-<!--</div>-->
 
 </body>
 </html>

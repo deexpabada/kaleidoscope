@@ -1,23 +1,8 @@
 $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
-    console.log(canvas);
     var g = canvas[0].getContext('2d');
     //canvas.addEventListener("mc",false);
-
-    //#####Testing for dragging######//
-    var myElement = document.getElementById('kaleidoscope');
-    //var myElement = document.getElementById('kaleidoscope');
-    var mc = new Hammer(myElement);
-    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    mc.on("panleft panright panup pandown tap press", function(ev) {
-        console.log(ev);
-    });
-    //mc.on("drag", function(event){
-    //    myElement.style.left = event.gestuure.touches[0].pageX;
-    //    myElement.style.top = event.gestuure.touches[0].pageY;
-    //});
-
 
     // button to switch picture
     $('.switchBtn').click(function () {
@@ -59,11 +44,17 @@ $(function() {
 
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
         draw();
     });
 
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
+        if(zoomMultiplier < 0.1){
+            zoomMultiplier = .01;
+        }
         draw();
     });
 
@@ -75,6 +66,34 @@ $(function() {
             clearInterval(animationTimer);
             animationTimer = null;
         }
+    });
+
+    //Quick Button Implementation
+
+    $('.autoplayKaleidoBtn').click(function(){
+        if(animationTimer == null) {
+            animationTimer = setInterval(SingleFrameAnimation, 100);
+        }
+        else{
+            clearInterval(animationTimer);
+            animationTimer = null;
+        }
+    });
+
+    $('.quickZoomInBtn').click(function(){
+        zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
+    });
+
+    $('.quickZoomOutBtn').click(function(){
+        zoomMultiplier -= .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
     });
 
     /*
@@ -127,7 +146,7 @@ $(function() {
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
-    var imgSource = "../images/k.jpg";
+    var imgSource = "../images/SPACE.png";
     var shiftLimitMin = -40;
     var shiftLimitMax = 0;
     var toggle = false;
@@ -177,7 +196,20 @@ $(function() {
         }
     }
 
-    // Draw a single triangle
+    //function drawTriangle(shift) {
+    //    g.save();
+    //    g.beginPath();
+    //    g.moveTo(TriLength, 0);
+    //    g.lineTo(TriLength / 2, TriHeight);
+    //    g.lineTo(0, 0);
+    //    g.fillStyle = g.createPattern(img, "repeat");
+    //    g.scale(zoomMultiplier, zoomMultiplier);
+    //    g.translate(shift, shift);
+    //    g.fill(); //Translate before fill but after clip, to get animation
+    //    //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+    //    g.restore();
+    //}
+    
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
@@ -188,6 +220,7 @@ $(function() {
         g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
+
 
     //Draw the huge Kalei on the center
     function draw() {
@@ -202,7 +235,6 @@ $(function() {
     }
 
     function drawStar() {
-        //draw hexagons in circle
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
@@ -254,7 +286,6 @@ $(function() {
     }, false);
 
 });
-
 
 
 //Play and pause the song
