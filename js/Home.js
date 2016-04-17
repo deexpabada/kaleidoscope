@@ -288,17 +288,6 @@ $(function() {
 });
 
 
-//Play and pause the song
-function aud_play_pause(songTitle) {
-    var thisAudio = document.getElementById(songTitle);
-    if (thisAudio.paused) {
-        thisAudio.play();
-    } else {
-        thisAudio.pause();
-    }
-}
-
-
 //Resize Kaleidoscope Canvas
 function resize() {
     var height = window.innerHeight;
