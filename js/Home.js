@@ -312,3 +312,8 @@ function resize() {
 window.addEventListener('load', resize, false);
 window.addEventListener('resize', resize, false);
 
+//Change Spotify Playlist according to theme
+function changePlaylist(theme) {
+    var playlist = document.getElementById('spotify');
+    playlist.src = theme;
+}

@@ -23,8 +23,9 @@ body {margin:0;}
 
 }
 
-.music {
+.spotify {
     position: absolute;
     bottom:0;
-    right:10;
+    left:2%;
 }
+
