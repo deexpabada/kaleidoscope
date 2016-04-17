@@ -253,17 +253,6 @@ $(function() {
 });
 
 
-//Play and pause the song
-function aud_play_pause(songTitle) {
-    var thisAudio = document.getElementById(songTitle);
-    if (thisAudio.paused) {
-        thisAudio.play();
-    } else {
-        thisAudio.pause();
-    }
-}
-
-
 //Resize Kaleidoscope Canvas
 function resize() {
     var height = window.innerHeight;
@@ -276,3 +265,9 @@ function resize() {
 
 window.addEventListener('load', resize, false);
 window.addEventListener('resize', resize, false);
+
+//Change Spotify Playlist according to theme
+function changePlaylist(theme) {
+    var playlist = document.getElementById('spotify');
+    playlist.src = theme;
+}

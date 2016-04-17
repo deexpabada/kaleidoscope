@@ -1,4 +1,7 @@
-body {margin:0;}
+body {margin:0;
+background-size: cover;
+background-image: url("../images/gridoriginal.jpg");
+}
 
 .header {
     margin:0;
@@ -12,14 +15,20 @@ body {margin:0;}
     color: #fffcff;
     margin-bottom:30px;
     text-align: right;
+    display: block;
 }
 
 .kaleidoscope {
     position:absolute;
     top: 10%;
     left: 18%;
-    border-color: black;
-    border-width: thick;
+    display: block;
 
+}
+
+.spotify {
+    position: absolute;
+    bottom:0;
+    left:2%;
 }
 

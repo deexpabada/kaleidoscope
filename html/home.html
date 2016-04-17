@@ -8,11 +8,7 @@
     <script src="../js/Home.js"></script>
     <script src="../js/Sidebar.js"></script>
 </head>
-<body bgcolor= #f0fff0>
-
-<audio id="intro" src=../songs/intro.mp3 preload="auto" loop></audio>
-<audio id="birdy" src=../songs/birdy.mp3 preload="auto" loop></audio>
-
+<body>
 
 <!-- title --->
 <div class="header" id="header"> KALEIDOSCOPE</div>
@@ -39,22 +35,18 @@
 </div>
 
 <!--Music Sidebar -->
-<div id="musicBar" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('musicBar', false)">&times;</a>
-    <a href="#" onclick="aud_play_pause('intro')"> The xx</a>
-    <a href="#" onclick="aud_play_pause('birdy')"> Birdy</a>
+<div id="themeBar" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('themeBar', false)">&times;</a>
+    <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7b9XqnXw5J47tmn0Y0IZeW')"> Chill </a>
+    <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7DOqnrhW71bB3fc7eanbmY')"> Wedding </a>
+    <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2JkjXscXs35c5wKE5ZeaYK')"> Party </a>
 
 </div>
 
 <!--Music Button-->
-<div class="musicBtn">
-    <span onclick="toggleNav('musicBar', true)"> Music </span>
+<div class="themeBtn">
+    <span onclick="toggleNav('themeBar', true)"> Themes </span>
 </div>
-
-
-
-
-
 
 
  <!--Download Button-->
@@ -87,6 +79,9 @@
 <!-- test --->
 <canvas id="imagewall" class="imagewall" width="1000" height="650"></canvas>
 
+<!-- Spotify -->
+<iframe id = "spotify" class = "spotify" src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A6Hw1sUOCpE59V7AlIIHhCz"
+        width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
 
 </body>
 </html>
