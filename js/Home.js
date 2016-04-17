@@ -13,9 +13,6 @@ $(function() {
         }
         zoomMultiplier = 1.0;
         img.src = newSrc;
-        //todo: find a new way to create image array without having to manually load everything
-        //todo: fix bug where sometimes the new source is the same as the previous source leading to no change
-        //todo: fix a bug where occasionally animating after changing the image will break it all
     });
 
     //animation effect
@@ -196,36 +193,24 @@ $(function() {
         }
     }
 
-    //function drawTriangle(shift) {
-    //    g.save();
-    //    g.beginPath();
-    //    g.moveTo(TriLength, 0);
-    //    g.lineTo(TriLength / 2, TriHeight);
-    //    g.lineTo(0, 0);
-    //    g.fillStyle = g.createPattern(img, "repeat");
-    //    g.scale(zoomMultiplier, zoomMultiplier);
-    //    g.translate(shift, shift);
-    //    g.fill(); //Translate before fill but after clip, to get animation
-    //    //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
-    //    g.restore();
-    //}
-    
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
         g.moveTo(TriLength, 0);
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
-        g.clip();
-        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.scale(zoomMultiplier, zoomMultiplier);
+        g.translate(shift, shift);
+        g.fill(); //Translate before fill but after clip, to get animation
+        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
-
 
     //Draw the huge Kalei on the center
     function draw() {
         drawCircle();
         //draw hexagons in circle
+        g.fillStyle = g.createPattern(img, "repeat");
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
@@ -234,14 +219,6 @@ $(function() {
         g.restore();
     }
 
-    function drawStar() {
-        g.save();
-        g.beginPath();
-        g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
-        g.clip();
-        drawMultipleHexs();
-        g.restore();
-    }
 
     //the background/border of Kalei
     function drawCircle(){
@@ -268,18 +245,6 @@ $(function() {
         link.download = filename;
     }
 
-    function downloadGif(){
-        // todo: get this library and implement it https://github.com/antimatter15/jsgif
-        var encoder = new GIFEncoder();
-        encoder.setRepeat(0);
-        encoder.setDelay(100);
-        encoder.start();
-        encoder.addFrame(g);
-
-        encoder.finish();
-        var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
-        var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
-    }
 
     document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
