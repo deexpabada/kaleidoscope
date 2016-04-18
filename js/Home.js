@@ -291,13 +291,12 @@ $(function() {
     }
 
 
-    //the background/border of Kalei
+    //the background/border
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "sandybrown");
         grd.addColorStop(1, "lightblue");
         g.fillStyle = grd;
-
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH, 0, 2 * Math.PI);
@@ -305,8 +304,8 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-
-    img.onload = draw
+    setInterval(SingleFrameAnimation, refreshRate);
+    img.onload = draw;
 
 
 
