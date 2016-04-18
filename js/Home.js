@@ -100,10 +100,6 @@ $(function() {
         draw();
     }
 
-    $('.SquirrelBtn').click(function(){
-        img.src = "../images/squirrel.jpg";
-        draw();
-    });
 
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
@@ -162,32 +158,16 @@ $(function() {
         draw();
     });
 
-    /*
-    * ShadingBtn allows for a translucent circle to go on top of the image, allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
-    *
-    * Bugs: When used with any of the animate or shuffle actions, the image will lose its nice gray scale attempt and instead be somewhat "cloudy" where the vibrance of the image is lost
-    * Additionally it seems to cause images when changing to stack on top of each other so that Paul's head can be found over some fries during animation. The question is, is that a bug or a feature? xD
-    *
-    * */
-    $('.ShadingBtn').click(function(){
-        var canvas2=document.getElementById("kaleidoscope"); // grabs the canvas element
-        var context=canvas2.getContext("2d"); // returns the 2d context object
-        context.fillStyle= "#a3a3a3";
-         // Half opacity
-
-        shadingLensPresence = !shadingLensPresence;
+    $('.fullBtn').click(function(){
+        fullscreen = !fullscreen;
+        g.clearRect(0, 0, canvas.width, canvas.height);
         draw();
-        if(shadingLensPresence){
-            context.globalAlpha=.5;
-            g.save();
-            g.beginPath();
-            g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
-            g.clip();
-            g.fillRect(0,0, width, height);
-            g.restore();
-            context.globalAlpha=1.0; //return to full opacity
+    });
 
-        }
+    $('.nameBtn').click(function(){
+        var name = document.getElementById("NameBox").value;
+        var element = document.getElementById("header");
+        element.innerHTML = name;
     });
 
     $('#ImageUpload').change(function(){
@@ -226,6 +206,7 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 20;
+    var fullscreen = false;
 
     var img = new Image();
     img.src = imgSource;
@@ -278,7 +259,7 @@ $(function() {
     }
 
     //Draw the huge Kalei on the center
-    function draw() {
+    function drawWithCircle() {
         drawCircle();
         //draw hexagons in circle
         g.fillStyle = g.createPattern(img, "repeat");
@@ -290,12 +271,33 @@ $(function() {
         g.restore();
     }
 
+    function drawFull(){
+        canvas.width = document.body.clientWidth;
+        canvas.height = document.body.clientHeight;
+        g.save();
+        g.fillStyle = "black";
+        g.fillRect(0,0,width, height);
+        g.restore();
+        g.fillStyle = g.createPattern(img, "repeat");
+        g.save();
+        drawMultipleHexs();
+        g.restore();
+    }
+
+    function draw(){
+        if(fullscreen){
+            drawFull();
+        }
+        else{
+            drawWithCircle();
+        }
+    }
 
     //the background/border of Kalei
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
-        grd.addColorStop(0, "sandybrown");
-        grd.addColorStop(1, "lightblue");
+        grd.addColorStop(0, "Gray");
+        grd.addColorStop(1, "Black");
         g.fillStyle = grd;
 
         g.save();
@@ -306,7 +308,7 @@ $(function() {
         g.restore();
     }
 
-    img.onload = draw
+    img.onload = draw;
 
 
 
