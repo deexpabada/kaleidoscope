@@ -14,3 +14,12 @@ function toggleNav(navBar, open) {
     document.getElementById("main").style.marginLeft = width;
 }
 
+function toggleHeader(openApp) {
+    var height;
+    var cursor;
+
+    if (openApp) {
+        height = "10%";
+    }
+    document.getElementById("header").style.height = height;
+}

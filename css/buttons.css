@@ -48,7 +48,7 @@
 
 /* Interaction Button */
 .interactionBtn {
-    position:absolute;
+    position:fixed;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
@@ -59,7 +59,7 @@
     font-size:30px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
-    display: inline-block;
+    z-index: 1;
 }
 
 
@@ -67,7 +67,7 @@
 
 /*Download Button */
 .downloadBtn {
-    position:absolute;
+    position:fixed;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
@@ -78,7 +78,6 @@
     font-size:15px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
-    display: inline-block;
 }
 
 
@@ -86,7 +85,7 @@
 
 /* Effects Button*/
 .effectsBtn {
-    position:absolute;
+    position:fixed;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
@@ -97,14 +96,13 @@
     font-size:30px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
-    display: inline-block;
 }
 
 
 
 /*Music Button*/
 .musicBtn {
-    position:absolute;
+    position:fixed;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
@@ -115,7 +113,6 @@
     font-size:30px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
-    display: inline-block;
 }
 
 
