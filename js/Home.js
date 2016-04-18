@@ -42,18 +42,14 @@ $(function() {
     //    timepassed +=100;
     //};
 
-
     var UserImageArray = [];
     $('#MultiUpload').change(function(){
         var imageType = /image.*/;
-        var files = document.getElementById("MultiUpload");
-        for (i = 0; i < files.length; i++) {
+        //var files = document.getElementById("MultiUpload");
+        for (i = 0; i < 4; i++) {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
-                //reader.onload = function(){
-                //    img.src = reader.result;
-                //};
                 reader.readAsDataURL(file);
                 UserImageArray.push(file);
             } else {
@@ -61,13 +57,35 @@ $(function() {
             }
         }
         console.log(UserImageArray);
+        console.log(document.getElementById("MultiUpload").multiple);
     });
+
+    //$('#MultiUpload').change(function() {
+    //    var imageType = /image.*/;
+    //    var filesInput = document.getElementById("MultiUpload");
+    //    filesInput.addEventListener("change", function (event) {
+    //        var files = event.target.files;
+    //        for (var i = 0; i < files.length; i++) {
+    //            var file = files[i];
+    //            if (!file.type.match(imageType))
+    //                continue;
+    //            var picReader = new FileReader();
+    //            //picReader.addEventListener("load", function (event) {
+    //            //    var picFile = event.target;
+    //            //    UserImageArray.push(picFile);
+    //            //});
+    //            //Read the image
+    //            picReader.readAsDataURL(file);
+    //            UserImageArray.push(file);
+    //        }
+    //    })
+    //    console.log(UserImageArray);
+    //});
 
 
 
     // button to switch picture
     $('.switchBtn').click(function () {
-        console.log("clicked");
         newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         if(newSrc === img.src){
             newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
@@ -122,12 +140,12 @@ $(function() {
     });
 
     $('.animateBtn').click(function(){
-        if(animationTimer == null) {
-            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
-        }
-        else{
+        if(animationTimer != null) {
             clearInterval(animationTimer);
             animationTimer = null;
+        }
+        else{
+            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
         }
     });
 
@@ -212,7 +230,7 @@ $(function() {
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
-    var animationTimer = null;
+    //var animationTimer = null;
     var imgSource = "../images/SPACE.png";
     var shiftLimitMin = -120;
     var shiftLimitMax = 0;
@@ -226,7 +244,6 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 20;
-
     var img = new Image();
     img.src = imgSource;
     function drawMultipleHexs() {
@@ -304,7 +321,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-    setInterval(SingleFrameAnimation, refreshRate);
+    var animationTimer = setInterval(SingleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
