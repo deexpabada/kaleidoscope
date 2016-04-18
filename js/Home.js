@@ -48,19 +48,17 @@ $(function() {
         var imageType = /image.*/;
         var files = document.getElementById("MultiUpload");
         for (i = 0; i < files.length; i++) {
-            var file = document.getElementById("MultiUpload").files[i];
+            var file = files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
-                //reader.onload = function(){
-                //    img.src = reader.result;
-                //};
                 reader.readAsDataURL(file);
                 UserImageArray.push(file);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-        console.log(UserImageArray);
+        console.log(files);
+        console.log(document.getElementById("MultiUpload").multiple);
     });
 
 
@@ -226,7 +224,6 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 20;
-
     var img = new Image();
     img.src = imgSource;
     function drawMultipleHexs() {
