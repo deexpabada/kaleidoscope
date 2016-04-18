@@ -14,3 +14,14 @@ function toggleNav(navBar, open) {
     document.getElementById("main").style.marginLeft = width;
 }
 
+function titleScreen(navigation, opens) {
+    var titleHeight;
+    if (opens) {
+        titleHeight = "100%";
+    } else {
+        titleHeight = "0%";
+    }
+    document.getElementById(navigation).style.height = titleHeight;
+    document.getElementById("main").style.marginTop = titleHeight;
+}
+
