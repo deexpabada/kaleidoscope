@@ -77,23 +77,28 @@ $(function() {
     });
 
     //animation effect
-    var SingleFrameAnimation = function () {
-        if(shift > shiftLimitMin && !toggle){
-            shift--;
-        }
-        else if(shift == shiftLimitMin && toggle == false){
-            toggle = !toggle;
-            shift++;
-        }
-        else if(shift < shiftLimitMax && toggle){
-            shift++;
-        }
-        else if(shift == shiftLimitMax && toggle){
-            toggle=!toggle;
-            shift--;
-        }
+    //var SingleFrameAnimation = function () {
+    //    if(shift > shiftLimitMin && !toggle){
+    //        shift--;
+    //    }
+    //    else if(shift == shiftLimitMin && toggle == false){
+    //        toggle = !toggle;
+    //        shift++;
+    //    }
+    //    else if(shift < shiftLimitMax && toggle){
+    //        shift++;
+    //    }
+    //    else if(shift == shiftLimitMax && toggle){
+    //        toggle=!toggle;
+    //        shift--;
+    //    }
+    //    draw();
+    //};
+
+    function SingleFrameAnimation(){
+        shift--;
         draw();
-    };
+    }
 
     $('.SquirrelBtn').click(function(){
         img.src = "../images/squirrel.jpg";
@@ -118,7 +123,7 @@ $(function() {
 
     $('.animateBtn').click(function(){
         if(animationTimer == null) {
-            animationTimer = setInterval(SingleFrameAnimation, 100);
+            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
         }
         else{
             clearInterval(animationTimer);
@@ -130,7 +135,7 @@ $(function() {
 
     $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer == null) {
-            animationTimer = setInterval(SingleFrameAnimation, 100);
+            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
         }
         else{
             clearInterval(animationTimer);
@@ -209,7 +214,7 @@ $(function() {
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
     var imgSource = "../images/SPACE.png";
-    var shiftLimitMin = -40;
+    var shiftLimitMin = -120;
     var shiftLimitMax = 0;
     var toggle = false;
     var shift = 0;
@@ -220,6 +225,7 @@ $(function() {
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
+    var refreshRate = 1000 / 20;
 
     var img = new Image();
     img.src = imgSource;
@@ -300,8 +306,7 @@ $(function() {
         g.restore();
     }
 
-    img.onload = draw;
-    //console.log(imageArray[0].opacity)
+    img.onload = draw
 
 
 
