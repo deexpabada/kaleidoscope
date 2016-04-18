@@ -76,6 +76,24 @@ $(function() {
         img.src = newSrc;
     });
 
+    //animation effect
+    //var SingleFrameAnimation = function () {
+    //    if(shift > shiftLimitMin && !toggle){
+    //        shift--;
+    //    }
+    //    else if(shift == shiftLimitMin && toggle == false){
+    //        toggle = !toggle;
+    //        shift++;
+    //    }
+    //    else if(shift < shiftLimitMax && toggle){
+    //        shift++;
+    //    }
+    //    else if(shift == shiftLimitMax && toggle){
+    //        toggle=!toggle;
+    //        shift--;
+    //    }
+    //    draw();
+    //};
 
     function SingleFrameAnimation(){
         shift--;
@@ -190,13 +208,15 @@ $(function() {
             }
     });
 
-    //var timepassed = 0;
-
+    var timepassed = 0;
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
     var animationTimer = null;
     var imgSource = "../images/SPACE.png";
+    var shiftLimitMin = -120;
+    var shiftLimitMax = 0;
+    var toggle = false;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
@@ -205,7 +225,7 @@ $(function() {
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
-    var refreshRate = 1000 / 30;
+    var refreshRate = 1000 / 20;
 
     var img = new Image();
     img.src = imgSource;
@@ -286,7 +306,7 @@ $(function() {
         g.restore();
     }
 
-    img.onload = draw();
+    img.onload = draw
 
 
 
@@ -307,6 +327,7 @@ $(function() {
 //Resize Kaleidoscope Canvas
 function resize() {
     var height = window.innerHeight;
+    var width = window.innerWidth;
     var kaleidoscopeCanvas = document.querySelector('canvas');
 
     kaleidoscopeCanvas.style.width = height * 1.3;
