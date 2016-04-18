@@ -4,10 +4,13 @@ background-image: url("../images/gridoriginal.jpg");
 }
 
 .header {
+    position: absolute;
     margin:0;
+    width: 100%;
     padding:0;
     overflow: hidden;
     background-color: #3a7791;
+    background-image: url("../images/KuUolRB.png");
     height:10%;
     font-family: "Helvetica Neue", Helvetica;
     font-weight: bold;

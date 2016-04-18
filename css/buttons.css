@@ -12,6 +12,18 @@
     transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
+/* The title screen navigation method*/
+.titleScreenNav {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: #3a7791;
+    background-image: url("../images/KuUolRB.png");
+    overflow-x: hidden;
+    overflow-y:hidden;
+    transition: 0.9s;
+
+}
 /* The navigation menu links */
 .sidenav a {
     padding: 8px 8px 8px 32px;
@@ -35,6 +47,14 @@
     right: 25px;
     font-size: 36px !important;
     margin-left: 50px;
+}
+
+/* Style of the Title Screen */
+.titleScreen {
+    position: absolute;
+    top: 0;
+    font-family: Helvetica;
+    cursor: pointer;
 }
 
 
