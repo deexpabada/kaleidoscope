@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="970bea82-e1cc-4c48-8eb3-24cb75bf145c" name="Default" comment="added autoplay as default for home.html">
+    <list default="true" id="970bea82-e1cc-4c48-8eb3-24cb75bf145c" name="Default" comment="removed some unneeded vars from older shift code">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Home.js" afterPath="$PROJECT_DIR$/js/Home.js" />
     </list>
@@ -37,8 +37,8 @@
       <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5319465">
-              <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.20059435">
+              <caret line="193" column="19" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -413,7 +413,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460948090839</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="found a gamebreaking bug with autoplay. Instead chopped most of singleFrameAnimation out and removed autoplay. Now looks a lot smoother.">
+      <created>1460948725408</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1460948725408</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -425,7 +431,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17124736" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32967034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32554945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -468,7 +474,9 @@
     <MESSAGE value="Allows for downloading the canvas&#10;&#10;TODO: test for bugz" />
     <MESSAGE value="Refactored duplicate code for side bars" />
     <MESSAGE value="added autoplay as default for home.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="added autoplay as default for home.html" />
+    <MESSAGE value="found a gamebreaking bug with autoplay. Instead chopped most of singleFrameAnimation out and removed autoplay. Now looks a lot smoother." />
+    <MESSAGE value="removed some unneeded vars from older shift code" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed some unneeded vars from older shift code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -834,8 +842,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5319465">
-          <caret line="308" column="17" selection-start-line="308" selection-start-column="17" selection-end-line="308" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.20059435">
+          <caret line="193" column="19" selection-start-line="193" selection-start-column="19" selection-end-line="193" selection-end-column="19" />
           <folding />
         </state>
       </provider>
