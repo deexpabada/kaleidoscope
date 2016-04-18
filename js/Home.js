@@ -2,7 +2,68 @@ $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
-    //canvas.addEventListener("mc",false);
+
+    //var ImgTransition = function(){
+    //    var i = 0;
+    //    while (true){
+    //        var timepassed = 0;
+    //        animationTimer = setInterval(animatefor7sec(), 100);
+    //        if(timepassed >= 7000) {
+    //            clearInterval(animationTimer);
+    //        }
+    //
+    //        //changes opacity of images and draws to canvas
+    //        var fade = setInterval(fading(imageArray[i], imageArray[i+1]), 100);
+    //        if(timepassed >=8000){
+    //            clearInterval(fade);
+    //        }
+    //
+    //        //code below loops i to the start
+    //        i++;
+    //        if(i == imageArray.length){
+    //            i = 0;
+    //        }
+    //    }
+    //};
+    //
+    //function animatefor7sec(){
+    //    SingleFrameAnimation();
+    //    timepassed += 100;
+    //}
+    //
+    //function fading(img1, img2){
+    //    g.globalAlpha = 1.0 - (timepassed - 7000)/10;
+    //    console.log(g.globalAlpha);
+    //    img.src = img1;
+    //    draw();
+    //    g.globalAlpha = (timepassed - 7000)/10;
+    //    img.src = img2;
+    //    draw();
+    //    timepassed +=100;
+    //};
+
+
+    var UserImageArray = [];
+    $('#MultiUpload').change(function(){
+        var imageType = /image.*/;
+        var files = document.getElementById("MultiUpload");
+        for (i = 0; i < files.length; i++) {
+            var file = document.getElementById("MultiUpload").files[i];
+            if (file.type.match(imageType)) {
+                var reader = new FileReader();
+                //reader.onload = function(){
+                //    img.src = reader.result;
+                //};
+                reader.readAsDataURL(file);
+                UserImageArray.push(file);
+            } else {
+                fileDisplayArea.innerHTML = "File not supported!"
+            }
+        }
+        console.log(UserImageArray);
+    });
+
+
 
     // button to switch picture
     $('.switchBtn').click(function () {
@@ -77,6 +138,9 @@ $(function() {
         }
     });
 
+    //test for transition
+    //$('.autoplayKaleidoBtn').click(ImgTransition);
+
     $('.quickZoomInBtn').click(function(){
         zoomMultiplier += .1;
         if(zoomMultiplier > 4.0){
@@ -87,8 +151,8 @@ $(function() {
 
     $('.quickZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
-        if(zoomMultiplier > 4.0){
-            zoomMultiplier = 4.0;
+        if(zoomMultiplier < 0.1){
+            zoomMultiplier = .01;
         }
         draw();
     });
@@ -139,6 +203,7 @@ $(function() {
             }
     });
 
+    var timepassed = 0;
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
@@ -236,6 +301,7 @@ $(function() {
     }
 
     img.onload = draw;
+    //console.log(imageArray[0].opacity)
 
 
 
