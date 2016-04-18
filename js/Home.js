@@ -300,7 +300,10 @@ $(function() {
         g.restore();
     }
 
-    img.onload = draw;
+    img.onload = function(){
+        draw();
+        animationTimer = setInterval(SingleFrameAnimation, 100);
+    };
     //console.log(imageArray[0].opacity)
 
 
