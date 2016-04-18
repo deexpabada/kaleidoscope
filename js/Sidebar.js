@@ -6,7 +6,7 @@
 function toggleNav(navBar, open) {
     var width;
     if (open) {
-        width = "15%";
+        width = "20%";
     } else {
         width = "0%"
     }
@@ -14,12 +14,14 @@ function toggleNav(navBar, open) {
     document.getElementById("main").style.marginLeft = width;
 }
 
-function toggleHeader(openApp) {
-    var height;
-    var cursor;
-
-    if (openApp) {
-        height = "10%";
+function titleScreen(navigation, opens) {
+    var titleHeight;
+    if (opens) {
+        titleHeight = "100%";
+    } else {
+        titleHeight = "0%";
     }
-    document.getElementById("header").style.height = height;
+    document.getElementById(navigation).style.height = titleHeight;
+    document.getElementById("main").style.marginTop = titleHeight;
 }
+

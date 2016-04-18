@@ -1,56 +1,122 @@
 $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
-    console.log(canvas);
     var g = canvas[0].getContext('2d');
-    //canvas.addEventListener("mc",false);
 
-    //#####Testing for dragging######//
-    var myElement = document.getElementById('testEvent');
-    //var myElement = document.getElementById('kaleidoscope');
-    var mc = new Hammer(myElement);
-    mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-    mc.on("panleft panright panup pandown tap press", function(ev) {
-        myElement.textContent = ev.type +" detected.";
+    //var ImgTransition = function(){
+    //    var i = 0;
+    //    while (true){
+    //        var timepassed = 0;
+    //        animationTimer = setInterval(animatefor7sec(), 100);
+    //        if(timepassed >= 7000) {
+    //            clearInterval(animationTimer);
+    //        }
+    //
+    //        //changes opacity of images and draws to canvas
+    //        var fade = setInterval(fading(imageArray[i], imageArray[i+1]), 100);
+    //        if(timepassed >=8000){
+    //            clearInterval(fade);
+    //        }
+    //
+    //        //code below loops i to the start
+    //        i++;
+    //        if(i == imageArray.length){
+    //            i = 0;
+    //        }
+    //    }
+    //};
+    //
+    //function animatefor7sec(){
+    //    SingleFrameAnimation();
+    //    timepassed += 100;
+    //}
+    //
+    //function fading(img1, img2){
+    //    g.globalAlpha = 1.0 - (timepassed - 7000)/10;
+    //    console.log(g.globalAlpha);
+    //    img.src = img1;
+    //    draw();
+    //    g.globalAlpha = (timepassed - 7000)/10;
+    //    img.src = img2;
+    //    draw();
+    //    timepassed +=100;
+    //};
+
+    var UserImageArray = [];
+    $('#MultiUpload').change(function(){
+        var imageType = /image.*/;
+        //var files = document.getElementById("MultiUpload");
+        for (i = 0; i < 4; i++) {
+            var file = document.getElementById("MultiUpload").files[i];
+            if (file.type.match(imageType)) {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                UserImageArray.push(file);
+            } else {
+                fileDisplayArea.innerHTML = "File not supported!"
+            }
+        }
+        console.log(UserImageArray);
+        console.log(document.getElementById("MultiUpload").multiple);
     });
-    //mc.on("drag", function(event){
-    //    myElement.style.left = event.gestuure.touches[0].pageX;
-    //    myElement.style.top = event.gestuure.touches[0].pageY;
+
+    //$('#MultiUpload').change(function() {
+    //    var imageType = /image.*/;
+    //    var filesInput = document.getElementById("MultiUpload");
+    //    filesInput.addEventListener("change", function (event) {
+    //        var files = event.target.files;
+    //        for (var i = 0; i < files.length; i++) {
+    //            var file = files[i];
+    //            if (!file.type.match(imageType))
+    //                continue;
+    //            var picReader = new FileReader();
+    //            //picReader.addEventListener("load", function (event) {
+    //            //    var picFile = event.target;
+    //            //    UserImageArray.push(picFile);
+    //            //});
+    //            //Read the image
+    //            picReader.readAsDataURL(file);
+    //            UserImageArray.push(file);
+    //        }
+    //    })
+    //    console.log(UserImageArray);
     //});
+
 
 
     // button to switch picture
     $('.switchBtn').click(function () {
-        console.log("clicked");
         newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         if(newSrc === img.src){
             newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         }
         zoomMultiplier = 1.0;
         img.src = newSrc;
-        //todo: find a new way to create image array without having to manually load everything
-        //todo: fix bug where sometimes the new source is the same as the previous source leading to no change
-        //todo: fix a bug where occasionally animating after changing the image will break it all
     });
 
     //animation effect
-    var SingleFrameAnimation = function () {
-        if(shift > shiftLimitMin && !toggle){
-            shift--;
-        }
-        else if(shift == shiftLimitMin && toggle == false){
-            toggle = !toggle;
-            shift++;
-        }
-        else if(shift < shiftLimitMax && toggle){
-            shift++;
-        }
-        else if(shift == shiftLimitMax && toggle){
-            toggle=!toggle;
-            shift--;
-        }
+    //var SingleFrameAnimation = function () {
+    //    if(shift > shiftLimitMin && !toggle){
+    //        shift--;
+    //    }
+    //    else if(shift == shiftLimitMin && toggle == false){
+    //        toggle = !toggle;
+    //        shift++;
+    //    }
+    //    else if(shift < shiftLimitMax && toggle){
+    //        shift++;
+    //    }
+    //    else if(shift == shiftLimitMax && toggle){
+    //        toggle=!toggle;
+    //        shift--;
+    //    }
+    //    draw();
+    //};
+
+    function SingleFrameAnimation(){
+        shift--;
         draw();
-    };
+    }
 
     $('.SquirrelBtn').click(function(){
         img.src = "../images/squirrel.jpg";
@@ -59,22 +125,59 @@ $(function() {
 
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
         draw();
     });
 
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
+        if(zoomMultiplier < 0.1){
+            zoomMultiplier = .01;
+        }
         draw();
     });
 
     $('.animateBtn').click(function(){
+        if(animationTimer != null) {
+            clearInterval(animationTimer);
+            animationTimer = null;
+        }
+        else{
+            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
+        }
+    });
+
+    //Quick Button Implementation
+
+    $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer == null) {
-            animationTimer = setInterval(SingleFrameAnimation, 100);
+            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
         }
         else{
             clearInterval(animationTimer);
             animationTimer = null;
         }
+    });
+
+    //test for transition
+    //$('.autoplayKaleidoBtn').click(ImgTransition);
+
+    $('.quickZoomInBtn').click(function(){
+        zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
+    });
+
+    $('.quickZoomOutBtn').click(function(){
+        zoomMultiplier -= .1;
+        if(zoomMultiplier < 0.1){
+            zoomMultiplier = .01;
+        }
+        draw();
     });
 
     /*
@@ -123,12 +226,13 @@ $(function() {
             }
     });
 
+    var timepassed = 0;
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
-    var animationTimer = null;
-    var imgSource = "../images/k.jpg";
-    var shiftLimitMin = -40;
+    //var animationTimer = null;
+    var imgSource = "../images/SPACE.png";
+    var shiftLimitMin = -120;
     var shiftLimitMax = 0;
     var toggle = false;
     var shift = 0;
@@ -139,7 +243,7 @@ $(function() {
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
-
+    var refreshRate = 1000 / 20;
     var img = new Image();
     img.src = imgSource;
     function drawMultipleHexs() {
@@ -177,15 +281,16 @@ $(function() {
         }
     }
 
-    // Draw a single triangle
     function drawTriangle(shift) {
         g.save();
         g.beginPath();
         g.moveTo(TriLength, 0);
         g.lineTo(TriLength / 2, TriHeight);
         g.lineTo(0, 0);
-        g.clip();
-        g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
+        g.scale(zoomMultiplier, zoomMultiplier);
+        g.translate(shift, shift);
+        g.fill(); //Translate before fill but after clip, to get animation
+        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
@@ -193,6 +298,7 @@ $(function() {
     function draw() {
         drawCircle();
         //draw hexagons in circle
+        g.fillStyle = g.createPattern(img, "repeat");
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
@@ -201,13 +307,13 @@ $(function() {
         g.restore();
     }
 
-    //the background/border of Kalei
+
+    //the background/border
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "sandybrown");
         grd.addColorStop(1, "lightblue");
         g.fillStyle = grd;
-
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH, 0, 2 * Math.PI);
@@ -215,7 +321,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-
+    var animationTimer = setInterval(SingleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
@@ -226,18 +332,6 @@ $(function() {
         link.download = filename;
     }
 
-    function downloadGif(){
-        // todo: get this library and implement it https://github.com/antimatter15/jsgif
-        var encoder = new GIFEncoder();
-        encoder.setRepeat(0);
-        encoder.setDelay(100);
-        encoder.start();
-        encoder.addFrame(g);
-
-        encoder.finish();
-        var binary_gif = encoder.stream().getData() //notice this is different from the as3gif package!
-        var data_url = 'data:image/gif;base64,'+encode64(binary_gif);
-    }
 
     document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
@@ -246,13 +340,21 @@ $(function() {
 });
 
 
+//Resize Kaleidoscope Canvas
+function resize() {
+    var height = window.innerHeight;
+    var width = window.innerWidth;
+    var kaleidoscopeCanvas = document.querySelector('canvas');
 
-//Play and pause the song
-function aud_play_pause(songTitle) {
-    var thisAudio = document.getElementById(songTitle);
-    if (thisAudio.paused) {
-        thisAudio.play();
-    } else {
-        thisAudio.pause();
-    }
+    kaleidoscopeCanvas.style.width = height * 1.3;
+    kaleidoscopeCanvas.style.height = height * 0.9;
+}
+
+window.addEventListener('load', resize, false);
+window.addEventListener('resize', resize, false);
+
+//Change Spotify Playlist according to theme
+function changePlaylist(theme) {
+    var playlist = document.getElementById('spotify');
+    playlist.src = theme;
 }

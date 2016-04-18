@@ -1,20 +1,37 @@
-body {margin:0;}
-
-.header {
-    margin:0;
-    padding:0;
-    overflow: hidden;
-    z-index: 2; /* Stay on top */
-    cursor: pointer;
-    background-color: #93bcee;
-    height:100%;
-    font-family: "Helvetica Neue", Helvetica;
-    font-weight: bold;
-    font-size: 50px;
-    color: #fffcff;
-    margin-bottom:30px;
-    transition: 0.5s;
+body {margin:0;
+background-size: cover;
+background-image: url("../images/grey-website-background-illusionapparel2.jpg");
 }
 
+.header {
+    position: absolute;
+    margin:0;
+    width: 100%;
+    padding:0;
+    overflow: hidden;
+    background-color: #3a7791;
+    background-image: url("../images/Bluebackground.jpg");
+    height:10%;
+    font-family: "Helvetica Neue", Helvetica;
+    font-weight: bold;
+    font-size: 350%;
+    color: #fffcff;
+    margin-bottom:30px;
+    text-align: right;
+    display: block;
+}
 
+.kaleidoscope {
+    position:absolute;
+    top: 10%;
+    left: 18%;
+    display: block;
+
+}
+
+.spotify {
+    position: absolute;
+    bottom:0;
+    left:2%;
+}
 
