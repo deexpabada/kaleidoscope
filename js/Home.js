@@ -18,11 +18,6 @@ $(function() {
         //    }
         //}
 
-        //imgIndex++;
-        //if(imgIndex == imageArray.length){
-        //    imgIndex = 0;
-        //}
-
         function switchPic(){
             if(timepassed <= 3000){
                 singleFrameAnimation();
@@ -40,10 +35,8 @@ $(function() {
                 switchPic();
             }
         }
-
         switchPic();
     };
-
 
     function fading(img1, img2){
         g.globalAlpha = 1.0 - (timepassed - 7000)/10;
@@ -124,18 +117,18 @@ $(function() {
 
     //Quick Button Implementation
 
-    //$('.autoplayKaleidoBtn').click(function(){
-    //    if(animationTimer == null) {
-    //        animationTimer = setInterval(singleFrameAnimation, refreshRate);
-    //    }
-    //    else{
-    //        clearInterval(animationTimer);
-    //        animationTimer = null;
-    //    }
-    //});
+    $('.autoplayKaleidoBtn').click(function(){
+        if(animationTimer == null) {
+            animationTimer = setInterval(singleFrameAnimation, refreshRate);
+        }
+        else{
+            clearInterval(animationTimer);
+            animationTimer = null;
+        }
+    });
 
     //test for transition
-    $('.autoplayKaleidoBtn').click(imgTransition);
+    $('.transitionTest').click(imgTransition);
     ////
 
 
