@@ -3,55 +3,56 @@ $(function() {
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
 
-    //var ImgTransition = function(){
-    //    var i = 0;
-    //    while (true){
-    //        var timepassed = 0;
-    //        animationTimer = setInterval(animatefor7sec(), 100);
-    //        if(timepassed >= 7000) {
-    //            clearInterval(animationTimer);
-    //        }
-    //
-    //        //changes opacity of images and draws to canvas
-    //        var fade = setInterval(fading(imageArray[i], imageArray[i+1]), 100);
-    //        if(timepassed >=8000){
-    //            clearInterval(fade);
-    //        }
-    //
-    //        //code below loops i to the start
-    //        i++;
-    //        if(i == imageArray.length){
-    //            i = 0;
-    //        }
-    //    }
-    //};
-    //
-    //function animatefor7sec(){
-    //    SingleFrameAnimation();
-    //    timepassed += 100;
-    //}
-    //
-    //function fading(img1, img2){
-    //    g.globalAlpha = 1.0 - (timepassed - 7000)/10;
-    //    console.log(g.globalAlpha);
-    //    img.src = img1;
-    //    draw();
-    //    g.globalAlpha = (timepassed - 7000)/10;
-    //    img.src = img2;
-    //    draw();
-    //    timepassed +=100;
-    //};
+    var ImgTransition = function(){
+        var i = 0;
+        while (true){
+            var timepassed = 0;
+            animationTimer = setInterval(animatefor7sec(), 100);
+            if(timepassed >= 7000) {
+                clearInterval(animationTimer);
+            }
+
+            //changes opacity of images and draws to canvas
+            var fade = setInterval(fading(imageArray[i], imageArray[i+1]), 100);
+            if(timepassed >=8000){
+                clearInterval(fade);
+            }
+
+            //code below loops i to the start
+            i++;
+            if(i == imageArray.length){
+                i = 0;
+            }
+        }
+    };
+
+    function animatefor7sec(){
+        SingleFrameAnimation();
+        timepassed += 100;
+    }
+
+    function fading(img1, img2){
+        g.globalAlpha = 1.0 - (timepassed - 7000)/10;
+        console.log(g.globalAlpha);
+        img.src = img1;
+        draw();
+        g.globalAlpha = (timepassed - 7000)/10;
+        img.src = img2;
+        draw();
+        timepassed +=100;
+    };
 
     var UserImageArray = [];
     $('#MultiUpload').change(function(){
         var imageType = /image.*/;
         //var files = document.getElementById("MultiUpload");
-        for (i = 0; i < 4; i++) {
+        for (i = 0; i < 1; i++) {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
-                reader.readAsDataURL(file);
-                UserImageArray.push(file);
+                var image = reader.readAsDataURL(file);
+                UserImageArray.push(image);
+                console.log("Added", image, "to array", UserImageArray);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
