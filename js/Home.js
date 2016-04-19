@@ -148,29 +148,6 @@ $(function() {
         draw();
     });
 
-    //ShadingBtn allows for a translucent circle to go on top of the image,
-    //allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
-    $('.ShadingBtn').click(function(){
-        var canvas2=document.getElementById("kaleidoscope"); // grabs the canvas element
-        var context=canvas2.getContext("2d"); // returns the 2d context object
-        context.fillStyle= "#a3a3a3";
-         // Half opacity
-
-        shadingLensPresence = !shadingLensPresence;
-        draw();
-        if(shadingLensPresence){
-            context.globalAlpha=.5;
-            g.save();
-            g.beginPath();
-            g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
-            g.clip();
-            g.fillRect(0,0, width, height);
-            g.restore();
-            context.globalAlpha=1.0; //return to full opacity
-
-        }
-    });
-
 
     $('#ImageUpload').change(function(){
             var file = document.getElementById("ImageUpload").files[0];
@@ -189,7 +166,6 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
     });
-
 
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
