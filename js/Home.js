@@ -4,30 +4,46 @@ $(function() {
     var g = canvas[0].getContext('2d');
 
     var timepassed = 0;
+    var imgIndex = 0;
     var imgTransition = function(){
-        var i = 0;
-        while(timepassed <= 7000) {
-            animationTimer = setInterval(singleFrameAnimation(),100);
-            timepassed += 100;
-            console.log(timepassed);
-        }
-        if(timepassed >= 7000) {
-            clearInterval(animationTimer);
+        //animationTimer = setInterval(singleFrameAnimation,100);
+        //singleFrameAnimation();
+        //setTimeout(imgTransition,100);
+        //timepassed += 100;
+
+        //if(timepassed >= 5000) {
+        //    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
+        //    if(timepassed >= 7000){
+        //        timepassed = 0;
+        //    }
+        //}
+
+        //imgIndex++;
+        //if(imgIndex == imageArray.length){
+        //    imgIndex = 0;
+        //}
+
+        function switchPic(){
+            if(timepassed <= 3000){
+                singleFrameAnimation();
+                timepassed += 100;
+                setTimeout(switchPic,100);
+                console.log(timepassed);
+            }
+            else{
+                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
+                timepassed = 0;
+                imgIndex++;
+                if(imgIndex == imageArray.length){
+                    imgIndex = 0;
+                }
+                switchPic();
+            }
         }
 
-        //changes opacity of images and draws to canvas
-        animationTimer = setInterval(fading(imageArray[0], imageArray[1]), 100);
-        if(timepassed >=8000){
-            clearInterval(animationTimer);
-        }
-
-            //code below loops i to the start
-            //i++;
-            //if(i == imageArray.length){
-            //    i = 0;
-            //}
-
+        switchPic();
     };
+
 
     function fading(img1, img2){
         g.globalAlpha = 1.0 - (timepassed - 7000)/10;
@@ -58,7 +74,7 @@ $(function() {
         console.log(document.getElementById("MultiUpload").multiple);
     });
 
-    
+
     // button to switch picture
     $('.switchBtn').click(function () {
         newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
@@ -69,27 +85,9 @@ $(function() {
         img.src = newSrc;
     });
 
-    //animation effect
-    //var singleFrameAnimation = function () {
-    //    if(shift > shiftLimitMin && !toggle){
-    //        shift--;
-    //    }
-    //    else if(shift == shiftLimitMin && toggle == false){
-    //        toggle = !toggle;
-    //        shift++;
-    //    }
-    //    else if(shift < shiftLimitMax && toggle){
-    //        shift++;
-    //    }
-    //    else if(shift == shiftLimitMax && toggle){
-    //        toggle=!toggle;
-    //        shift--;
-    //    }
-    //    draw();
-    //};
 
     function singleFrameAnimation(){
-        shift--;
+        shift--;  //another variable keeps track of the transition amount
         draw();
     }
 
@@ -138,6 +136,8 @@ $(function() {
 
     //test for transition
     $('.autoplayKaleidoBtn').click(imgTransition);
+    ////
+
 
     $('.quickZoomInBtn').click(function(){
         zoomMultiplier += .1;
@@ -155,13 +155,8 @@ $(function() {
         draw();
     });
 
-    /*
-    * ShadingBtn allows for a translucent circle to go on top of the image, allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
-    *
-    * Bugs: When used with any of the animate or shuffle actions, the image will lose its nice gray scale attempt and instead be somewhat "cloudy" where the vibrance of the image is lost
-    * Additionally it seems to cause images when changing to stack on top of each other so that Paul's head can be found over some fries during animation. The question is, is that a bug or a feature? xD
-    *
-    * */
+    //ShadingBtn allows for a translucent circle to go on top of the image,
+    //allowing the user to essentially shade their kaleidoscope to their wishes, kinda like a snapchat filter
     $('.ShadingBtn').click(function(){
         var canvas2=document.getElementById("kaleidoscope"); // grabs the canvas element
         var context=canvas2.getContext("2d"); // returns the 2d context object
@@ -182,6 +177,7 @@ $(function() {
 
         }
     });
+
 
     $('#ImageUpload').change(function(){
             var file = document.getElementById("ImageUpload").files[0];
@@ -204,7 +200,7 @@ $(function() {
 
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
-    var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
+    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
     //var animationTimer = null;
     var imgSource = "../images/SPACE.png";
     var shiftLimitMin = -120;
@@ -223,8 +219,6 @@ $(function() {
     img.src = imgSource;
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
-
-
         //this loop creates the start of the columns of images
         for(var t = -5; t < 10; t++) {
             g.save();
