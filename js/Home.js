@@ -7,7 +7,6 @@ $(function() {
     var imgTransition = function(){
         var i = 0;
         while(timepassed <= 7000) {
-            //animationTimer = setInterval(animatefor7sec(), 100);
             animationTimer = setInterval(singleFrameAnimation(),100);
             timepassed += 100;
             console.log(timepassed);
@@ -16,10 +15,10 @@ $(function() {
             clearInterval(animationTimer);
         }
 
-            //changes opacity of images and draws to canvas
-        var fade = setInterval(fading(imageArray[0], imageArray[1]), 100);
+        //changes opacity of images and draws to canvas
+        animationTimer = setInterval(fading(imageArray[0], imageArray[1]), 100);
         if(timepassed >=8000){
-            clearInterval(fade);
+            clearInterval(animationTimer);
         }
 
             //code below loops i to the start
@@ -29,11 +28,6 @@ $(function() {
             //}
 
     };
-
-    //function animatefor7sec(){
-    //    singleFrameAnimation();
-    //    timepassed += 100;
-    //}
 
     function fading(img1, img2){
         g.globalAlpha = 1.0 - (timepassed - 7000)/10;
@@ -64,30 +58,7 @@ $(function() {
         console.log(document.getElementById("MultiUpload").multiple);
     });
 
-    //$('#MultiUpload').change(function() {
-    //    var imageType = /image.*/;
-    //    var filesInput = document.getElementById("MultiUpload");
-    //    filesInput.addEventListener("change", function (event) {
-    //        var files = event.target.files;
-    //        for (var i = 0; i < files.length; i++) {
-    //            var file = files[i];
-    //            if (!file.type.match(imageType))
-    //                continue;
-    //            var picReader = new FileReader();
-    //            //picReader.addEventListener("load", function (event) {
-    //            //    var picFile = event.target;
-    //            //    userImageArray.push(picFile);
-    //            //});
-    //            //Read the image
-    //            picReader.readAsDataURL(file);
-    //            userImageArray.push(file);
-    //        }
-    //    })
-    //    console.log(userImageArray);
-    //});
-
-
-
+    
     // button to switch picture
     $('.switchBtn').click(function () {
         newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
