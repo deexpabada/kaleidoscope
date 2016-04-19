@@ -160,7 +160,15 @@ $(function() {
 
     $('.fullBtn').click(function(){
         fullscreen = !fullscreen;
-        g.clearRect(0, 0, canvas.width, canvas.height);
+        //var context = canvas[0].getContext('2d');
+        //context.clearRect(0, 0, canvas.width, canvas.height);
+        if(fullscreen){
+            document.getElementById("kaleidoscope").style.left = 0;
+        }
+        else{
+            document.getElementById("kaleidoscope").style.left = "18%";
+        }
+        resize();
         draw();
     });
 
@@ -206,7 +214,6 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 20;
-    var fullscreen = false;
 
     var img = new Image();
     img.src = imgSource;
@@ -254,7 +261,6 @@ $(function() {
         g.scale(zoomMultiplier, zoomMultiplier);
         g.translate(shift, shift);
         g.fill(); //Translate before fill but after clip, to get animation
-        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
@@ -272,8 +278,6 @@ $(function() {
     }
 
     function drawFull(){
-        canvas.width = document.body.clientWidth;
-        canvas.height = document.body.clientHeight;
         g.save();
         g.fillStyle = "black";
         g.fillRect(0,0,width, height);
@@ -325,15 +329,22 @@ $(function() {
 
 });
 
+var fullscreen = false;
 
 //Resize Kaleidoscope Canvas
 function resize() {
     var height = window.innerHeight;
     var width = window.innerWidth;
     var kaleidoscopeCanvas = document.querySelector('canvas');
+    if(fullscreen){
+        kaleidoscopeCanvas.style.height = height * 0.91;
+        kaleidoscopeCanvas.style.width = width;
+    }
+    else {
+        kaleidoscopeCanvas.style.width = height * 1.3;
+        kaleidoscopeCanvas.style.height = height * 0.9;
+    }
 
-    kaleidoscopeCanvas.style.width = height * 1.3;
-    kaleidoscopeCanvas.style.height = height * 0.9;
 }
 
 window.addEventListener('load', resize, false);
