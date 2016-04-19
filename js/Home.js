@@ -3,37 +3,40 @@ $(function() {
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
 
-    var ImgTransition = function(){
+    var timepassed = 0;
+    var imgTransition = function(){
         var i = 0;
-        while (true){
-            var timepassed = 0;
-            animationTimer = setInterval(animatefor7sec(), 100);
-            if(timepassed >= 7000) {
-                clearInterval(animationTimer);
-            }
+        while(timepassed <= 7000) {
+            //animationTimer = setInterval(animatefor7sec(), 100);
+            animationTimer = setInterval(singleFrameAnimation(),100);
+            timepassed += 100;
+            console.log(timepassed);
+        }
+        if(timepassed >= 7000) {
+            clearInterval(animationTimer);
+        }
 
             //changes opacity of images and draws to canvas
-            var fade = setInterval(fading(imageArray[i], imageArray[i+1]), 100);
-            if(timepassed >=8000){
-                clearInterval(fade);
-            }
+        var fade = setInterval(fading(imageArray[0], imageArray[1]), 100);
+        if(timepassed >=8000){
+            clearInterval(fade);
+        }
 
             //code below loops i to the start
-            i++;
-            if(i == imageArray.length){
-                i = 0;
-            }
-        }
+            //i++;
+            //if(i == imageArray.length){
+            //    i = 0;
+            //}
+
     };
 
-    function animatefor7sec(){
-        SingleFrameAnimation();
-        timepassed += 100;
-    }
+    //function animatefor7sec(){
+    //    singleFrameAnimation();
+    //    timepassed += 100;
+    //}
 
     function fading(img1, img2){
         g.globalAlpha = 1.0 - (timepassed - 7000)/10;
-        console.log(g.globalAlpha);
         img.src = img1;
         draw();
         g.globalAlpha = (timepassed - 7000)/10;
@@ -42,7 +45,7 @@ $(function() {
         timepassed +=100;
     };
 
-    var UserImageArray = [];
+    var userImageArray = [];
     $('#MultiUpload').change(function(){
         var imageType = /image.*/;
         //var files = document.getElementById("MultiUpload");
@@ -51,13 +54,13 @@ $(function() {
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
                 var image = reader.readAsDataURL(file);
-                UserImageArray.push(image);
-                console.log("Added", image, "to array", UserImageArray);
+                userImageArray.push(image);
+                console.log("Added", image, "to array", userImageArray);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-        console.log(UserImageArray);
+        console.log(userImageArray);
         console.log(document.getElementById("MultiUpload").multiple);
     });
 
@@ -73,14 +76,14 @@ $(function() {
     //            var picReader = new FileReader();
     //            //picReader.addEventListener("load", function (event) {
     //            //    var picFile = event.target;
-    //            //    UserImageArray.push(picFile);
+    //            //    userImageArray.push(picFile);
     //            //});
     //            //Read the image
     //            picReader.readAsDataURL(file);
-    //            UserImageArray.push(file);
+    //            userImageArray.push(file);
     //        }
     //    })
-    //    console.log(UserImageArray);
+    //    console.log(userImageArray);
     //});
 
 
@@ -96,7 +99,7 @@ $(function() {
     });
 
     //animation effect
-    //var SingleFrameAnimation = function () {
+    //var singleFrameAnimation = function () {
     //    if(shift > shiftLimitMin && !toggle){
     //        shift--;
     //    }
@@ -114,7 +117,7 @@ $(function() {
     //    draw();
     //};
 
-    function SingleFrameAnimation(){
+    function singleFrameAnimation(){
         shift--;
         draw();
     }
@@ -146,24 +149,24 @@ $(function() {
             animationTimer = null;
         }
         else{
-            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
+            animationTimer = setInterval(singleFrameAnimation, refreshRate);
         }
     });
 
     //Quick Button Implementation
 
-    $('.autoplayKaleidoBtn').click(function(){
-        if(animationTimer == null) {
-            animationTimer = setInterval(SingleFrameAnimation, refreshRate);
-        }
-        else{
-            clearInterval(animationTimer);
-            animationTimer = null;
-        }
-    });
+    //$('.autoplayKaleidoBtn').click(function(){
+    //    if(animationTimer == null) {
+    //        animationTimer = setInterval(singleFrameAnimation, refreshRate);
+    //    }
+    //    else{
+    //        clearInterval(animationTimer);
+    //        animationTimer = null;
+    //    }
+    //});
 
     //test for transition
-    //$('.autoplayKaleidoBtn').click(ImgTransition);
+    $('.autoplayKaleidoBtn').click(imgTransition);
 
     $('.quickZoomInBtn').click(function(){
         zoomMultiplier += .1;
@@ -227,7 +230,7 @@ $(function() {
             }
     });
 
-    var timepassed = 0;
+
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
     var imageArray = ["../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/SPACE.png", "../images/after.png", "../images/before.png"];
@@ -322,7 +325,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-    var animationTimer = setInterval(SingleFrameAnimation, refreshRate);
+    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
