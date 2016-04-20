@@ -12,7 +12,7 @@ background-image: url("../images/grey-website-background-illusionapparel2.jpg");
     background-color: #3a7791;
     background-image: url("../images/Bluebackground.jpg");
     height:10%;
-    font-family: "Helvetica Neue", Helvetica;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 350%;
     color: #fffcff;
@@ -29,10 +29,31 @@ background-image: url("../images/grey-website-background-illusionapparel2.jpg");
 
 }
 
-.spotify {
+.soundcloud {
     position: absolute;
     bottom:0;
     left:0%;
 }
 
+
+
+.description{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size:50px;
+    color:white;
+    text-align: center;
+    padding: 2px;
+    margin: 2px;
+}
+
+.moreDescription{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size:20px;
+    color:white;
+    text-align: justify;
+    padding: 2px;
+    margin: 2px;
+}
 

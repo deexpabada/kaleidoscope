@@ -4,6 +4,7 @@
     <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
     <link type="text/css" rel="stylesheet" href="../css/home.css"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="../js/Home.js"></script>
@@ -23,14 +24,24 @@
 <div id="InteractionBar" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)"> <span class="glyphicon glyphicon-remove"></span></a>
     <p class="description">PARTY MODE</p>
-
-
-
+    <p class="moreDescription">
+        WILD night?<span class="glyphicon glyphicon-glass"></span> <br>
+        Chilling with friends?<span class="glyphicon glyphicon-cd"></span> <br>
+        Romantic date? <span class="glyphicon glyphicon-heart-empty"></span><br><br>
+        Upload your own images and the kaleidoscope will loop through your images so you can just focus on fun.<br><br>
+    </p>
 
     <!----multiupload------>
     <p>Upload multiple images</p>
     <a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>
     <input type="file" id="MultiUpload" multiple=""/>
+
+    <p class="moreDescription">
+        <br>You can also choose a theme from the list below, and we'll play a playlist to help set the mood.</p>
+    <a href="#">Party</a>
+    <a href="#">Chill</a>
+    <a href="#">Romance</a>
+
 
 </div>
 
@@ -78,7 +89,7 @@
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
 
-<iframe class = "spotify" width="25%" height="15%" scrolling="no" frameborder="no"
+<iframe class = "soundcloud" width="25%" height="15%" scrolling="no" frameborder="no"
 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;
 auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 
