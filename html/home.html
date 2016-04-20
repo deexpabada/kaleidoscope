@@ -16,22 +16,24 @@
 
 <!-- Title Screen -->
 <div id="titleScreen" class="titleScreenNav">
-    <a href="javascript:void(0)" class="titleScreen" onclick="titleScreen('titleScreen', false)">&times;</a>
+    <a href="javascript:void(0)" class="titleScreen" onclick="titleScreen('titleScreen', false)"><span class="glyphicon glyphicon-remove"></span></a>
 </div>
 
 <!--Interaction Sidebar-->
 <div id="InteractionBar" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)">&times;</a>
-    <a href="#" class="ZoomInBtn">Zoom In</a>
-    <a href="#" class="ZoomOutBtn">Zoom Out</a>
-    <a href="#" class="switchBtn">Switch Picture</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)"> <span class="glyphicon glyphicon-remove"></span></a>
+    <p class="description">PARTY MODE</p>
 
-    <input type="file" id="ImageUpload"/>
+    <iframe class = "spotify" width="20%" height="10%" scrolling="no" frameborder="no""
+    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;
+    auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
+
 
     <!----multiupload------>
     <p>Upload multiple images</p>
     <a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>
     <input type="file" id="MultiUpload" multiple=""/>
+
 </div>
 
 
@@ -46,35 +48,37 @@
     <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7b9XqnXw5J47tmn0Y0IZeW')"> Chill </a>
     <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A7DOqnrhW71bB3fc7eanbmY')"> Wedding </a>
     <a href="#" onclick="changePlaylist('https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A2JkjXscXs35c5wKE5ZeaYK')"> Party </a>
-
-</div>
-
-<!--Music Button-->
-<div class="themeBtn">
-    <span onclick="toggleNav('themeBar', true)"> Themes </span>
-</div>
-
-
- <!--Download Button-->
-<div>
-    <a href="#" class="downloadBtn" id="downloadBtn"> Download </a>
 </div>
 
 
 <!-- Autoplay Kaleido Button -->
-<div>
-    <a href="#" class="autoplayKaleidoBtn" id="autoplayKaleidoBtn"> Autoplay </a>
-</div>
+<button class="autoplayKaleidoBtn" id="autoplayKaleidoBtn">
+    <span class="glyphicon glyphicon-retweet"></span>
+</button>
+
+<!-- Shuffle Button -->
+<button class="switchbtn" id="switchBtn">
+    <span class="glyphicon glyphicon-random"></span>
+</button>
 
 <!--  Zoom In Button -->
-<div>
-    <a href="#" class="ZoomInBtn" id="ZoomInBtn"> Zoom In </a>
-</div>
+<button type="button"class="ZoomInBtn" id="ZoomInBtn">
+    <span class="glyphicon glyphicon-zoom-in"></span>
+</button>
 
 <!-- Zoom Out Button -->
-<div>
-    <a href="#" class="ZoomOutBtn" id="ZoomOutBtn"> Zoom Out </a>
-</div>
+<button type="button" class="ZoomOutBtn" id="ZoomOutBtn">
+    <span class="glyphicon glyphicon-zoom-out"></span>
+</button>
+
+<!--Download Button-->
+<button class="downloadBtn" id="downloadBtn">
+    <span class="glyphicon glyphicon-download-alt"></span>
+</button>
+
+<!--Upload Button-->
+<input type="file" name="ImageUpload" id="ImageUpload" class="ImageUpload" />
+<label for="ImageUpload"><span class="glyphicon glyphicon-open-file"> </span></label>
 
 <div>
     <a href="#" class="transitionTest" id="transitionTest"> transition Test </a>
@@ -83,9 +87,8 @@
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
 
-<!-- Spotify -->
-<iframe id = "spotify" class = "spotify" src="https://embed.spotify.com/?uri=spotify%3Auser%3Aspotify%3Aplaylist%3A6Hw1sUOCpE59V7AlIIHhCz"
-        width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
-
+<!--<iframe class = "spotify" width="20%" height="10%" scrolling="no" frameborder="no""-->
+        <!--src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;-->
+        <!--auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>-->
 </body>
 </html>
