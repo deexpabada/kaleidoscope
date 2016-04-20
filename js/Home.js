@@ -297,8 +297,8 @@ function resize() {
 window.addEventListener('load', resize, false);
 window.addEventListener('resize', resize, false);
 
-//Change Spotify Playlist according to theme
+//Change Soundcloud Playlist according to theme
 function changePlaylist(theme) {
-    var playlist = document.getElementById('spotify');
+    var playlist = document.getElementById('soundcloud');
     playlist.src = theme;
 }
