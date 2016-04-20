@@ -275,7 +275,10 @@ $(function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
+
+
 });
+
 
 
 //Resize Kaleidoscope Canvas

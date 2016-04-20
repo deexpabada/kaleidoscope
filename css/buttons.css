@@ -1,6 +1,6 @@
 /* The side navigation menu */
 .sidenav {
-    height: 60%; /* 100% Full-height */
+    height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
@@ -9,7 +9,7 @@
     background-color: #3a7791; /* Navy*/
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.2s; /* 0.5 second transition effect to slide in the sidenav */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The title screen navigation method*/
@@ -67,20 +67,33 @@
 
 
 /* Interaction Button */
-.interactionBtn {
+#interactionBtn {
     position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
+    padding:32px 16px;
+    border-color: #3a7791;
     text-align: center;
     text-decoration: none;
-    margin: 4px 2px;
-    left:5%;
+    left:0;
     top:50%;
     font-size:30px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
+    background-color: transparent;
+    -webkit-animation: bounce .3s infinite alternate;
+    -moz-animation: bounce .3s infinite alternate;
+    animation: bounce .3s infinite alternate;
 }
+@-webkit-keyframes bounce {
+    to { -webkit-transform: scale(1.2); }
+}
+@-moz-keyframes bounce {
+    to { -moz-transform: scale(1.2); }
+}
+@keyframes bounce {
+    to { transform: scale(1.2); }
+}
+
 
 /* Effects Button*/
 .effectsBtn {

@@ -3,6 +3,7 @@
 
     <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
     <link type="text/css" rel="stylesheet" href="../css/home.css"/>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="../js/Home.js"></script>
@@ -34,10 +35,11 @@
     <input type="file" id="MultiUpload" multiple=""/>
 </div>
 
+
 <!--Interaction Button-->
-<div class=interactionBtn>
-    <span onclick="toggleNav('InteractionBar', true)"> Interaction </span>
-</div>
+<button type="button" class="interactionBtn" id = "interactionBtn">
+    <span onclick="toggleNav('InteractionBar', true)"><i class="glyphicon glyphicon-menu-right"></i> </span>
+</button>
 
 <!--Music Sidebar -->
 <div id="themeBar" class="sidenav">
