@@ -115,7 +115,7 @@ $(function() {
         }
     });
 
-    //Quick Button Implementation
+    //Button Implementation
 
     $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer == null) {
@@ -132,7 +132,7 @@ $(function() {
     ////
 
 
-    $('.quickZoomInBtn').click(function(){
+    $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
         if(zoomMultiplier > 4.0){
             zoomMultiplier = 4.0;
@@ -140,7 +140,7 @@ $(function() {
         draw();
     });
 
-    $('.quickZoomOutBtn').click(function(){
+    $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
         if(zoomMultiplier < 0.1){
             zoomMultiplier = .01;
