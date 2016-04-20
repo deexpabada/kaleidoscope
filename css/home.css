@@ -24,7 +24,8 @@ background-image: url("../images/grey-website-background-illusionapparel2.jpg");
 .kaleidoscope {
     position:absolute;
     top: 10%;
-    left: 18%;
+    right:18%;
+    margin:0 auto;
     display: block;
 
 }
@@ -32,7 +33,7 @@ background-image: url("../images/grey-website-background-illusionapparel2.jpg");
 .soundcloud {
     position: absolute;
     bottom:0;
-    left:0%;
+    left:0;
 }
 
 
@@ -57,3 +58,60 @@ background-image: url("../images/grey-website-background-illusionapparel2.jpg");
     margin: 2px;
 }
 
+@media screen and (max-width: 1000px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .soundcloud{
+        display: none;
+    }
+    #interactionBtn {
+        display: none;
+    }
+    .downloadBtn {
+        display: none;
+    }
+    .imageUpload + label{
+        display: none;
+    }
+    .autoplayKaleidoBtn{
+        display: none;
+    }
+    .ZoomInBtn {
+        display: none;
+    }
+    .ZoomOutBtn {
+        display: none;
+    }
+    .switchBtn{
+        display: none;
+    }
+}
+
+@media screen and (max-height: 400px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .soundcloud{
+        display: none;
+    }
+    #interactionBtn {
+        display: none;
+    }
+    .downloadBtn {
+        display: none;
+    }
+    .imageUpload + label{
+        display: none;
+    }
+    .autoplayKaleidoBtn{
+        display: none;
+    }
+    .ZoomInBtn {
+        display: none;
+    }
+    .ZoomOutBtn {
+        display: none;
+    }
+    .switchBtn{
+        display: none;
+    }
+}
