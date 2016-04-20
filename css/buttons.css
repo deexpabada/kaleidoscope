@@ -17,7 +17,7 @@
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    font-family: "Helvetica Neue", Helvetica;
+    font-family: 'Montserrat', sans-serif;
     color: #000000;
     display: block;
     transition: 0.3s
@@ -74,7 +74,6 @@
     left:0;
     top:50%;
     font-size:30px;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
     background-color: transparent;
@@ -151,7 +150,6 @@
     right:7%;
     bottom:5%;
     font-size:3vw;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
@@ -174,7 +172,6 @@
     font-size:3vw;
     border-width: 0;;
     border-radius: 100%;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
 }
@@ -192,7 +189,6 @@
     bottom:50%;
     font-size:3vw;
     border-radius: 100%;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
 }
@@ -210,7 +206,6 @@
     bottom:40%;
     font-size:3vw;
     border-radius: 100%;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
 }
@@ -225,7 +220,6 @@
     right:0%;
     bottom:70%;
     font-size:15px;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
     border-width: thin;
