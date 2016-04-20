@@ -249,8 +249,11 @@ $(function() {
     //the background/border
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
-        grd.addColorStop(0, "sandybrown");
-        grd.addColorStop(1, "lightblue");
+        grd.addColorStop(0, "darkgrey");
+        grd.addColorStop(0.25,"white");
+        grd.addColorStop(0.5,"grey");
+        grd.addColorStop(0.75,"black");
+        grd.addColorStop(1, "Navy");
         g.fillStyle = grd;
         g.save();
         g.beginPath();
