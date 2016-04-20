@@ -3,7 +3,7 @@
     height: 60%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
+    z-index: 100; /* Stay on top */
     top: 10%;
     left: 0;
     background-color: #3a7791; /* Navy*/
@@ -48,7 +48,7 @@
 
 /* Interaction Button */
 .interactionBtn {
-    position:absolute;
+    position:relative;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
@@ -60,6 +60,7 @@
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
+    z-index: 10;
 }
 
 /* Effects Button*/

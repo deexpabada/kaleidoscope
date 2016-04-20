@@ -160,8 +160,6 @@ $(function() {
 
     $('.fullBtn').click(function(){
         fullscreen = !fullscreen;
-        //var context = canvas[0].getContext('2d');
-        //context.clearRect(0, 0, canvas.width, canvas.height);
         if(fullscreen){
             document.getElementById("kaleidoscope").style.left = 0;
         }
@@ -169,6 +167,7 @@ $(function() {
             document.getElementById("kaleidoscope").style.left = "18%";
         }
         resize();
+        g.clearRect(0,0, width, height);
         draw();
     });
 
