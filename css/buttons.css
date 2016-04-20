@@ -113,13 +113,10 @@
     right:0%;
     bottom:5%;
     font-size:3vw;
-    font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
     background-color: transparent;
-    border-color: #3a7791;
-    border-radius: 100%;
 }
 
 /*Upload Button*/
