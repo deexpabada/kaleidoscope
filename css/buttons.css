@@ -57,19 +57,20 @@
     transition: 0.9s;
 }
 
-.description{
-    font-family: "Helvetica Neue", Helvetica;
-    font-weight: bold;
-    font-size:50px;
-    : center;
-}
+
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
 
-
+.description{
+    font-family: "Helvetica Neue", Helvetica;
+    font-weight: bold;
+    font-size:50px;
+    color:white;
+    text-align: center;
+}
 
 /* Interaction Button */
 #interactionBtn {
@@ -100,38 +101,7 @@
 }
 
 
-/* Effects Button*/
-.effectsBtn {
-    position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    left:5%;
-    top:50%;
-    font-size:30px;
-    font-family:"Helvetica Neue", Helvetica;
-    cursor:pointer;
-    display: inline-block;
-}
 
-
-/*Theme Button*/
-.themeBtn {
-    position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    left:2%;
-    Bottom:10%;
-    font-size:30px;
-    font-family:"Helvetica Neue", Helvetica;
-    cursor:pointer;
-    display: inline-block;
-}
 
 /*Download Button */
 .downloadBtn {
@@ -141,7 +111,7 @@
     text-decoration: none;
     margin: 4px 2px;
     right:0%;
-    bottom:10%;
+    bottom:5%;
     font-size:3vw;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
@@ -152,7 +122,34 @@
     border-radius: 100%;
 }
 
+/*Upload Button*/
+.imageUpload {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.imageUpload + label {
+    font-size: 3vw;
+    position:absolute;
+    padding:16px 32px;
+    text-align: center;
+    text-decoration: none;
+    margin: 4px 2px;
+    right:0%;
+    cursor:pointer;
+    Bottom:30%;
+    position: absolute;
+    font-weight: 700;
+    background-color: transparent;
+    display: inline-block;
+}
 
+.imageUpload + label {
+    cursor: pointer; /* "hand" cursor */
+}
 
 
 /*Auto-Play Kaleido Button */
@@ -162,8 +159,8 @@
     text-align: center;
     text-decoration: none;
     margin: 4px 2px;
-    right:0%;
-    bottom:30%;
+    right:7%;
+    bottom:5%;
     font-size:3vw;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
@@ -184,7 +181,7 @@
     margin: 4px 2px;
     background-color: transparent;
     right:0%;
-    bottom:50%;
+    bottom:60%;
     font-size:3vw;
     border-width: 0;;
     border-radius: 100%;
@@ -203,7 +200,7 @@
     right:0%;
     border-width: 0;
     background-color: transparent;
-    bottom:40%;
+    bottom:50%;
     font-size:3vw;
     border-radius: 100%;
     font-family:"Helvetica Neue", Helvetica;
@@ -221,7 +218,7 @@
     right:0%;
     border-width: 0;
     background-color: transparent;
-    bottom:20%;
+    bottom:40%;
     font-size:3vw;
     border-radius: 100%;
     font-family:"Helvetica Neue", Helvetica;
@@ -237,12 +234,12 @@
     text-decoration: none;
     margin: 4px 2px;
     right:0%;
-    bottom:60%;
+    bottom:70%;
     font-size:15px;
     font-family:"Helvetica Neue", Helvetica;
     cursor:pointer;
     display: inline-block;
-    border-width: 0;
+    border-width: thin;
     background-color: transparent;
     border-radius: 100%;
 }
