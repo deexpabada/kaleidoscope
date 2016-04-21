@@ -12,7 +12,7 @@ $(function() {
                 singleFrameAnimation();
                 timepassed += 100;
                 setTimeout(switchPic,100);
-                console.log(timepassed);
+                //console.log(timepassed);
             }
             else{
                 if(timepassed <= 3000){
@@ -28,19 +28,19 @@ $(function() {
             }
         }
         switchPic();
+        console.log(refreshRate);
     };
 
     function fading(img1, img2){
-        g.globalAlpha -= timepassed/3000;
-        console.log(g.globalAlpha);
+        g.globalAlpha -= (timepassed /3000);
         img.src = img1;
         draw();
-        g.globalAlpha = timepassed/3000;
+        g.globalAlpha = (timepassed /3000);
         img.src = img2;
         draw();
         timepassed +=100;
+        g.globalAlpha = 1.0;
     };
-
 
     var userImageArray = [];
     $('#MultiUpload').change(function(){
@@ -78,10 +78,6 @@ $(function() {
         draw();
     }
 
-    $('.SquirrelBtn').click(function(){
-        img.src = "../images/squirrel.jpg";
-        draw();
-    });
 
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
@@ -126,22 +122,24 @@ $(function() {
     ////
 
 
-    $('.ZoomInBtn').click(function(){
-        zoomMultiplier += .1;
-        if(zoomMultiplier > 4.0){
-            zoomMultiplier = 4.0;
+    $('.fullBtn').click(function(){
+        fullscreen = !fullscreen;
+        if(fullscreen){
+            document.getElementById("kaleidoscope").style.left = 0;
         }
+        else{
+            document.getElementById("kaleidoscope").style.left = "18%";
+        }
+        resize();
+        g.clearRect(0,0, width, height);
         draw();
     });
 
-    $('.ZoomOutBtn').click(function(){
-        zoomMultiplier -= .1;
-        if(zoomMultiplier < 0.1){
-            zoomMultiplier = .01;
-        }
-        draw();
+    $('.nameBtn').click(function(){
+        var name = document.getElementById("NameBox").value;
+        var element = document.getElementById("header");
+        element.innerHTML = name;
     });
-
 
     $('#ImageUpload').change(function(){
             var file = document.getElementById("ImageUpload").files[0];
@@ -163,8 +161,8 @@ $(function() {
 
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
-    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg","../images/a.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png"];
-    //var animationTimer = null;
+    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
+    var animationTimer;
     var imgSource = "../images/SPACE.png";
     var shiftLimitMin = -120;
     var shiftLimitMax = 0;
@@ -222,12 +220,11 @@ $(function() {
         g.scale(zoomMultiplier, zoomMultiplier);
         g.translate(shift, shift);
         g.fill(); //Translate before fill but after clip, to get animation
-        //g.drawImage(img, -(img.width/2) +shift, -(img.height/2) + shift, img.width * zoomMultiplier, img.height * zoomMultiplier);
         g.restore();
     }
 
     //Draw the huge Kalei on the center
-    function draw() {
+    function drawWithCircle() {
         drawCircle();
         //draw hexagons in circle
         g.fillStyle = g.createPattern(img, "repeat");
@@ -239,6 +236,25 @@ $(function() {
         g.restore();
     }
 
+    function drawFull(){
+        g.save();
+        g.fillStyle = "black";
+        g.fillRect(0,0,width, height);
+        g.restore();
+        g.fillStyle = g.createPattern(img, "repeat");
+        g.save();
+        drawMultipleHexs();
+        g.restore();
+    }
+
+    function draw(){
+        if(fullscreen){
+            drawFull();
+        }
+        else{
+            drawWithCircle();
+        }
+    }
 
     //the background/border
     function drawCircle(){
@@ -256,6 +272,9 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
+
+    img.onload = draw;
+    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
     setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
@@ -276,6 +295,8 @@ $(function() {
 
 });
 
+
+var fullscreen = false;
 //test for image push
 
 //Resize Kaleidoscope Canvas
@@ -283,9 +304,22 @@ function resize() {
     var height = window.innerHeight;
     var width = window.innerWidth;
     var kaleidoscopeCanvas = document.querySelector('canvas');
+    var origHeight = 650;
+    var orgWidth = 1000;
+    if(fullscreen){
+        kaleidoscopeCanvas.style.height = height * 0.91;
+        kaleidoscopeCanvas.style.width = width;
+        kaleidoscopeCanvas.height = height;
+        kaleidoscopeCanvas.width = width;
+    }
+    else {
+        kaleidoscopeCanvas.style.width = height * 1.3;
+        kaleidoscopeCanvas.style.height = height * 0.9;
+        kaleidoscopeCanvas.width = orgWidth;
+        kaleidoscopeCanvas.height =origHeight;
 
-    kaleidoscopeCanvas.style.width = height * 1.3;
-    kaleidoscopeCanvas.style.height = height * 0.9;
+    }
+
 }
 
 window.addEventListener('load', resize, false);

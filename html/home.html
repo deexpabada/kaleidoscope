@@ -23,14 +23,12 @@
 
 <!--Interaction Sidebar-->
 <div id="InteractionBar" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)"> <span class="glyphicon glyphicon-remove"></span></a>
-    <p class="description">PARTY MODE</p>
-    <p class="moreDescription">
-        <br>WILD night?<span class="glyphicon glyphicon-glass"></span> <br>
-        Chilling with friends?<span class="glyphicon glyphicon-cd"></span> <br>
-        Romantic date? <span class="glyphicon glyphicon-heart-empty"></span><br><br>
-        Upload your own images and the kaleidoscope will loop through your images so you can just focus on fun.<br><br>
-    </p>
+    <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)">&times;</a>
+    <a href="#" class="fullBtn">Full Screen!</a>
+    <input type="text" id="NameBox" value="Kaleidoscope">
+    <a href="#" class="nameBtn"> Submit new name!</a>
+
+    <input type="file" id="ImageUpload"/>
 
     <!----multiupload------>
     <p class="moreDescription">
@@ -87,7 +85,7 @@ auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=fal
 </button>
 
 <!--Upload Button-->
-<input type="file" name="ImageUpload" id="ImageUpload" class="ImageUpload">
+<input type="file" name="ImageUpload" id="ImageUpload2" class="ImageUpload">
 <label for="ImageUpload"><span class="glyphicon glyphicon-open-file"> </span>
 </label>
 
