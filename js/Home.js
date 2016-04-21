@@ -32,7 +32,7 @@ $(function() {
                 g.globalAlpha = 1;
                 timepassed = 0;
                 imgIndex++;
-                if(imgIndex == imageArray.length){
+                if(imgIndex == imageArray.length-1){
                     imgIndex = 0;
                 }
                 switchPic();
