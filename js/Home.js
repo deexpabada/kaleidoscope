@@ -282,7 +282,7 @@ $(function() {
 
 });
 
-
+//test for image push
 
 //Resize Kaleidoscope Canvas
 function resize() {
