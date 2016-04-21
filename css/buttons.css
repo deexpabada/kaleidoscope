@@ -56,7 +56,8 @@
     width: 100%;
     position: fixed;
     background-color: #3a7791;
-    background-image: url("../images/Bluebackground.jpg");
+    background-image: url("../images/Stage-Light-Design-ppt-Backgrounds.jpg");
+    background-size: cover;
     overflow-x: hidden;
     overflow-y:hidden;
     transition: 0.9s;
@@ -84,6 +85,8 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
+    animation-delay: 15s;
+    animation-iteration-count: 30;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }

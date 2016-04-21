@@ -9,6 +9,7 @@
     <script type="text/javascript" src="https://hammerjs.github.io/dist/hammer.js"></script>
     <script src="../js/Home.js"></script>
     <script src="../js/Sidebar.js"></script>
+    <title> KALEIDOSCOPE </title>
 </head>
 <body>
 
@@ -17,7 +18,7 @@
 
 <!-- Title Screen -->
 <div id="titleScreen" class="titleScreenNav">
-    <a href="javascript:void(0)" class="titleScreen" onclick="titleScreen('titleScreen', false)">KALEIDOSCOPE <br> Click Me</a>
+    <a href="javascript:void(0)" class="titleScreen" onclick="titleScreen('titleScreen', false)"> <br> KALEIDOSCOPE <br> Click Me</a>
 </div>
 
 <!--Interaction Sidebar-->
@@ -32,24 +33,30 @@
     </p>
 
     <!----multiupload------>
-    <p class="moreDescription">Upload multiple images: </p>
+    <p class="moreDescription">
+        Upload multiple images: <br></p>
     <a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>
     <input type="file" id="MultiUpload" multiple=""/>
 
     <p class="moreDescription">
         <br>You can also choose a theme from the list below, and we'll play a playlist to help set the mood.</p>
     <a href="#"onclick="changePlaylist('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/210079548&amp;auto_play=false&amp;' +
-     'hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')">Party</a>
+     'hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')"> Party </a>
     <a href="#"onclick="changePlaylist('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/13337125&amp;' +
-     'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')">Chill</a>
+     'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')"> Chill </a>
     <a href="#"onclick="changePlaylist('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2747135&amp;' +
-     'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')">Romance</a>
+     'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')"> Romance </a>
+
+    <!--Soundcloud-->
+    <iframe class = "soundcloud" id="soundcloud" width="100%" height="14%" scrolling="no" frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;
+auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 
 </div>
 
 <!--Interaction Button-->
 <button type="button" class="interactionBtn" id = "interactionBtn">
-    <span onclick="toggleNav('InteractionBar', true)"><i class="glyphicon glyphicon-menu-right"></i> </span>
+    <span onclick="toggleNav('InteractionBar', true)"><i class="glyphicon glyphicon-play"></i> </span>
 </button>
 
 
@@ -91,9 +98,6 @@
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
 
-<iframe class = "soundcloud" id="soundcloud" width="25%" height="15%" scrolling="no" frameborder="no"
-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;
-auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 
 
 </body>
