@@ -6,24 +6,12 @@ $(function() {
     var timepassed = 0;
     var imgIndex = 0;
     var imgTransition = function(){
-        //animationTimer = setInterval(singleFrameAnimation,100);
-        //singleFrameAnimation();
-        //setTimeout(imgTransition,100);
-        //timepassed += 100;
-
-        //if(timepassed >= 5000) {
-        //    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
-        //    if(timepassed >= 7000){
-        //        timepassed = 0;
-        //    }
-        //}
-
         function switchPic(){
             if(timepassed <= 3000){
                 singleFrameAnimation();
                 timepassed += 100;
                 setTimeout(switchPic,100);
-                console.log(timepassed);
+                //console.log(timepassed);
             }
             else{
                 setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
@@ -36,16 +24,18 @@ $(function() {
             }
         }
         switchPic();
+        console.log(refreshRate);
     };
 
     function fading(img1, img2){
-        g.globalAlpha = 1.0 - (timepassed - 7000)/10;
+        g.globalAlpha -= (timepassed /3000);
         img.src = img1;
         draw();
-        g.globalAlpha = (timepassed - 7000)/10;
+        g.globalAlpha = (timepassed /3000);
         img.src = img2;
         draw();
         timepassed +=100;
+        g.globalAlpha = 1.0;
     };
 
     var userImageArray = [];
@@ -308,13 +298,20 @@ function resize() {
     var height = window.innerHeight;
     var width = window.innerWidth;
     var kaleidoscopeCanvas = document.querySelector('canvas');
+    var origHeight = 650;
+    var orgWidth = 1000;
     if(fullscreen){
         kaleidoscopeCanvas.style.height = height * 0.91;
         kaleidoscopeCanvas.style.width = width;
+        kaleidoscopeCanvas.height = height;
+        kaleidoscopeCanvas.width = width;
     }
     else {
         kaleidoscopeCanvas.style.width = height * 1.3;
         kaleidoscopeCanvas.style.height = height * 0.9;
+        kaleidoscopeCanvas.width = orgWidth;
+        kaleidoscopeCanvas.height =origHeight;
+
     }
 
 }

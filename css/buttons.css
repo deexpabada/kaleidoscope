@@ -20,7 +20,7 @@
     font-family: 'Montserrat', sans-serif;
     color: #000000;
     display: block;
-    transition: 0.3s
+    transition: 0.5s
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -77,15 +77,15 @@
     text-align: center;
     text-decoration: none;
     left:0;
-    top:50%;
+    top: 50%;
     font-size:30px;
     cursor:pointer;
     display: inline-block;
-    z-index: 10;
+    z-index: 10;/*
     background-color: transparent;
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
-    animation: bounce .3s infinite alternate;
+    animation: bounce .3s infinite alternate;*/
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
