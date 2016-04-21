@@ -7,17 +7,21 @@ $(function() {
     var imgIndex = 0;
     var imgTransition = function(){
         function switchPic(){
-            if(timepassed <= 3000){
+            clearInterval();
+            if(timepassed <= 2000){
                 singleFrameAnimation();
                 timepassed += 100;
                 setTimeout(switchPic,100);
                 //console.log(timepassed);
             }
             else{
-                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
+                if(timepassed <= 3000){
+                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 100);
+                }
+                g.globalAlpha = 1;
                 timepassed = 0;
                 imgIndex++;
-                if(imgIndex == imageArray.length){
+                if(imgIndex == imageArray.length-1){
                     imgIndex = 0;
                 }
                 switchPic();
@@ -271,6 +275,7 @@ $(function() {
 
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+    setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
@@ -292,6 +297,7 @@ $(function() {
 
 
 var fullscreen = false;
+//test for image push
 
 //Resize Kaleidoscope Canvas
 function resize() {
