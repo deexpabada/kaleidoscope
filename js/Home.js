@@ -6,18 +6,6 @@ $(function() {
     var timepassed = 0;
     var imgIndex = 0;
     var imgTransition = function(){
-        //animationTimer = setInterval(singleFrameAnimation,100);
-        //singleFrameAnimation();
-        //setTimeout(imgTransition,100);
-        //timepassed += 100;
-
-        //if(timepassed >= 5000) {
-        //    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
-        //    if(timepassed >= 7000){
-        //        timepassed = 0;
-        //    }
-        //}
-
         function switchPic(){
             if(timepassed <= 2000){
                 singleFrameAnimation();
