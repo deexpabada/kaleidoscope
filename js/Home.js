@@ -12,6 +12,8 @@ $(function() {
                 timepassed += 100;
                 setTimeout(switchPic,100);
                 //console.log(timepassed);
+
+                //CHANGES
             }
             else{
                 if(timepassed <= 3000){
