@@ -10,7 +10,8 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     padding:0;
     overflow: visible;
     background-color: #3a7791;
-    background-image: url("../images/Bluebackground.jpg");
+    background-image: url("../images/518084-background-hd.jpg");
+    background-size: cover;
     height:4vw;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -31,7 +32,7 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
 }
 
 .soundcloud {
-    position: absolute;
+    position: relative;
     bottom:0;
     left:0;
 }
