@@ -7,7 +7,6 @@ $(function() {
     var imgIndex = 0;
     var imgTransition = function(){
         function switchPic(){
-            clearInterval();
             if(timepassed <= 2000){
                 singleFrameAnimation();
                 timepassed += 100;
@@ -16,7 +15,7 @@ $(function() {
             }
             else{
                 if(timepassed <= 3000){
-                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 100);
+                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
                 }
                 g.globalAlpha = 1;
                 timepassed = 0;
@@ -106,7 +105,6 @@ $(function() {
     });
 
     //Button Implementation
-
     $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer == null) {
             animationTimer = setInterval(singleFrameAnimation, refreshRate);
@@ -164,9 +162,6 @@ $(function() {
     var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
     var animationTimer;
     var imgSource = "../images/SPACE.png";
-    var shiftLimitMin = -120;
-    var shiftLimitMax = 0;
-    var toggle = false;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
@@ -276,7 +271,6 @@ $(function() {
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
     setInterval(singleFrameAnimation, refreshRate);
-    img.onload = draw;
 
 
 
