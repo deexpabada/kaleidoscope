@@ -178,11 +178,11 @@ $(function() {
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
         //this loop creates the start of the columns of images
-        for(var t = -5; t < 10; t++) {
+        for(var t = -15; t < 16; t++) {
             g.save();
             g.translate(TriLength *1.5 * t, TriHeight * t);
             //this loop actually renders the image
-            for (var i = -3; i < 4; i++) {
+            for (var i = -10; i < 10; i++) {
                 g.save();
                 g.translate(0, i * 2 * TriHeight);
                 drawHex();
