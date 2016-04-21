@@ -84,7 +84,6 @@
     display: inline-block;
     z-index: 10;
     background-color: transparent;
-    /*
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
