@@ -7,6 +7,7 @@ $(function() {
     var imgIndex = 0;
     var imgTransition = function(){
         function switchPic(){
+            clearInterval();
             if(timepassed <= 2000){
                 singleFrameAnimation();
                 timepassed += 100;
@@ -38,8 +39,8 @@ $(function() {
         img.src = img2;
         draw();
         timepassed +=100;
-
     };
+
 
     var userImageArray = [];
     $('#MultiUpload').change(function(){
@@ -255,7 +256,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+    setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
