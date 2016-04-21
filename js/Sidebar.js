@@ -21,6 +21,5 @@ function titleScreen(navigation, opens) {
         titleHeight = "0%";
     }
     document.getElementById(navigation).style.height = titleHeight;
-    document.getElementById("main").style.marginTop = titleHeight;
 }
 
