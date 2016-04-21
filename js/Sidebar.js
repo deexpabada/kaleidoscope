@@ -11,7 +11,6 @@ function toggleNav(navBar, open) {
         width = "0%"
     }
     document.getElementById(navBar).style.width = width;
-    document.getElementById("main").style.marginLeft = width;
 }
 
 function titleScreen(navigation, opens) {
