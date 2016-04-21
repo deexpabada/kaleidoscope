@@ -7,7 +7,6 @@ $(function() {
     var imgIndex = 0;
     var imgTransition = function(){
         function switchPic(){
-            clearInterval();
             if(timepassed <= 2000){
                 singleFrameAnimation();
                 timepassed += 100;
@@ -16,7 +15,7 @@ $(function() {
             }
             else{
                 if(timepassed <= 3000){
-                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 100);
+                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
                 }
                 g.globalAlpha = 1;
                 timepassed = 0;
@@ -110,7 +109,6 @@ $(function() {
     });
 
     //Button Implementation
-
     $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer == null) {
             animationTimer = setInterval(singleFrameAnimation, refreshRate);
@@ -162,13 +160,8 @@ $(function() {
     });
 
     var zoomMultiplier = 1.0;
-    var shadingLensPresence = false;
     var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg","../images/a.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png"];
-    //var animationTimer = null;
     var imgSource = "../images/SPACE.png";
-    var shiftLimitMin = -120;
-    var shiftLimitMax = 0;
-    var toggle = false;
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
@@ -243,11 +236,11 @@ $(function() {
     //the background/border
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
-        grd.addColorStop(0, "darkgrey");
-        grd.addColorStop(0.25,"white");
-        grd.addColorStop(0.5,"grey");
-        grd.addColorStop(0.75,"black");
-        grd.addColorStop(1, "Navy");
+        //grd.addColorStop(0, "darkgrey");
+        //grd.addColorStop(0.25,"white");
+        //grd.addColorStop(0.5,"grey");
+        //grd.addColorStop(0.75,"black");
+        //grd.addColorStop(1, "Navy");
         g.fillStyle = grd;
         g.save();
         g.beginPath();
@@ -256,7 +249,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-    setInterval(singleFrameAnimation, refreshRate);
+    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
@@ -276,7 +269,6 @@ $(function() {
 
 });
 
-//test for image push
 
 //Resize Kaleidoscope Canvas
 function resize() {
