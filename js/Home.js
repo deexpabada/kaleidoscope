@@ -236,11 +236,19 @@ $(function() {
     //the background/border
     function drawCircle(){
         var grd = g.createLinearGradient(0, 0, width, 0);
+<<<<<<< HEAD
         //grd.addColorStop(0, "darkgrey");
         //grd.addColorStop(0.25,"white");
         //grd.addColorStop(0.5,"grey");
         //grd.addColorStop(0.75,"black");
         //grd.addColorStop(1, "Navy");
+=======
+        grd.addColorStop(0, "lightgreen");
+        grd.addColorStop(0.25,"navy");
+        grd.addColorStop(0.5,"yellow");
+        grd.addColorStop(0.75,"orange");
+        grd.addColorStop(1, "red");
+>>>>>>> 3c59a3d269a83cbed12960e39665936b1576887c
         g.fillStyle = grd;
         g.save();
         g.beginPath();
