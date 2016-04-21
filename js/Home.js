@@ -6,30 +6,22 @@ $(function() {
     var timepassed = 0;
     var imgIndex = 0;
     var imgTransition = function(){
-        //animationTimer = setInterval(singleFrameAnimation,100);
-        //singleFrameAnimation();
-        //setTimeout(imgTransition,100);
-        //timepassed += 100;
-
-        //if(timepassed >= 5000) {
-        //    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
-        //    if(timepassed >= 7000){
-        //        timepassed = 0;
-        //    }
-        //}
-
         function switchPic(){
-            if(timepassed <= 3000){
+            clearInterval();
+            if(timepassed <= 2000){
                 singleFrameAnimation();
                 timepassed += 100;
                 setTimeout(switchPic,100);
                 console.log(timepassed);
             }
             else{
-                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 1000);
+                if(timepassed <= 3000){
+                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 100);
+                }
+                g.globalAlpha = 1;
                 timepassed = 0;
                 imgIndex++;
-                if(imgIndex == imageArray.length){
+                if(imgIndex == imageArray.length-1){
                     imgIndex = 0;
                 }
                 switchPic();
@@ -39,14 +31,16 @@ $(function() {
     };
 
     function fading(img1, img2){
-        g.globalAlpha = 1.0 - (timepassed - 7000)/10;
+        g.globalAlpha -= timepassed/3000;
+        console.log(g.globalAlpha);
         img.src = img1;
         draw();
-        g.globalAlpha = (timepassed - 7000)/10;
+        g.globalAlpha = timepassed/3000;
         img.src = img2;
         draw();
         timepassed +=100;
     };
+
 
     var userImageArray = [];
     $('#MultiUpload').change(function(){
@@ -262,7 +256,7 @@ $(function() {
         g.fillRect(0, 0, width, height);
         g.restore();
     }
-    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+    setInterval(singleFrameAnimation, refreshRate);
     img.onload = draw;
 
 
