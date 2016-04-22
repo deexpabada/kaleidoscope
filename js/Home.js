@@ -161,7 +161,7 @@ $(function() {
 
     var zoomMultiplier = 1.0;
     var shadingLensPresence = false;
-    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
+    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var animationTimer;
     var imgSource = "../images/SPACE.png";
     var shift = 0;
