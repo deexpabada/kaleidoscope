@@ -272,8 +272,6 @@ $(function() {
 
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
-    setInterval(singleFrameAnimation, refreshRate);
-
 
 
     // Download Image
@@ -287,13 +285,10 @@ $(function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
-
-
 });
 
 
 var fullscreen = false;
-//test for image push
 
 //Resize Kaleidoscope Canvas
 function resize() {
@@ -303,7 +298,7 @@ function resize() {
     var origHeight = 650;
     var orgWidth = 1000;
     if(fullscreen){
-        kaleidoscopeCanvas.style.height = height * 0.91;
+        kaleidoscopeCanvas.style.height = height * 0.90;
         kaleidoscopeCanvas.style.width = width;
         kaleidoscopeCanvas.height = height;
         kaleidoscopeCanvas.width = width;
