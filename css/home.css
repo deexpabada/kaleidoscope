@@ -9,7 +9,6 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     width: 100%;
     padding:0;
     overflow: visible;
-    background-color: #3a7791;
     background-image: url("../images/518084-background-hd.jpg");
     background-size: cover;
     height:4vw;
@@ -20,6 +19,11 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     margin-bottom:30px;
     text-align: left;
     display: block;
+    cursor: pointer;
+}
+
+.header a:hover, .offcanvas a:focus{
+    color: black;
 }
 
 .kaleidoscope {
