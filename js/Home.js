@@ -14,9 +14,7 @@ $(function() {
                 console.log(timepassed);
             }
             else{
-                if(timepassed <= 3000){
-                    setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
-                }
+                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
                 g.globalAlpha = 1;
                 timepassed = 0;
                 imgIndex++;
@@ -259,7 +257,6 @@ $(function() {
 
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
-    //setInterval(singleFrameAnimation, refreshRate);
 
 
 
