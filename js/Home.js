@@ -11,7 +11,7 @@ $(function() {
                 singleFrameAnimation();
                 timepassed += 100;
                 setTimeout(switchPic,100);
-                //console.log(timepassed);
+                console.log(timepassed);
             }
             else{
                 if(timepassed <= 3000){
@@ -94,15 +94,6 @@ $(function() {
         draw();
     });
 
-    $('.animateBtn').click(function(){
-        if(animationTimer != null) {
-            clearInterval(animationTimer);
-            animationTimer = null;
-        }
-        else{
-            animationTimer = setInterval(singleFrameAnimation, refreshRate);
-        }
-    });
 
     //Button Implementation
     $('.autoplayKaleidoBtn').click(function(){
@@ -158,9 +149,7 @@ $(function() {
     });
 
     var zoomMultiplier = 1.0;
-    var shadingLensPresence = false;
     var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
-    var animationTimer;
     var imgSource = "../images/SPACE.png";
     var shift = 0;
     var pixelBuffer = 20;
@@ -270,7 +259,7 @@ $(function() {
 
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
-    setInterval(singleFrameAnimation, refreshRate);
+    //setInterval(singleFrameAnimation, refreshRate);
 
 
 
