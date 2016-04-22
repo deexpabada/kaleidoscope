@@ -298,10 +298,11 @@ function resize() {
     var origHeight = 650;
     var orgWidth = 1000;
     if(fullscreen){
-        kaleidoscopeCanvas.style.height = height * 0.90;
+        kaleidoscopeCanvas.style.height = height * 1;
         kaleidoscopeCanvas.style.width = width;
         kaleidoscopeCanvas.height = height;
         kaleidoscopeCanvas.width = width;
+        kaleidoscopeCanvas.style.top = '7.5%';
     }
     else {
         kaleidoscopeCanvas.style.width = height * 1.3;
