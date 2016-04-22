@@ -25,7 +25,6 @@ $(function() {
             }
         }
         switchPic();
-        console.log(refreshRate);
     };
 
     function fading(img1, img2){
@@ -147,7 +146,7 @@ $(function() {
     });
 
     var zoomMultiplier = 1.0;
-    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/before.png"];
+    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var imgSource = "../images/SPACE.png";
     var shift = 0;
     var pixelBuffer = 20;
@@ -259,7 +258,6 @@ $(function() {
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
 
-
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
@@ -271,13 +269,10 @@ $(function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
-
-
 });
 
 
 var fullscreen = false;
-//test for image push
 
 //Resize Kaleidoscope Canvas
 function resize() {
@@ -287,10 +282,11 @@ function resize() {
     var origHeight = 650;
     var orgWidth = 1000;
     if(fullscreen){
-        kaleidoscopeCanvas.style.height = height * 0.91;
+        kaleidoscopeCanvas.style.height = height * 1;
         kaleidoscopeCanvas.style.width = width;
         kaleidoscopeCanvas.height = height;
         kaleidoscopeCanvas.width = width;
+        kaleidoscopeCanvas.style.top = '7.5%';
     }
     else {
         kaleidoscopeCanvas.style.width = height * 1.3;
