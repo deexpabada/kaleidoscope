@@ -40,7 +40,7 @@
 /* Style of the Title Screen */
 .titleScreen {
     position: absolute;
-    top: 0;
+    top: 13%;
     font-family: 'Montserrat', sans-serif;
     color: Black;
     text-align: center;

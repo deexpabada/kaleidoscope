@@ -26,6 +26,23 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     color: black;
 }
 
+.nameBtn {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    font-size: 5vw;
+    cursor: pointer;
+    top: 65%;
+    left: 28%;
+}
+.nameBox {
+    position: absolute;
+    text-align: center;
+    cursor: crosshair;
+    top: 80%;
+    left: 45%;
+}
+
 .kaleidoscope {
     position:absolute;
     top: 10%;

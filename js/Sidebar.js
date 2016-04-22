@@ -6,7 +6,7 @@
 function toggleNav(navBar, open) {
     var width;
     if (open) {
-        width = "20%";
+        width = "23%";
     } else {
         width = "0%"
     }
