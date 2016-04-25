@@ -2,41 +2,29 @@ $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
-
-    var timepassed = 0;
     var imgIndex = 0;
-    var imgTransition = function(){
-        function switchPic(){
-            if(timepassed <= 2000){
-                singleFrameAnimation();
-                timepassed += 100;
-                setTimeout(switchPic,100);
-                console.log(timepassed);
-            }
-            else{
-                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
-                g.globalAlpha = 1;
-                timepassed = 0;
-                imgIndex++;
-                if(imgIndex == imageArray.length-1){
-                    imgIndex = 0;
-                }
-                switchPic();
-            }
-        }
-        switchPic();
-    };
 
-    function fading(img1, img2){
-        g.globalAlpha -= (timepassed /3000);
-        img.src = img1;
+
+    //test for transition
+    $('#transitionTest').click(function(){
+        if(transitionTimer == null) {
+            transitionTimer = setInterval(imgTransition, 5000);
+        }
+        else{
+            clearInterval(transitionTimer);
+            transitionTimer=null;
+        }
+    });
+
+    function imgTransition(){
+        if(imgIndex >= imageArray.length){
+            imgIndex = 0;
+        }
+        img.src = imageArray[imgIndex];
         draw();
-        g.globalAlpha = (timepassed /3000);
-        img.src = img2;
-        draw();
-        timepassed +=100;
-        g.globalAlpha = 1.0;
-    };
+        imgIndex++;
+        console.log(imgIndex);
+    }
 
     var userImageArray = [];
     $('#MultiUpload').change(function(){
@@ -105,11 +93,6 @@ $(function() {
         }
     });
 
-    //test for transition
-    $('.transitionTest').click(imgTransition);
-    ////
-
-
     $('.fullBtn').click(function(){
         fullscreen = !fullscreen;
         if(fullscreen){
@@ -160,6 +143,7 @@ $(function() {
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 60;
+    var transitionTimer = null;
 
     var img = new Image();
     img.src = imgSource;
