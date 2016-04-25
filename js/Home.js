@@ -15,7 +15,6 @@ $(function() {
             }
             else{
                 setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
-                g.globalAlpha = 1;
                 timepassed = 0;
                 imgIndex++;
                 if(imgIndex == imageArray.length-1){
@@ -28,14 +27,11 @@ $(function() {
     };
 
     function fading(img1, img2){
-        g.globalAlpha -= (timepassed /3000);
         img.src = img1;
         draw();
-        g.globalAlpha = (timepassed /3000);
         img.src = img2;
         draw();
         timepassed +=100;
-        g.globalAlpha = 1.0;
     };
 
     var userImageArray = [];
