@@ -2,37 +2,32 @@ $(function() {
     //initialize the canvas
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
-
-    var timepassed = 0;
     var imgIndex = 0;
-    var imgTransition = function(){
-        function switchPic(){
-            if(timepassed <= 2000){
-                singleFrameAnimation();
-                timepassed += 100;
-                setTimeout(switchPic,100);
-                console.log(timepassed);
-            }
-            else{
-                setTimeout(function(){fading(imageArray[imgIndex], imageArray[imgIndex+1])}, 300);
-                timepassed = 0;
-                imgIndex++;
-                if(imgIndex == imageArray.length-1){
-                    imgIndex = 0;
-                }
-                switchPic();
-            }
-        }
-        switchPic();
-    };
 
-    function fading(img1, img2){
-        img.src = img1;
+
+    //test for transition
+    $('#transitionTest').click(function(){
+        if(transitionTimer == null) {
+            transitionTimer = setInterval(imgTransition, 5000);
+
+        }
+        else{
+            clearInterval(transitionTimer);
+            transitionTimer=null;
+        }
+    });
+
+
+    function imgTransition(){
+        if(imgIndex >= imageArray.length){
+            imgIndex = 0;
+        }
+        img.src = imageArray[imgIndex];
         draw();
-        img.src = img2;
-        draw();
-        timepassed +=100;
-    };
+        imgIndex++;
+        console.log(imgIndex);
+    }
+
 
     var userImageArray = [];
     $('#MultiUpload').change(function(){
@@ -61,7 +56,9 @@ $(function() {
             newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
         }
         zoomMultiplier = 1.0;
+        shift = 0;
         img.src = newSrc;
+        draw();
     });
 
 
@@ -90,19 +87,14 @@ $(function() {
 
     //Button Implementation
     $('.autoplayKaleidoBtn').click(function(){
-        if(animationTimer == null) {
-            animationTimer = setInterval(singleFrameAnimation, refreshRate);
-        }
-        else{
+        if(animationTimer != null) {
             clearInterval(animationTimer);
             animationTimer = null;
         }
+        else{
+            animationTimer = setInterval(singleFrameAnimation, refreshRate);
+        }
     });
-
-    //test for transition
-    $('.transitionTest').click(imgTransition);
-    ////
-
 
     $('.fullBtn').click(function(){
         fullscreen = !fullscreen;
@@ -134,6 +126,7 @@ $(function() {
                     img.src = reader.result;
                     draw();
                     zoomMultiplier = 1.0;
+                    shift = 0;
                 };
                 reader.readAsDataURL(file);
             } else {
@@ -152,9 +145,12 @@ $(function() {
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
-    var refreshRate = 1000 / 20;
+    var refreshRate = 1000 / 60;
+    var transitionTimer = null;
+
     var img = new Image();
     img.src = imgSource;
+
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
         //this loop creates the start of the columns of images
@@ -278,7 +274,7 @@ function resize() {
     var origHeight = 650;
     var orgWidth = 1000;
     if(fullscreen){
-        kaleidoscopeCanvas.style.height = height * 1;
+        kaleidoscopeCanvas.style.height = height;
         kaleidoscopeCanvas.style.width = width;
         kaleidoscopeCanvas.height = height;
         kaleidoscopeCanvas.width = width;
@@ -289,7 +285,7 @@ function resize() {
         kaleidoscopeCanvas.style.height = height * 0.9;
         kaleidoscopeCanvas.width = orgWidth;
         kaleidoscopeCanvas.height =origHeight;
-
+        kaleidoscopeCanvas.style.top = '10%';
     }
 
 }
