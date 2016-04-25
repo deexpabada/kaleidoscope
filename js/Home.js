@@ -33,7 +33,7 @@ $(function() {
     $('#MultiUpload').change(function(){
         var imageType = /image.*/;
         //var files = document.getElementById("MultiUpload");
-        for (i = 0; i < 1; i++) {
+        for (i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
