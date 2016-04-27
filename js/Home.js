@@ -145,17 +145,16 @@ $(function() {
         imgIndex++;
         console.log(imgIndex);
     }
-    
+
     $('#MultiUpload').change(function(){
         var imageType = /image.*/;
-        //var files = document.getElementById("MultiUpload");
         for (i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
                 var image = reader.readAsDataURL(file);
-                userImageArray.push(image);
-                console.log("Added", image, "to array", userImageArray);
+                userImageArray.push(file);
+                //console.log("Added", image, "to array", userImageArray);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
@@ -164,6 +163,27 @@ $(function() {
         console.log(document.getElementById("MultiUpload").multiple);
     });
 
+
+    $('#ImageUpload').change(function(){
+        var file = document.getElementById("ImageUpload").files[0];
+        var imageType = /image.*/;
+
+        if (file.type.match(imageType)) {
+            var reader = new FileReader();
+
+            reader.onload = function(){
+                img.src = reader.result;
+                draw();
+                zoomMultiplier = 1.0;
+                shift = 0;
+            };
+            reader.readAsDataURL(file);
+            console.log(file);
+        } else {
+            fileDisplayArea.innerHTML = "File not supported!"
+        }
+
+    });
 
     // button to switch picture
     $('.switchBtn').click(function () {
@@ -239,9 +259,11 @@ $(function() {
                 shift = 0;
             };
             reader.readAsDataURL(file);
+            console.log(file);
         } else {
             fileDisplayArea.innerHTML = "File not supported!"
         }
+
     });
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
