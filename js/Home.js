@@ -153,15 +153,16 @@ $(function() {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
                 var reader = new FileReader();
-                var image = reader.readAsDataURL(file);
-                userImageArray.push(file);
-                //console.log("Added", image, "to array", userImageArray);
+                reader.onload = function(){
+                    userImageArray.push(reader.result);
+                }
+                reader.readAsDataURL(file);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
         console.log(userImageArray);
-        console.log(document.getElementById("MultiUpload").multiple);
+        //console.log(document.getElementById("MultiUpload").multiple);
     });
 
 
@@ -255,12 +256,12 @@ $(function() {
 
             reader.onload = function(){
                 img.src = reader.result;
+                console.log(reader.result);
                 draw();
                 zoomMultiplier = 1.0;
                 shift = 0;
             };
             reader.readAsDataURL(file);
-            console.log(file);
         } else {
             fileDisplayArea.innerHTML = "File not supported!"
         }
