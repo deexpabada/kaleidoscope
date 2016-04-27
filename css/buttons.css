@@ -101,23 +101,26 @@
 }
 
 
-
-
-/*Download Button */
-.downloadBtn {
+/* Basic Button Formatting*/
+.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
     position:absolute;
     border: 2px solid #000000;
     padding:16px 32px;
     text-align: center;
     text-decoration: none;
     margin: 4px 2px;
-    right:0;
-    bottom:5%;
+    right: 0;
     font-size:3vw;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
     background-color: transparent;
+}
+
+
+/*Download Button */
+.downloadBtn {
+    bottom:5%;
 }
 
 /*Upload Button*/
@@ -130,107 +133,42 @@
     z-index: -1;
 }
 .imageUpload + label {
-    font-size: 3vw;
-    position:absolute;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    right:0;
-    cursor:pointer;
     Bottom:30%;
-    font-weight: 700;
-    background-color: transparent;
-    display: inline-block;
 }
-
-.imageUpload + label {
-    cursor: pointer; /* "hand" cursor */
-}
-
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
-    position:absolute;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
     right:7%;
     bottom:5%;
-    font-size:3vw;
-    cursor:pointer;
-    display: inline-block;
-    border-width: 0;
-    background-color: transparent;
-    border-color: #3a7791;
-    border-radius: 100%;
 }
-
 
 /*Zoom In Button */
 .ZoomInBtn {
-    position:absolute;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    background-color: transparent;
-    right:0;
     bottom:60%;
-    font-size:3vw;
-    border-width: 0;;
-    border-radius: 100%;
-    cursor:pointer;
-    display: inline-block;
 }
 
 /*Zoom Out Button */
 .ZoomOutBtn {
-    position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    right:0;
-    border-width: 0;
-    background-color: transparent;
     bottom:50%;
-    font-size:3vw;
-    border-radius: 100%;
-    cursor:pointer;
-    display: inline-block;
 }
 
 /*Shuffle Button */
 .switchBtn {
-    position:absolute;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    right:0;
-    border-width: 0;
-    background-color: transparent;
     bottom:40%;
-    font-size:3vw;
-    border-radius: 100%;
-    cursor:pointer;
-    display: inline-block;
 }
-/* Test button for Image Transition */
-.transitionTest {
-    position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
-    text-align: center;
-    text-decoration: none;
-    margin: 4px 2px;
-    right:0;
-    bottom:70%;
-    font-size:15px;
-    cursor:pointer;
-    display: inline-block;
-    background-color: transparent;
-}
+
+/*!* Test button for Image Transition *!*/
+/*.transitionTest {*/
+    /*position:absolute;*/
+    /*border: 2px solid #000000;*/
+    /*padding:16px 32px;*/
+    /*text-align: center;*/
+    /*text-decoration: none;*/
+    /*margin: 4px 2px;*/
+    /*right:0;*/
+    /*bottom:70%;*/
+    /*font-size:15px;*/
+    /*cursor:pointer;*/
+    /*display: inline-block;*/
+    /*background-color: transparent;*/
+/*}*/
