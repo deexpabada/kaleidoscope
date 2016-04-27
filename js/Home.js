@@ -157,14 +157,14 @@ $(function() {
                     userImageArray.push(reader.result);
                 }
                 reader.readAsDataURL(file);
+                console.log(userImageArray);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-        console.log(userImageArray);
         //console.log(document.getElementById("MultiUpload").multiple);
     });
-    
+
 
     // button to switch picture
     $('.switchBtn').click(function () {
