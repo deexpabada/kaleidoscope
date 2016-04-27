@@ -122,8 +122,7 @@ $(function() {
         draw();
     }
 
-
-//test for transition
+    //image transition from user's Array
     $('#transitionTest').click(function(){
         if(transitionTimer == null) {
             transitionTimer = setInterval(imgTransition, 2000);
@@ -136,7 +135,7 @@ $(function() {
     });
 
 
-    var shuffleArray = userImageArray;
+    var shuffleArray = userImageArray;   //can be set back to ImageArray
     function imgTransition(){
         if(imgIndex >= shuffleArray.length){
             imgIndex = 0;
@@ -147,6 +146,7 @@ $(function() {
         console.log(imgIndex);
     }
 
+    //multiple-image upload
     function readImage(file) {
         var reader = new FileReader();
         reader.onload = function(){
@@ -248,6 +248,8 @@ $(function() {
         }
 
     });
+
+
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
         link.href = document.getElementById(canvasId).toDataURL();
