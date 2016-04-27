@@ -147,22 +147,24 @@ $(function() {
         console.log(imgIndex);
     }
 
+    function readImage(file) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            userImageArray.push(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
     $('#MultiUpload').change(function(){
-        var imageType = /image.*/;
-        for (i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
+        var imageType = /^image\/.*/;
+        for (var i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
             var file = document.getElementById("MultiUpload").files[i];
             if (file.type.match(imageType)) {
-                var reader = new FileReader();
-                reader.onload = function(){
-                    userImageArray.push(reader.result);
-                }
-                reader.readAsDataURL(file);
-                console.log(userImageArray);
+                readImage(file);
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-        //console.log(document.getElementById("MultiUpload").multiple);
     });
 
 
