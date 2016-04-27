@@ -126,7 +126,7 @@ $(function() {
 //test for transition
     $('#transitionTest').click(function(){
         if(transitionTimer == null) {
-            transitionTimer = setInterval(imgTransition, 5000);
+            transitionTimer = setInterval(imgTransition, 2000);
 
         }
         else{
@@ -136,11 +136,12 @@ $(function() {
     });
 
 
+    var shuffleArray = userImageArray;
     function imgTransition(){
-        if(imgIndex >= imageArray.length){
+        if(imgIndex >= shuffleArray.length){
             imgIndex = 0;
         }
-        img.src = imageArray[imgIndex];
+        img.src = shuffleArray[imgIndex];
         draw();
         imgIndex++;
         console.log(imgIndex);
@@ -164,26 +165,26 @@ $(function() {
     });
 
 
-    $('#ImageUpload').change(function(){
-        var file = document.getElementById("ImageUpload").files[0];
-        var imageType = /image.*/;
-
-        if (file.type.match(imageType)) {
-            var reader = new FileReader();
-
-            reader.onload = function(){
-                img.src = reader.result;
-                draw();
-                zoomMultiplier = 1.0;
-                shift = 0;
-            };
-            reader.readAsDataURL(file);
-            console.log(file);
-        } else {
-            fileDisplayArea.innerHTML = "File not supported!"
-        }
-
-    });
+    //$('#ImageUpload').change(function(){
+    //    var file = document.getElementById("ImageUpload").files[0];
+    //    var imageType = /image.*/;
+    //
+    //    if (file.type.match(imageType)) {
+    //        var reader = new FileReader();
+    //
+    //        reader.onload = function(){
+    //            img.src = reader.result;
+    //            draw();
+    //            zoomMultiplier = 1.0;
+    //            shift = 0;
+    //        };
+    //        reader.readAsDataURL(file);
+    //        console.log(file);
+    //    } else {
+    //        fileDisplayArea.innerHTML = "File not supported!"
+    //    }
+    //
+    //});
 
     // button to switch picture
     $('.switchBtn').click(function () {
