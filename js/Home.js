@@ -152,18 +152,6 @@ $(function() {
         reader.readAsDataURL(file);
     }
 
-    $('#MultiUpload').change(function(){
-        var imageType = /^image\/.*/;
-        for (var i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
-            var file = document.getElementById("MultiUpload").files[i];
-            if (file.type.match(imageType)) {
-                readImage(file);
-            } else {
-                fileDisplayArea.innerHTML = "File not supported!"
-            }
-        }
-    });
-
     // button to switch picture
     $('.switchBtn').click(function () {
         newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
@@ -222,6 +210,19 @@ $(function() {
         var name = document.getElementById("NameBox").value;
         var element = document.getElementById("header");
         element.innerHTML = name;
+    });
+
+
+    $('#MultiUpload').change(function(){
+        var imageType = /^image\/.*/;
+        for (var i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
+            var file = document.getElementById("MultiUpload").files[i];
+            if (file.type.match(imageType)) {
+                readImage(file);
+            } else {
+                fileDisplayArea.innerHTML = "File not supported!"
+            }
+        }
     });
 
     $('#ImageUpload').change(function(){
