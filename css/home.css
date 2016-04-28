@@ -17,7 +17,6 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     font-weight: bold;
     font-size: 3.5vw;
     color: #fffcff;
-    margin-bottom:30px;
     text-align: left;
     display: block;
 }
@@ -99,22 +98,7 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     #interactionBtn {
         display: none;
     }
-    .downloadBtn {
-        display: none;
-    }
-    .imageUpload + label{
-        display: none;
-    }
-    .autoplayKaleidoBtn{
-        display: none;
-    }
-    .ZoomInBtn {
-        display: none;
-    }
-    .ZoomOutBtn {
-        display: none;
-    }
-    .switchBtn{
+    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomInBtn, .ZoomOutBtn, .switchBtn {
         display: none;
     }
 }
