@@ -114,6 +114,7 @@
     cursor:pointer;
     display: inline-block;
     border-width: 0;
+    z-index: 5000;
     background-color: transparent;
 }
 

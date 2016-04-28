@@ -178,6 +178,13 @@ $(function() {
         else{
             animationTimer = setInterval(singleFrameAnimation, refreshRate);
         }
+        if(transitionTimer!=null){
+            clearInterval(transitionTimer);
+            transitionTimer=null;
+        }
+        else if(userImageArray.length > 0){
+            transitionTimer = setInterval(imgTransition, 3500);
+        }
     });
 
     $('.fullBtn').click(function(){
@@ -213,6 +220,7 @@ $(function() {
         transitionTimer = setInterval(imgTransition, 3500);
     });
 
+    //for side button only, not for side bar.
     $('#ImageUpload').change(function(){
         var file = document.getElementById("ImageUpload").files[0];
         var imageType = /image.*/;
