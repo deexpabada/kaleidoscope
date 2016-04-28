@@ -292,3 +292,16 @@ function changePlaylist(theme) {
     var playlist = document.getElementById('soundcloud');
     playlist.src = theme;
 }
+
+
+
+$('#autoplayKaleidoBtn').click(function(){
+    $(this).find('i').toggleClass('glyphicon glyphicon-pause').toggleClass('glyphicon glyphicon-play');
+});
+
+//toggle autoplay button
+$(document).ready(function(){
+    $("#autoplayKaleidoBtn").click(function(){
+        $(".glyphicon-play").toggleClass("glyphicon-pause");
+    });
+});

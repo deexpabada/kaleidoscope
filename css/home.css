@@ -1,6 +1,6 @@
 body {margin:0;
 background-size: cover;
-background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festive-gold-bokeh-background-sm-5-1000x505.jpg");
+background-image: url("../images/mainBackground.jpg");
 }
 
 .header {
@@ -17,7 +17,6 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     font-weight: bold;
     font-size: 3.5vw;
     color: #fffcff;
-    margin-bottom:30px;
     text-align: left;
     display: block;
 }
@@ -64,28 +63,10 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
 @media screen and (max-width: 1000px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-    .soundcloud{
-        display: none;
-    }
     #interactionBtn {
         display: none;
     }
-    .downloadBtn {
-        display: none;
-    }
-    .imageUpload + label{
-        display: none;
-    }
-    .autoplayKaleidoBtn{
-        display: none;
-    }
-    .ZoomInBtn {
-        display: none;
-    }
-    .ZoomOutBtn {
-        display: none;
-    }
-    .switchBtn{
+    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn {
         display: none;
     }
 }
@@ -99,22 +80,7 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
     #interactionBtn {
         display: none;
     }
-    .downloadBtn {
-        display: none;
-    }
-    .imageUpload + label{
-        display: none;
-    }
-    .autoplayKaleidoBtn{
-        display: none;
-    }
-    .ZoomInBtn {
-        display: none;
-    }
-    .ZoomOutBtn {
-        display: none;
-    }
-    .switchBtn{
+    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomInBtn, .ZoomOutBtn, .switchBtn {
         display: none;
     }
 }

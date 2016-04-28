@@ -4,7 +4,7 @@
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
     z-index: 100; /* Stay on top */
-    top: 10%;
+    top: 0%;
     left: 0;
     background-color: #3a7791; /* Navy*/
     overflow-x: hidden; /* Disable horizontal scroll */
@@ -74,7 +74,7 @@
 .interactionBtn {
     position:absolute;
     border: 2px solid #000000;
-    padding:16px 32px;
+    padding:32px 16px;
     text-align: center;
     text-decoration: none;
     left:0;
@@ -87,8 +87,8 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-delay: 15s;
-    animation-iteration-count: 30;
+    animation-delay: 5s;
+    animation-iteration-count: 20;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
