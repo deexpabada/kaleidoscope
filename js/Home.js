@@ -248,12 +248,21 @@ $(function() {
 
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
+        console.log("clicked download");
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
+
     document.getElementById('downloadBtn').addEventListener('click', function() {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
+
+
+    //function download(){
+    //    console.log("clicked download")
+    //    document.getElementById("downloader").download = "image.png";
+    //    document.getElementById("downloader").href = document.getElementById("kaleidoscope").toDataURL("image/png").replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    //}
 
 });
 
