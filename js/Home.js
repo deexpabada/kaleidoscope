@@ -119,13 +119,12 @@ $(function() {
         draw();
     }
 
-
-    var shuffleArray = userImageArray;   //can be set back to ImageArray
+    
     function imgTransition(){
-        if(imgIndex >= shuffleArray.length){
+        if(imgIndex >= userImageArray.length){
             imgIndex = 0;
         }
-        img.src = shuffleArray[imgIndex];
+        img.src = userImageArray[imgIndex];
         draw();
         imgIndex++;
         console.log(imgIndex);
@@ -211,15 +210,7 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-
-        if(transitionTimer == null) {
-            transitionTimer = setInterval(imgTransition, 3500);
-
-        }
-        else{
-            clearInterval(transitionTimer);
-            transitionTimer=null;
-        }
+        transitionTimer = setInterval(imgTransition, 3500);
     });
 
     $('#ImageUpload').change(function(){
