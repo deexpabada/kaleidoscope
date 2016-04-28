@@ -119,18 +119,6 @@ $(function() {
         draw();
     }
 
-    //image transition from user's Array
-    $('#transitionTest').click(function(){
-        if(transitionTimer == null) {
-            transitionTimer = setInterval(imgTransition, 3500);
-
-        }
-        else{
-            clearInterval(transitionTimer);
-            transitionTimer=null;
-        }
-    });
-
 
     var shuffleArray = userImageArray;   //can be set back to ImageArray
     function imgTransition(){
@@ -222,6 +210,15 @@ $(function() {
             } else {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
+        }
+
+        if(transitionTimer == null) {
+            transitionTimer = setInterval(imgTransition, 3500);
+
+        }
+        else{
+            clearInterval(transitionTimer);
+            transitionTimer=null;
         }
     });
 
