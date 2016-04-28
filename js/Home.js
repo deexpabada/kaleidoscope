@@ -140,10 +140,14 @@ $(function() {
     }
 
     // button to switch picture
+    var shuffleArray = imageArray;
     $('.switchBtn').click(function () {
-        newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
+        if(userImageArray.length > 1){
+            shuffleArray = userImageArray;
+        }
+        newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
         if(newSrc === img.src){
-            newSrc = imageArray[Math.floor(Math.random() * imageArray.length)];
+            newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
         }
         zoomMultiplier = 1.0;
         shift = 0;
