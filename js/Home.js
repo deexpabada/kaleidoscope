@@ -122,7 +122,7 @@ $(function() {
     //image transition from user's Array
     $('#transitionTest').click(function(){
         if(transitionTimer == null) {
-            transitionTimer = setInterval(imgTransition, 2000);
+            transitionTimer = setInterval(imgTransition, 3500);
 
         }
         else{
