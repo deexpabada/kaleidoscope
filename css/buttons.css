@@ -87,8 +87,8 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-delay: 10s;
-    animation-iteration-count: 30;
+    animation-delay: 5s;
+    animation-iteration-count: 20;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
