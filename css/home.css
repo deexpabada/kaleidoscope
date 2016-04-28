@@ -63,28 +63,10 @@ background-image: url("http://www.jayreiter.com/wp-content/uploads/2014/02/festi
 @media screen and (max-width: 1000px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-    .soundcloud{
-        display: none;
-    }
     #interactionBtn {
         display: none;
     }
-    .downloadBtn {
-        display: none;
-    }
-    .imageUpload + label{
-        display: none;
-    }
-    .autoplayKaleidoBtn{
-        display: none;
-    }
-    .ZoomInBtn {
-        display: none;
-    }
-    .ZoomOutBtn {
-        display: none;
-    }
-    .switchBtn{
+    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn {
         display: none;
     }
 }
