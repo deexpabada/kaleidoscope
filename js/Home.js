@@ -4,10 +4,8 @@ $(function() {
     var g = canvas[0].getContext('2d');
     var imgIndex = 0;
     var zoomMultiplier = 1.0;
-
     var userImageArray = [];
     var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
-    var imgSource = "../images/SPACE.png";
     var shift = 0;
     var pixelBuffer = 20;
     var width = 1000;
@@ -19,7 +17,7 @@ $(function() {
     var refreshRate = 1000 / 60;
     var transitionTimer = null;
     var img = new Image();
-    img.src = imgSource;
+    img.src = "../images/SPACE.png";
     img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
@@ -52,7 +50,6 @@ $(function() {
     //Draw the huge Kalei on the center
     function drawWithCircle() {
         drawCircle();
-        //draw hexagons in circle
         g.save();
         g.beginPath();
         g.arc(centerW, centerH, centerH - pixelBuffer, 0, 2 * Math.PI);
@@ -166,7 +163,6 @@ $(function() {
             }
         }
     });
-
 
     // button to switch picture
     $('.switchBtn').click(function () {
