@@ -299,7 +299,6 @@ function changePlaylist(theme) {
 
 
 
-
 $('#autoplayKaleidoBtn').click(function(){
     $(this).find('i').toggleClass('glyphicon glyphicon-pause').toggleClass('glyphicon glyphicon-play');
 });
