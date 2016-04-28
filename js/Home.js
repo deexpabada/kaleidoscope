@@ -221,6 +221,7 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
+        alert("Upload scceed, enjoy your party!");
         transitionTimer = setInterval(imgTransition, 3500);
     });
 
