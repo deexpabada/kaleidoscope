@@ -1,14 +1,14 @@
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
+    height: 100%;
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Stay on top */
+    position: fixed;
+    z-index: 100;
     top: 0%;
     left: 0;
-    background-color: #3a7791; /* Navy*/
+    background-color: #3a7791;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 3vw; /* Place content 60px from the top */
+    padding-top: 3vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
