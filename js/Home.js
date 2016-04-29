@@ -24,7 +24,6 @@ $(function() {
     img.src = "../images/SPACE.png";
     img.onload = draw;
 
-    drawing = draw();
     function draw(){
         if(fullscreen){
             drawFull();
@@ -206,6 +205,7 @@ $(function() {
         resize();
         g.clearRect(0,0, width, height);
         draw();
+        transitionTimer = setInterval(imgTransition, 3500);
     });
 
     $('.nameBtn').click(function(){
@@ -225,31 +225,32 @@ $(function() {
                 fileDisplayArea.innerHTML = "File not supported!"
             }
         }
-        alert("Upload succeed, enjoy your party!");
-        transitionTimer = setInterval(imgTransition, 3500);
+        alert("Upload succeed");
+        img.src = userImageArray[0];
+        //transitionTimer = setInterval(imgTransition, 3500);
     });
 
     //for side button only, not for side bar.
-    $('#ImageUpload').change(function(){
-        var file = document.getElementById("ImageUpload").files[0];
-        var imageType = /image.*/;
-
-        if (file.type.match(imageType)) {
-            var reader = new FileReader();
-
-            reader.onload = function(){
-                img.src = reader.result;
-                console.log(reader.result);
-                draw();
-                zoomMultiplier = 1.0;
-                shift = 0;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            fileDisplayArea.innerHTML = "File not supported!"
-        }
-
-    });
+    //$('#ImageUpload').change(function(){
+    //    var file = document.getElementById("ImageUpload").files[0];
+    //    var imageType = /image.*/;
+    //
+    //    if (file.type.match(imageType)) {
+    //        var reader = new FileReader();
+    //
+    //        reader.onload = function(){
+    //            img.src = reader.result;
+    //            console.log(reader.result);
+    //            draw();
+    //            zoomMultiplier = 1.0;
+    //            shift = 0;
+    //        };
+    //        reader.readAsDataURL(file);
+    //    } else {
+    //        fileDisplayArea.innerHTML = "File not supported!"
+    //    }
+    //
+    //});
 
 
     // Download Image
