@@ -42,7 +42,7 @@ background-image: url("../images/mainBackground.jpg");
     position: static;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size:50px;
+    font-size:5vw;
     color:white;
     text-align: center;
     padding: 2px;
@@ -53,34 +53,35 @@ background-image: url("../images/mainBackground.jpg");
     position: static;
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
-    font-size:20px;
+    font-size:2vw;
     color:white;
     text-align:left;
     padding: 2px;
     margin: 2px;
 }
 
-@media screen and (max-width: 1000px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-    #interactionBtn {
-        display: none;
+@media screen and (max-width: 1000px) and (max-height: 400px) {
+    .sidenav {
+        padding-top: 15px;
     }
+    .sidenav a {
+        font-size: 18px;}
+
+
+    #interactionBtn {
+        font-size: 15px;
+    }
+
+
+
     .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn {
         display: none;
     }
+
+    .soundcloud {
+        height: 10%;
+    }
 }
 
-@media screen and (max-height: 400px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-    .soundcloud{
-        display: none;
-    }
-    #interactionBtn {
-        display: none;
-    }
-    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomInBtn, .ZoomOutBtn, .switchBtn {
-        display: none;
-    }
-}
+
+

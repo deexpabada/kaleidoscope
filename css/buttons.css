@@ -8,7 +8,7 @@
     left: 0;
     background-color: #3a7791; /* Navy*/
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    padding-top: 3vw; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -16,7 +16,7 @@
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 2vw;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
     display: block;
@@ -33,7 +33,7 @@
     position: absolute;
     top: 0;
     right: 25px;
-    font-size: 36px !important;
+    font-size: 3vw !important;
     margin-left: 50px;
 }
 
@@ -74,12 +74,12 @@
 .interactionBtn {
     position:absolute;
     border: 2px solid #000000;
-    padding:32px 16px;
+    padding:2% 1%;
     text-align: center;
     text-decoration: none;
     left:0;
     top: 50%;
-    font-size:30px;
+    font-size:3vw;
     cursor:pointer;
     display: inline-block;
     z-index: 10;
@@ -105,12 +105,12 @@
 .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
     position:absolute;
     border: 2px solid #000000;
-    padding:16px 32px;
+    padding:1% 2%;
     text-align: center;
     text-decoration: none;
     margin: 4px 2px;
     right: 0;
-    font-size:3vw;
+    font-size:4vw;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
@@ -134,7 +134,7 @@
     z-index: -1;
 }
 .imageUpload + label {
-    Bottom:30%;
+    Bottom:25%;
 }
 
 /*Auto-Play Kaleido Button */
@@ -145,12 +145,12 @@
 
 /*Zoom In Button */
 .ZoomInBtn {
-    bottom:60%;
+    bottom:70%;
 }
 
 /*Zoom Out Button */
 .ZoomOutBtn {
-    bottom:50%;
+    bottom:55%;
 }
 
 /*Shuffle Button */
