@@ -45,7 +45,7 @@ background-image: url("../images/mainBackground.jpg");
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size:4.5vw;
-    color:white;
+    color: #ccffff;
     text-align: center;
     padding:0.2%;
     margin: 0.2%;
@@ -67,7 +67,7 @@ background-image: url("../images/mainBackground.jpg");
 
 
 .fullBtn:hover{
-    color:black;
+    color: #5edfc9;
     cursor: pointer;
 }
 
