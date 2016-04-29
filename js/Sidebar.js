@@ -2,16 +2,21 @@
  * Created by deexpabada on 4/12/2016.
  */
 
-
-function toggleNav(navBar, open) {
-    var width;
-    if (open) {
-        width = "23%";
-    } else {
-        width = "0%"
+$(document).ready(function(){
+    $("#interactionBtn").click(function() {
+        $("#InteractionBar").width("23%");
     }
-    document.getElementById(navBar).style.width = width;
-}
+    )}
+)
+
+
+$(document).ready(function(){
+    $(".closebtn").click(function() {
+            $("#InteractionBar").width("0%");
+        }
+    )}
+)
+
 
 function titleScreen(navigation, opens) {
     var titleHeight;
