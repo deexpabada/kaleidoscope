@@ -126,7 +126,7 @@
 }
 
 /* Basic Button Formatting*/
-.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label{
+.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label{
     position:absolute;
     padding:0.5% 1%;
     text-align: center;
@@ -146,13 +146,8 @@
 }
 
 /*Basic Button Hover*/
-.downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
+.switchArrayBtn:hover, .downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
 color: #5edfc9;
-}
-
-/*Download Button */
-.downloadBtn {
-    bottom:5%;
 }
 
 /* Hide default Upload Button*/
@@ -165,30 +160,40 @@ color: #5edfc9;
     z-index: -1;
 }
 
+/*Zoom In Button */
+.ZoomInBtn {
+    bottom:68%;
+}
 
-/*Single Upload Button*/
+/*Zoom Out Button */
+.ZoomOutBtn {
+    bottom:56%;
+}
+
+/*Shuffle Button */
+.switchBtn {
+    bottom:44%;
+}
+
+/*Upload Button*/
 .MultiUpload + label {
-    Bottom:35%;
+    Bottom:32%;
+}
+
+/* Switch Array Button */
+.switchArrayBtn {
+    bottom:20%;
+}
+
+
+/*Download Button */
+.downloadBtn {
+    bottom:8%;
 }
 
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
     right:19%;
-    bottom:5%;
-}
-
-/*Zoom In Button */
-.ZoomInBtn {
-    bottom:80%;
-}
-
-/*Zoom Out Button */
-.ZoomOutBtn {
-    bottom:65%;
-}
-
-/*Shuffle Button */
-.switchBtn {
-    bottom:50%;
+    bottom:8%;
 }

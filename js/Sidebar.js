@@ -37,14 +37,14 @@ $(document).ready(function() {
 //Buttons Appear!
 $(document).ready(function() {
     var buttonsAppeared;
-    $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").hide();
+    $(".switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").hide();
     buttonsAppeared = false;
     $(".kaleidoscope").click(function () {
         if (!buttonsAppeared) {
-            $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").show();
+            $(".switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").show();
             buttonsAppeared = true;
         } else {
-            $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").hide();
+            $(".switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").hide();
             buttonsAppeared = false;
         }
     })
