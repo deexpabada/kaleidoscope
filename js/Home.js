@@ -227,7 +227,6 @@ $(function() {
         }
         alert("Upload succeed");
         img.src = userImageArray[0];
-        //transitionTimer = setInterval(imgTransition, 3500);
     });
 
     //for side button only, not for side bar.
