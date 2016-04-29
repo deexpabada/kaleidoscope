@@ -30,7 +30,7 @@
 <div id="InteractionBar" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)"> <span class="glyphicon glyphicon-remove"></span></a>
 
-    <div class="fullBtn" title="Enter Full Screen!"> PARTY MODE!</div>
+    <div class="fullBtn" id ="fullScreen" title="Enter Full Screen!"> PARTY MODE!</div>
     <!--<input type="text" id="NameBox" value="Kaleidoscope">-->
     <!--<a href="#" class="nameBtn"> Submit new name!</a>-->
 
@@ -87,10 +87,9 @@ auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=fal
     <span class="glyphicon glyphicon-zoom-out"></span>
 </button>
 
-<!--&lt;!&ndash; FullScreen Button&ndash;&gt;-->
-<!--<button type="button" class="fullBtn" id="fullBtn" title="Full Screen">-->
-    <!--<span class="glyphicon glyphicon-fullscreen"></span>-->
-<!--</button>-->
+<button type="button" class="closeFullscreen" id="closeFullscreen" title="Exit Full Screen">
+    <span class="glyphicon glyphicon-remove"></span>
+</button>
 
 <!--Download Button-->
 <a href="#" type ="button" class="downloadBtn" id="downloadBtn" title="Download">

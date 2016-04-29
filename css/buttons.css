@@ -38,6 +38,7 @@
     margin-bottom: 3%;
 }
 
+
 /* Style of the Title Screen */
 .titleScreen {
     position: absolute;
@@ -101,15 +102,29 @@
 }
 
 
+#closeFullscreen{
+    position:absolute;
+    text-align: center;
+    text-decoration: none;
+    color:white;
+    right: 0;
+    top:8%;
+    font-size:2.5vw;
+    cursor:pointer;
+    display: inline-block;
+    border-width: 0;
+    z-index: 5000;
+    background-color: transparent;
+}
+
 /* Basic Button Formatting*/
 .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
     position:absolute;
-    border: 2px solid #000000;
     padding:1% 2%;
     text-align: center;
     text-decoration: none;
     color:black;
-    margin: 4px 2px;
+    margin: 1% 0.5%;
     right: 0;
     font-size:4vw;
     cursor:pointer;
@@ -119,7 +134,7 @@
     background-color: transparent;
 }
 
-.downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover {
+.downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
 color: #5edfc9;
 }
 
