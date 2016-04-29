@@ -34,7 +34,7 @@ background-image: url("../images/mainBackground.jpg");
 }
 
 .soundcloud {
-    position: relative;
+    position: absolute;
     bottom:0;
     left:0;
 }
@@ -53,7 +53,7 @@ background-image: url("../images/mainBackground.jpg");
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-iteration-count: 25;
+    animation-iteration-count: infinite;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.1); }
