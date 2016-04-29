@@ -14,13 +14,18 @@ $(function() {
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
-    var refreshRate = 1000 / 60;
+    var refreshRate = 1000 / 30;
+    var shiftDelta = 2;
+
     var transitionTimer = null;
+    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+
+
     var img = new Image();
     img.src = "../images/SPACE.png";
     img.onload = draw;
-    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
+    drawing = draw();
     function draw(){
         if(fullscreen){
             drawFull();
@@ -72,11 +77,11 @@ $(function() {
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
         //this loop creates the start of the columns of images
-        for(var t = -5; t < 10; t++) {
+        for(var t = -4; t < 7; t++) {
             g.save();
             g.translate(TriLength *1.5 * t, TriHeight * t);
             //this loop actually renders the image
-            for (var i = -3; i < 4; i++) {
+            for (var i = -4; i < 4; i++) {
                 g.save();
                 g.translate(0, i * 2 * TriHeight);
                 drawHex();
@@ -115,7 +120,7 @@ $(function() {
     }
 
     function singleFrameAnimation(){
-        shift--;  //another variable keeps track of the transition amount
+        shift -= shiftDelta / zoomMultiplier;
         draw();
     }
 
@@ -167,7 +172,7 @@ $(function() {
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
         if(zoomMultiplier < 0.1){
-            zoomMultiplier = .01;
+            zoomMultiplier = .1;
         }
         draw();
     });
@@ -285,7 +290,6 @@ function resize() {
         kaleidoscopeCanvas.height =origHeight;
         kaleidoscopeCanvas.style.top = '10%';
     }
-
 }
 
 window.addEventListener('load', resize, false);
