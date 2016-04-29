@@ -126,7 +126,7 @@
 }
 
 /* Basic Button Formatting*/
-.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
+.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label{
     position:absolute;
     padding:0.5% 1%;
     text-align: center;
@@ -156,7 +156,7 @@ color: #5edfc9;
 }
 
 /* Hide default Upload Button*/
-.imageUpload, .MultiUpload {
+.MultiUpload {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -165,19 +165,10 @@ color: #5edfc9;
     z-index: -1;
 }
 
-/*Multiupload button*/
-.MultiUpload + label{
-    position: relative;
-    left:50%;
-    font-size:4vw;
-    cursor:pointer;
-    display: inline-block;
-    color: #ccffff;
-}
 
 /*Single Upload Button*/
-.imageUpload + label {
-    Bottom:25%;
+.MultiUpload + label {
+    Bottom:35%;
 }
 
 
@@ -189,15 +180,15 @@ color: #5edfc9;
 
 /*Zoom In Button */
 .ZoomInBtn {
-    bottom:70%;
+    bottom:80%;
 }
 
 /*Zoom Out Button */
 .ZoomOutBtn {
-    bottom:55%;
+    bottom:65%;
 }
 
 /*Shuffle Button */
 .switchBtn {
-    bottom:40%;
+    bottom:50%;
 }
