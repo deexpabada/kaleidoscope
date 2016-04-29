@@ -124,7 +124,7 @@
 }
 
 /*Upload Button*/
-.imageUpload {
+.imageUpload, .MultiUpload {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -132,9 +132,19 @@
     position: absolute;
     z-index: -1;
 }
+
+.MultiUpload + label{
+    position: relative;
+    left:5%;
+    font-size:4vw;
+    cursor:pointer;
+    display: inline-block;
+}
+
 .imageUpload + label {
     Bottom:25%;
 }
+
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
