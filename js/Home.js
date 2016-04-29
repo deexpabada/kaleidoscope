@@ -18,12 +18,14 @@ $(function() {
     var shiftDelta = 2;
 
     var transitionTimer = null;
+    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+
 
     var img = new Image();
     img.src = "../images/SPACE.png";
     img.onload = draw;
-    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
+    drawing = draw();
     function draw(){
         if(fullscreen){
             drawFull();
@@ -118,7 +120,14 @@ $(function() {
     }
 
     function singleFrameAnimation(){
-        shift -= shiftDelta;  //another variable keeps track of the transition amount
+        //todo change this logic after fixing the speed up bug in zooming in
+
+       if(zoomMultiplier > 1.0){
+            shift -= shiftDelta/(zoomMultiplier);  //another variable keeps track of the transition amount
+        }
+        else{
+            shift -= shiftDelta;
+        }
         draw();
     }
 
@@ -170,7 +179,7 @@ $(function() {
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
         if(zoomMultiplier < 0.1){
-            zoomMultiplier = .01;
+            zoomMultiplier = .1;
         }
         draw();
     });
@@ -288,7 +297,6 @@ function resize() {
         kaleidoscopeCanvas.height =origHeight;
         kaleidoscopeCanvas.style.top = '10%';
     }
-
 }
 
 window.addEventListener('load', resize, false);
