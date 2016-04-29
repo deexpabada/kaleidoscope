@@ -120,14 +120,7 @@ $(function() {
     }
 
     function singleFrameAnimation(){
-        //todo change this logic after fixing the speed up bug in zooming in
-
-       if(zoomMultiplier > 1.0){
-            shift -= shiftDelta/(zoomMultiplier);  //another variable keeps track of the transition amount
-        }
-        else{
-            shift -= shiftDelta;
-        }
+        shift -= shiftDelta / zoomMultiplier;
         draw();
     }
 
