@@ -6,7 +6,7 @@
     z-index: 100;
     top: 0%;
     left: 0;
-    background-color: #3a7791;
+    background-image: url("../images/Stage-Light-Design-ppt-Backgrounds.jpg");
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 4vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -20,7 +20,6 @@
     font-family: 'Montserrat', sans-serif;
     color: #000000;
     display: block;
-    transition: 0.5s
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -52,6 +51,15 @@
     height:100%;
 }
 
+.nameBox {
+    position: fixed;
+    left:5%;
+    font-size:1vw;
+    cursor:pointer;
+    text-align: center;
+    display: inline-block;
+    color: black;
+}
 
 /* The title screen navigation method*/
 .titleScreenNav {
@@ -75,12 +83,12 @@
 /* Interaction Button */
 .interactionBtn {
     position:absolute;
-    border: 2px solid #000000;
+    border: none;
     padding:2% 1%;
     text-align: center;
     text-decoration: none;
     left:0;
-    top: 50%;
+    top: 6%;
     font-size:3vw;
     cursor:pointer;
     display: inline-block;
@@ -89,7 +97,7 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-iteration-count: 15;
+    animation-iteration-count: 30;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
