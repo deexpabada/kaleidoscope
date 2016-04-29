@@ -8,7 +8,7 @@
     left: 0;
     background-color: #3a7791;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 3vw;
+    padding-top: 5vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
@@ -32,9 +32,10 @@
 .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 2%;
     font-size: 3vw !important;
-    margin-left: 50px;
+    margin-left: 2%;
+    margin-bottom: 3%;
 }
 
 /* Style of the Title Screen */
