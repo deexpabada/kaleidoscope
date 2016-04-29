@@ -29,28 +29,23 @@
 <!--Interaction Sidebar-->
 <div id="InteractionBar" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="toggleNav('InteractionBar', false)"> <span class="glyphicon glyphicon-remove"></span></a>
-    <p class="description">PARTY MODE</p>
-    <!--<p class="moreDescription">-->
-        <!--<br>WILD night?<span class="glyphicon glyphicon-glass"></span> <br>-->
-        <!--Chilling with friends?<span class="glyphicon glyphicon-cd"></span> <br>-->
-        <!--Romantic date? <span class="glyphicon glyphicon-heart-empty"></span><br><br>-->
-        <!--Upload your own images and the kaleidoscope will loop through your images so you can just focus on fun.<br><br>-->
-    <!--</p>-->
 
-    <a href="#" class="fullBtn">Full Screen!</a>
+    <div class="fullBtn" id ="fullScreen" title="Enter Full Screen!"> PARTY MODE!</div>
     <!--<input type="text" id="NameBox" value="Kaleidoscope">-->
     <!--<a href="#" class="nameBtn"> Submit new name!</a>-->
 
     <!----multiupload------>
     <p class="moreDescription">
         Upload multiple images: <br></p>
-    <a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>
-    <input type="file" id="MultiUpload" multiple=""/>
+    <!--<a target="_blank" href="http://www.fyneworks.com/jquery/multifile/"></a>-->
+    <input type="file" id="MultiUpload" class = "MultiUpload" name="MultiUpload" multiple=""/>
+    <label for="MultiUpload"><span class="glyphicon glyphicon-duplicate"> </span>
+    </label>
 
 
 
     <p class="moreDescription">
-        <br>You can also choose a theme from the list below, and we'll play a playlist to help set the mood.</p>
+        <br>Switch Playlist: </p>
     <a href="#"onclick="changePlaylist('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/210079548&amp;auto_play=false&amp;' +
      'hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')"> Party </a>
     <a href="#"onclick="changePlaylist('https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/13337125&amp;' +
@@ -59,7 +54,7 @@
      'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false')"> Romance </a>
 
     <!--Soundcloud-->
-    <iframe class = "soundcloud" id="soundcloud" width="100%" height="14%" scrolling="no" frameborder="no"
+    <iframe class = "soundcloud" id="soundcloud" width="100%" height="18%" scrolling="no" frameborder="no"
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/105343074&amp;
 auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
 
@@ -92,9 +87,8 @@ auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=fal
     <span class="glyphicon glyphicon-zoom-out"></span>
 </button>
 
-<!-- FullScreen Button-->
-<button type="button" class="fullBtn" id="fullBtn" title="Full Screen">
-    <span class="glyphicon glyphicon-fullscreen"></span>
+<button type="button" class="closeFullscreen" id="closeFullscreen" title="Exit Full Screen">
+    <span class="glyphicon glyphicon-remove"></span>
 </button>
 
 <!--Download Button-->
@@ -110,8 +104,6 @@ auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=fal
 
 <!--Kaleidoscope Canvas-->
 <canvas id="kaleidoscope" class="kaleidoscope" width="1000" height="650"></canvas>
-
-
 
 </body>
 </html>

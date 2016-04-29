@@ -1,22 +1,22 @@
 /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
+    height: 100%;
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Stay on top */
+    position: fixed;
+    z-index: 100;
     top: 0%;
     left: 0;
-    background-color: #3a7791; /* Navy*/
+    background-color: #3a7791;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
+    padding-top: 4vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 2% 2% 2% 4%;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 2vw;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
     display: block;
@@ -28,14 +28,16 @@
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
+/* Position and style the close button ) */
 .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
+    right: 2%;
+    font-size: 3vw !important;
+    margin-left: 2%;
+    margin-bottom: 3%;
 }
+
 
 /* Style of the Title Screen */
 .titleScreen {
@@ -74,12 +76,12 @@
 .interactionBtn {
     position:absolute;
     border: 2px solid #000000;
-    padding:32px 16px;
+    padding:2% 1%;
     text-align: center;
     text-decoration: none;
     left:0;
     top: 50%;
-    font-size:30px;
+    font-size:3vw;
     cursor:pointer;
     display: inline-block;
     z-index: 10;
@@ -87,8 +89,7 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-delay: 5s;
-    animation-iteration-count: 20;
+    animation-iteration-count: 15;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
@@ -101,16 +102,14 @@
 }
 
 
-/* Basic Button Formatting*/
-.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
+#closeFullscreen{
     position:absolute;
-    border: 2px solid #000000;
-    padding:16px 32px;
     text-align: center;
     text-decoration: none;
-    margin: 4px 2px;
+    color:white;
     right: 0;
-    font-size:3vw;
+    top:8%;
+    font-size:2.5vw;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
@@ -118,14 +117,35 @@
     background-color: transparent;
 }
 
+/* Basic Button Formatting*/
+.downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
+    position:absolute;
+    padding:1% 2%;
+    text-align: center;
+    text-decoration: none;
+    color:black;
+    margin: 1% 0.5%;
+    right: 0;
+    font-size:4vw;
+    cursor:pointer;
+    display: inline-block;
+    border-width: 0;
+    z-index: 5000;
+    background-color: transparent;
+}
+
+/*Basic Button Hover*/
+.downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
+color: #5edfc9;
+}
 
 /*Download Button */
 .downloadBtn {
     bottom:5%;
 }
 
-/*Upload Button*/
-.imageUpload {
+/* Hide default Upload Button*/
+.imageUpload, .MultiUpload {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -133,9 +153,22 @@
     position: absolute;
     z-index: -1;
 }
-.imageUpload + label {
-    Bottom:30%;
+
+/*Multiupload button*/
+.MultiUpload + label{
+    position: relative;
+    left:5%;
+    font-size:4vw;
+    cursor:pointer;
+    display: inline-block;
+    color: #ccffff;
 }
+
+/*Single Upload Button*/
+.imageUpload + label {
+    Bottom:25%;
+}
+
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
@@ -145,12 +178,12 @@
 
 /*Zoom In Button */
 .ZoomInBtn {
-    bottom:60%;
+    bottom:70%;
 }
 
 /*Zoom Out Button */
 .ZoomOutBtn {
-    bottom:50%;
+    bottom:55%;
 }
 
 /*Shuffle Button */
