@@ -128,18 +128,21 @@
 /* Basic Button Formatting*/
 .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label{
     position:absolute;
-    padding:1% 2%;
+    padding:0.5% 1%;
     text-align: center;
     text-decoration: none;
-    color:black;
+    color: #000000;
     margin: 1% 0.5%;
-    right: 0;
-    font-size:4vw;
+    right: 10%;
+    font-size:3vw;
     cursor:pointer;
     display: inline-block;
     border-width: 0;
     z-index: 5000;
     background-color: transparent;
+    box-shadow: 0 2px #7c7c7c;
+    border-radius: 40%;
+    transition: 0.5s;
 }
 
 /*Basic Button Hover*/
@@ -165,7 +168,7 @@ color: #5edfc9;
 /*Multiupload button*/
 .MultiUpload + label{
     position: relative;
-    left:5%;
+    left:50%;
     font-size:4vw;
     cursor:pointer;
     display: inline-block;
@@ -180,7 +183,7 @@ color: #5edfc9;
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
-    right:7%;
+    right:19%;
     bottom:5%;
 }
 

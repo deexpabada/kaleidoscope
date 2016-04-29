@@ -34,6 +34,22 @@ $(document).ready(function() {
     )
 })
 
+//Buttons Appear!
+$(document).ready(function() {
+    var buttonsAppeared;
+    $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label").hide();
+    buttonsAppeared = false;
+    $(".kaleidoscope").click(function () {
+        if (!buttonsAppeared) {
+            $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label").show();
+            buttonsAppeared = true;
+        } else {
+            $(".downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .imageUpload + label").hide();
+            buttonsAppeared = false;
+        }
+    })
+})
+
 
 function titleScreen(navigation, opens) {
     var titleHeight;
