@@ -139,7 +139,7 @@ $(function() {
         reader.readAsDataURL(file);
     }
 
-    // button to switch picture
+    //// button to switch picture
     var shuffleArray = imageArray;
     $('.switchBtn').click(function () {
         if(userImageArray.length > 1){
