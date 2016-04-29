@@ -143,7 +143,7 @@ $(function() {
         reader.readAsDataURL(file);
     }
 
-    //// button to switch picture
+    ////button to switch picture
     var shuffleArray = imageArray;
     $('.switchBtn').click(function () {
         if(userImageArray.length > 1){
@@ -159,7 +159,7 @@ $(function() {
         draw();
     });
 
-    //testing
+    //placeholder for resetting feature
     $('.ZoomInBtn').click(function(){
         if(shuffleArray === userImageArray){
             shuffleArray = imageArray;
@@ -177,7 +177,7 @@ $(function() {
         draw();
     });
 
-
+    //NEED TO COMMENT BACK IN PLEASE DON'T DELETE
     //$('.ZoomInBtn').click(function(){
     //    zoomMultiplier += .1;
     //    if(zoomMultiplier > 4.0){
@@ -193,7 +193,6 @@ $(function() {
         }
         draw();
     });
-
 
     //Button Implementation
     $('.autoplayKaleidoBtn').click(function(){
@@ -317,7 +316,6 @@ function changePlaylist(theme) {
     var playlist = document.getElementById('soundcloud');
     playlist.src = theme;
 }
-
 
 
 //toggle autoplay button
