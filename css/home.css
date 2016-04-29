@@ -23,9 +23,12 @@ background-image: url("../images/mainBackground.jpg");
 
 .kaleidoscope {
     position:absolute;
-    top: 10%;
-    right:18%;
-    margin:0 auto;
+    top: 0;
+    right:0;
+    bottom: 0;
+    left: 0;
+    margin:auto;
+    padding:0;
     display: block;
 
 }
