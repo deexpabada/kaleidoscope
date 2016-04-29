@@ -32,6 +32,7 @@ $(document).ready(function() {
     )
 })
 
+
 function titleScreen(navigation, opens) {
     var titleHeight;
     if (opens) {
