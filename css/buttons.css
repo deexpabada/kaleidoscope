@@ -117,6 +117,9 @@
     background-color: transparent;
 }
 
+.downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover {
+color: #5edfc9;
+}
 
 /*Download Button */
 .downloadBtn {
@@ -139,6 +142,7 @@
     font-size:4vw;
     cursor:pointer;
     display: inline-block;
+    color: #ccffff;
 }
 
 .imageUpload + label {
