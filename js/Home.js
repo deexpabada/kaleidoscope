@@ -20,10 +20,9 @@ $(function() {
     var transitionTimer = null;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
-
     var img = new Image();
     img.src = "../images/SPACE.png";
-    //img.onload = draw;
+    img.onload = draw;
 
     drawing = draw();
     function draw(){
