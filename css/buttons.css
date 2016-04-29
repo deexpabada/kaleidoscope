@@ -28,7 +28,7 @@
     color: #f1f1f1;
 }
 
-/* Position and style the close button (top right corner) */
+/* Position and style the close button ) */
 .closebtn {
     position: absolute;
     top: 0;
@@ -134,6 +134,7 @@
     background-color: transparent;
 }
 
+/*Basic Button Hover*/
 .downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .imageUpload + label:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
 color: #5edfc9;
 }
@@ -143,7 +144,7 @@ color: #5edfc9;
     bottom:5%;
 }
 
-/*Upload Button*/
+/* Hide default Upload Button*/
 .imageUpload, .MultiUpload {
     width: 0.1px;
     height: 0.1px;
@@ -153,6 +154,7 @@ color: #5edfc9;
     z-index: -1;
 }
 
+/*Multiupload button*/
 .MultiUpload + label{
     position: relative;
     left:5%;
@@ -162,6 +164,7 @@ color: #5edfc9;
     color: #ccffff;
 }
 
+/*Single Upload Button*/
 .imageUpload + label {
     Bottom:25%;
 }

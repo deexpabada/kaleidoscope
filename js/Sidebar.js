@@ -2,6 +2,7 @@
  * Created by deexpabada on 4/12/2016.
  */
 
+/*Open Sidebar*/
 $(document).ready(function(){
     $("#interactionBtn").click(function() {
         $("#InteractionBar").width("23%");
@@ -10,6 +11,7 @@ $(document).ready(function(){
 )
 
 
+/*Close Sidebar */
 $(document).ready(function(){
     $(".closebtn").click(function() {
             $("#InteractionBar").width("0%");
