@@ -14,7 +14,7 @@
 
 /* The navigation menu links */
 .sidenav a {
-    padding: 8px 8px 8px 32px;
+    padding: 2% 2% 2% 4%;
     text-decoration: none;
     font-size: 2vw;
     font-family: 'Montserrat', sans-serif;
@@ -87,8 +87,7 @@
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
     animation: bounce .3s infinite alternate;
-    animation-delay: 5s;
-    animation-iteration-count: 20;
+    animation-iteration-count: 15;
 }
 @-webkit-keyframes bounce {
     to { -webkit-transform: scale(1.2); }
