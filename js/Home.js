@@ -159,14 +159,32 @@ $(function() {
         draw();
     });
 
-
+    //testing
     $('.ZoomInBtn').click(function(){
-        zoomMultiplier += .1;
-        if(zoomMultiplier > 4.0){
-            zoomMultiplier = 4.0;
+        if(shuffleArray === userImageArray){
+            shuffleArray = imageArray;
+            if(imgIndex > imageArray.length){
+                imgIndex = imageArray.length-1;
+            }
         }
+        else{
+            shuffleArray = userImageArray;
+            if(imgIndex > userImageArray.length){
+                imgIndex = userImageArray.length -1;
+            }
+        }
+        img.src = shuffleArray[imgIndex];
         draw();
     });
+
+
+    //$('.ZoomInBtn').click(function(){
+    //    zoomMultiplier += .1;
+    //    if(zoomMultiplier > 4.0){
+    //        zoomMultiplier = 4.0;
+    //    }
+    //    draw();
+    //});
 
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
