@@ -138,6 +138,7 @@ $(function() {
         var reader = new FileReader();
         reader.onload = function(){
             userImageArray.push(reader.result);
+            img.src = userImageArray[0];
         };
         reader.readAsDataURL(file);
     }
@@ -226,7 +227,6 @@ $(function() {
             }
         }
         alert("Upload succeed");
-        img.src = userImageArray[0];
     });
 
     //for side button only, not for side bar.
