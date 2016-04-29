@@ -21,7 +21,7 @@ $(function() {
 
     var img = new Image();
     img.src = "../images/SPACE.png";
-    img.onload = draw;
+    //img.onload = draw;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
     function draw(){
