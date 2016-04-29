@@ -20,7 +20,6 @@ $(function() {
     var transitionTimer = null;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
-
     var img = new Image();
     img.src = "../images/SPACE.png";
     img.onload = draw;
@@ -144,7 +143,7 @@ $(function() {
         reader.readAsDataURL(file);
     }
 
-    // button to switch picture
+    //// button to switch picture
     var shuffleArray = imageArray;
     $('.switchBtn').click(function () {
         if(userImageArray.length > 1){
