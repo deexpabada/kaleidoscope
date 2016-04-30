@@ -124,10 +124,10 @@ $(function() {
 
     
     function imgTransition(){
-        if(imgIndex >= userImageArray.length){
+        if(imgIndex >= shuffleArray.length){
             imgIndex = 0;
         }
-        img.src = userImageArray[imgIndex];
+        img.src = shuffleArray[imgIndex];
         draw();
         imgIndex++;
         console.log(imgIndex);
