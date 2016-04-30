@@ -144,11 +144,13 @@ $(function() {
     }
 
     ////button to switch picture
-    var shuffleArray = imageArray;
+    var shuffleArray = imageArray;;
+    if(userImageArray.length > 1){
+        shuffleArray = userImageArray;
+    }
+
+
     $('.switchBtn').click(function () {
-        if(userImageArray.length > 1){
-            shuffleArray = userImageArray;
-        }
         newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
         if(newSrc === img.src){
             newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
@@ -160,31 +162,31 @@ $(function() {
     });
 
     //placeholder for resetting feature
-    $('.ZoomInBtn').click(function(){
+    $('.switchArrayBtn').click(function(){
         if(shuffleArray === userImageArray){
             shuffleArray = imageArray;
-            if(imgIndex > imageArray.length){
-                imgIndex = imageArray.length-1;
-            }
+            //if(imgIndex > imageArray.length){
+            //    imgIndex = imageArray.length-1;
+            //}
         }
         else{
             shuffleArray = userImageArray;
-            if(imgIndex > userImageArray.length){
-                imgIndex = userImageArray.length -1;
-            }
+            //if(imgIndex > userImageArray.length){
+            //    imgIndex = userImageArray.length -1;
+            //}
         }
-        img.src = shuffleArray[imgIndex];
+        img.src = shuffleArray[0];
         draw();
     });
 
     //NEED TO COMMENT BACK IN PLEASE DON'T DELETE
-    //$('.ZoomInBtn').click(function(){
-    //    zoomMultiplier += .1;
-    //    if(zoomMultiplier > 4.0){
-    //        zoomMultiplier = 4.0;
-    //    }
-    //    draw();
-    //});
+    $('.ZoomInBtn').click(function(){
+        zoomMultiplier += .1;
+        if(zoomMultiplier > 4.0){
+            zoomMultiplier = 4.0;
+        }
+        draw();
+    });
 
     $('.ZoomOutBtn').click(function(){
         zoomMultiplier -= .1;
@@ -246,27 +248,6 @@ $(function() {
         alert("Upload succeed");
     });
 
-    //for side button only, not for side bar.
-    //$('#ImageUpload').change(function(){
-    //    var file = document.getElementById("ImageUpload").files[0];
-    //    var imageType = /image.*/;
-    //
-    //    if (file.type.match(imageType)) {
-    //        var reader = new FileReader();
-    //
-    //        reader.onload = function(){
-    //            img.src = reader.result;
-    //            console.log(reader.result);
-    //            draw();
-    //            zoomMultiplier = 1.0;
-    //            shift = 0;
-    //        };
-    //        reader.readAsDataURL(file);
-    //    } else {
-    //        fileDisplayArea.innerHTML = "File not supported!"
-    //    }
-    //
-    //});
 
 
     // Download Image
