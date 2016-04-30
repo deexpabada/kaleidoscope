@@ -144,9 +144,12 @@ $(function() {
     }
 
     ////button to switch picture
-    var shuffleArray = imageArray;;
+    var shuffleArray;
     if(userImageArray.length > 1){
         shuffleArray = userImageArray;
+    }
+    else{
+        shuffleArray = imageArray;
     }
 
 
@@ -161,8 +164,9 @@ $(function() {
         draw();
     });
 
-    //placeholder for resetting feature
+    
     $('.switchArrayBtn').click(function(){
+        //clearInterval(transitionTimer);
         if(shuffleArray === userImageArray){
             shuffleArray = imageArray;
             //if(imgIndex > imageArray.length){
@@ -228,12 +232,6 @@ $(function() {
         transitionTimer = setInterval(imgTransition, 3500);
     });
 
-    $('.nameBtn').click(function(){
-        var name = document.getElementById("NameBox").value;
-        var element = document.getElementById("header");
-        element.innerHTML = name;
-    });
-
 
     $('#MultiUpload').change(function(){
         var imageType = /^image\/.*/;
@@ -248,6 +246,20 @@ $(function() {
         alert("Upload succeed");
     });
 
+    $(document).ready(function() {
+    $(".closeFullscreen").hide();
+    $(".fullBtn").click(function () {
+            $(".closeFullscreen").show();
+        }
+    )
+    $(".closeFullscreen").click(function () {
+            fullscreen = false;
+            resize();
+            $(".closeFullscreen").hide();
+            clearInterval(transitionTimer);
+        }
+    )
+    })
 
 
     // Download Image
