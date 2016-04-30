@@ -164,26 +164,21 @@ $(function() {
         draw();
     });
 
-    
+
     $('.switchArrayBtn').click(function(){
-        //clearInterval(transitionTimer);
-        if(shuffleArray === userImageArray){
+        if(userImageArray.length === 0){
             shuffleArray = imageArray;
-            //if(imgIndex > imageArray.length){
-            //    imgIndex = imageArray.length-1;
-            //}
+        }
+        else if(shuffleArray === userImageArray){
+            shuffleArray = imageArray;
         }
         else{
             shuffleArray = userImageArray;
-            //if(imgIndex > userImageArray.length){
-            //    imgIndex = userImageArray.length -1;
-            //}
         }
         img.src = shuffleArray[0];
         draw();
     });
 
-    //NEED TO COMMENT BACK IN PLEASE DON'T DELETE
     $('.ZoomInBtn').click(function(){
         zoomMultiplier += .1;
         if(zoomMultiplier > 4.0){
