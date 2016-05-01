@@ -16,7 +16,6 @@ $(function() {
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
     var refreshRate = 1000 / 30;
     var shiftDelta = 2;
-
     var transitionTimer = null;
     var animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
@@ -50,7 +49,7 @@ $(function() {
         g.restore();
     }
 
-    //Draw the huge Kalei on the center
+
     function drawWithCircle() {
         drawCircle();
         g.save();
@@ -60,6 +59,7 @@ $(function() {
         drawFull();
         g.restore();
     }
+
 
     function drawFull(){
         g.save();
@@ -143,7 +143,8 @@ $(function() {
         reader.readAsDataURL(file);
     }
 
-    ////button to switch picture
+
+    //need more work here
     var shuffleArray;
     if(userImageArray.length > 1){
         shuffleArray = userImageArray;
@@ -194,7 +195,6 @@ $(function() {
         draw();
     });
 
-    //Button Implementation
     $('.autoplayKaleidoBtn').click(function(){
         if(animationTimer != null) {
             clearInterval(animationTimer);
@@ -216,14 +216,15 @@ $(function() {
         fullscreen = !fullscreen;
         if(fullscreen){
             document.getElementById("kaleidoscope").style.left = 0;
+            transitionTimer = setInterval(imgTransition, 3500);
         }
         else{
             document.getElementById("kaleidoscope").style.left = "18%";
+            clearInterval(transitionTimer);
         }
         resize();
         g.clearRect(0,0, width, height);
         draw();
-        transitionTimer = setInterval(imgTransition, 3500);
     });
 
 
