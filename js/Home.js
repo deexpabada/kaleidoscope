@@ -152,7 +152,6 @@ $(function() {
         shuffleArray = imageArray;
     }
 
-
     $('.switchBtn').click(function () {
         newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
         if(newSrc === img.src){
