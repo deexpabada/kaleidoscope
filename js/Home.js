@@ -1,44 +1,61 @@
-$(function() {
-    //initialize the canvas
-    var canvas = $('#kaleidoscope');
-    var g = canvas[0].getContext('2d');
-    var imgIndex = 0;
-    var zoomMultiplier = 1.0;
-    var userImageArray = [];
-    var imageArray = ["../images/SPACE.png","../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png","../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
-    var shift = 0;
-    var pixelBuffer = 20;
-    var width = 1000;
-    var height = 650;
+//initialize the canvas
+var canvas = $('#kaleidoscope');
+var g = canvas[0].getContext('2d');
+
+var imgIndex = 0;
+var userImageArray = [];
+var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+var refreshRate = 1000 / 30;
+var fullscreen = false;
+var zoomMultiplier = 1.0;
+var pixelBuffer = 20;
+var width = 1000;
+var height = 650;
+
+var animationTimer;
+var transitionTimer = null;
+
+var drawing = function(){};
+var img = new Image();
+img.src = "../images/SPACE.png";
+
+img.onload = drawing();
+
+//needs to be moved still along with some other stuff
+var shift = 0;
+var shiftDelta = 2;
+function singleFrameAnimation() {
+    shift -= shiftDelta / zoomMultiplier;
+    drawing();
+}
+
+//function contains methods for only drawing the kaleidoscope
+$(function () {
+
     var centerW = (width / 2);
     var centerH = (height / 2);
     var TriLength = 150;
     var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
-    var refreshRate = 1000 / 30;
-    var shiftDelta = 2;
-    var transitionTimer = null;
-    var animationTimer = setInterval(singleFrameAnimation, refreshRate);
+    animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
-    var img = new Image();
-    img.src = "../images/SPACE.png";
-    img.onload = draw;
 
-    function draw(){
-        if(fullscreen){
+    drawing = draw();
+    function draw() {
+        if (fullscreen) {
             drawFull();
         }
-        else{
+        else {
             drawWithCircle();
         }
     }
 
     //the background/border
-    function drawCircle(){
+    function drawCircle() {
         var grd = g.createLinearGradient(0, 0, width, 0);
         grd.addColorStop(0, "lightgreen");
-        grd.addColorStop(0.25,"navy");
-        grd.addColorStop(0.5,"yellow");
-        grd.addColorStop(0.75,"orange");
+        grd.addColorStop(0.25, "navy");
+        grd.addColorStop(0.5, "yellow");
+        grd.addColorStop(0.75, "orange");
         grd.addColorStop(1, "red");
         g.fillStyle = grd;
         g.save();
@@ -61,10 +78,10 @@ $(function() {
     }
 
 
-    function drawFull(){
+    function drawFull() {
         g.save();
         g.fillStyle = "black";
-        g.fillRect(0,0,width, height);
+        g.fillRect(0, 0, width, height);
         g.restore();
         g.fillStyle = g.createPattern(img, "repeat");
         g.save();
@@ -75,9 +92,9 @@ $(function() {
     function drawMultipleHexs() {
         g.translate(centerW, centerH);
         //this loop creates the start of the columns of images
-        for(var t = -4; t < 7; t++) {
+        for (var t = -4; t < 7; t++) {
             g.save();
-            g.translate(TriLength *1.5 * t, TriHeight * t);
+            g.translate(TriLength * 1.5 * t, TriHeight * t);
             //this loop actually renders the image
             for (var i = -4; i < 4; i++) {
                 g.save();
@@ -117,118 +134,95 @@ $(function() {
         g.restore();
     }
 
-    function singleFrameAnimation(){
-        shift -= shiftDelta / zoomMultiplier;
-        draw();
+
+});
+
+$(function () {
+    // Download Image
+    function downloadCanvas(link, canvasId, filename) {
+        console.log("clicked download");
+        link.href = document.getElementById(canvasId).toDataURL();
+        link.download = filename;
     }
 
-    
-    function imgTransition(){
-        if(imgIndex >= shuffleArray.length){
-            imgIndex = 0;
-        }
-        img.src = shuffleArray[imgIndex];
-        draw();
-        imgIndex++;
-        console.log(imgIndex);
-    }
-
-    //multiple-image upload
-    function readImage(file) {
-        var reader = new FileReader();
-        reader.onload = function(){
-            userImageArray.push(reader.result);
-            img.src = userImageArray[0];
-        };
-        reader.readAsDataURL(file);
-    }
-
-
-    //need more work here
-    var shuffleArray;
-    if(userImageArray.length > 1){
-        shuffleArray = userImageArray;
-    }
-    else{
-        shuffleArray = imageArray;
-    }
+    document.getElementById('downloadBtn').addEventListener('click', function () {
+        downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
+    }, false);
 
     $('.switchBtn').click(function () {
         newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
-        if(newSrc === img.src){
-            newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
-        }
+        //todo: get a proper method of preventing duplicates, old one didn't work
         zoomMultiplier = 1.0;
         shift = 0;
         img.src = newSrc;
-        draw();
+        drawing();
     });
 
 
-    $('.switchArrayBtn').click(function(){
-        if(userImageArray.length === 0){
+    $('.switchArrayBtn').click(function () {
+        if (userImageArray.length === 0) {
             shuffleArray = imageArray;
         }
-        else if(shuffleArray === userImageArray){
+        else if (shuffleArray === userImageArray) {
             shuffleArray = imageArray;
         }
-        else{
+        else {
             shuffleArray = userImageArray;
         }
         img.src = shuffleArray[0];
-        draw();
+        drawing();
     });
 
-    $('.ZoomInBtn').click(function(){
+    $('.ZoomInBtn').click(function () {
         zoomMultiplier += .1;
-        if(zoomMultiplier > 4.0){
+        if (zoomMultiplier > 4.0) {
             zoomMultiplier = 4.0;
         }
-        draw();
+        drawing();
     });
 
-    $('.ZoomOutBtn').click(function(){
+    $('.ZoomOutBtn').click(function () {
         zoomMultiplier -= .1;
-        if(zoomMultiplier < 0.1){
+        if (zoomMultiplier < 0.1) {
             zoomMultiplier = .1;
         }
-        draw();
+        drawing();
     });
 
-    $('.autoplayKaleidoBtn').click(function(){
-        if(animationTimer != null) {
+    $('.autoplayKaleidoBtn').click(function () {
+        if (animationTimer != null) {
             clearInterval(animationTimer);
             animationTimer = null;
         }
-        else{
+        else {
             animationTimer = setInterval(singleFrameAnimation, refreshRate);
         }
-        if(transitionTimer!=null){
+        if (transitionTimer != null) {
             clearInterval(transitionTimer);
-            transitionTimer=null;
+            transitionTimer = null;
         }
-        else if(userImageArray.length > 0){
+        else if (userImageArray.length > 0) {
             transitionTimer = setInterval(imgTransition, 3500);
         }
     });
 
-    $('.fullBtn').click(function(){
+    $('.fullBtn').click(function () {
         fullscreen = !fullscreen;
-        if(fullscreen){
+        if (fullscreen) {
             document.getElementById("kaleidoscope").style.left = 0;
             transitionTimer = setInterval(imgTransition, 3500);
         }
-        else{
+        else {
             document.getElementById("kaleidoscope").style.left = "18%";
             clearInterval(transitionTimer);
         }
         resize();
-        g.clearRect(0,0, width, height);
-        draw();
+        g.clearRect(0, 0, width, height);
+        drawing();
     });
 
 
-    $('#MultiUpload').change(function(){
+    $('#MultiUpload').change(function () {
         var imageType = /^image\/.*/;
         for (var i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
             var file = document.getElementById("MultiUpload").files[i];
@@ -240,13 +234,47 @@ $(function() {
         }
         alert("Upload succeed");
     });
+});
 
-    $(document).ready(function() {
+//REALLY not sure what to put here at all
+function imgTransition() {
+    if (imgIndex >= shuffleArray.length) {
+        imgIndex = 0;
+    }
+    img.src = shuffleArray[imgIndex];
+    drawing();
+    imgIndex++;
+    console.log(imgIndex);
+}
+
+//multiple-image upload
+function readImage(file) {
+    var reader = new FileReader();
+    reader.onload = function () {
+        userImageArray.push(reader.result);
+        img.src = userImageArray[0];
+    };
+    reader.readAsDataURL(file);
+}
+
+
+//need more work here
+var shuffleArray;
+if (userImageArray.length > 1) {
+    shuffleArray = userImageArray;
+}
+else {
+    shuffleArray = imageArray;
+}
+
+
+$(document).ready(function () {
     $(".closeFullscreen").hide();
     $(".fullBtn").click(function () {
             $(".closeFullscreen").show();
         }
     )
+
     $(".closeFullscreen").click(function () {
             fullscreen = false;
             resize();
@@ -254,24 +282,9 @@ $(function() {
             clearInterval(transitionTimer);
         }
     )
-    })
+})
 
 
-    // Download Image
-    function downloadCanvas(link, canvasId, filename) {
-        console.log("clicked download");
-        link.href = document.getElementById(canvasId).toDataURL();
-        link.download = filename;
-    }
-
-    document.getElementById('downloadBtn').addEventListener('click', function() {
-        downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
-    }, false);
-
-});
-
-
-var fullscreen = false;
 
 //Resize Kaleidoscope Canvas
 function resize() {
@@ -280,7 +293,7 @@ function resize() {
     var kaleidoscopeCanvas = document.querySelector('canvas');
     var origHeight = 650;
     var orgWidth = 1000;
-    if(fullscreen){
+    if (fullscreen) {
         kaleidoscopeCanvas.style.height = height;
         kaleidoscopeCanvas.style.width = width;
         kaleidoscopeCanvas.height = height;
@@ -291,7 +304,7 @@ function resize() {
         kaleidoscopeCanvas.style.width = height * 1.3;
         kaleidoscopeCanvas.style.height = height * 0.9;
         kaleidoscopeCanvas.width = orgWidth;
-        kaleidoscopeCanvas.height =origHeight;
+        kaleidoscopeCanvas.height = origHeight;
         kaleidoscopeCanvas.style.top = '10%';
     }
 }
@@ -307,8 +320,8 @@ function changePlaylist(theme) {
 
 
 //toggle autoplay button
-$(document).ready(function(){
-    $("#autoplayKaleidoBtn").click(function(){
+$(document).ready(function () {
+    $("#autoplayKaleidoBtn").click(function () {
         $(".glyphicon-play").toggleClass("glyphicon-pause");
     });
 });
