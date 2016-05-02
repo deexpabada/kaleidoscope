@@ -1,5 +1,4 @@
 $(function() {
-    //initialize the canvas
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
     var imgIndex = 0;
@@ -256,7 +255,6 @@ $(function() {
     )
     })
 
-
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
         console.log("clicked download");
@@ -304,7 +302,6 @@ function changePlaylist(theme) {
     var playlist = document.getElementById('soundcloud');
     playlist.src = theme;
 }
-
 
 //toggle autoplay button
 $(document).ready(function(){
