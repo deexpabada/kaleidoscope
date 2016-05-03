@@ -217,13 +217,15 @@ $(function () {
                 document.getElementById("kaleidoscope").style.left = 0;
                 transitionTimer = setInterval(imgTransition, 3500);
                 $('.closeFullscreen').show();
-                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                $('.autoplayKaleidoBtn').css('right', '7%');
             }
             else {
                 document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
                 $('.closeFullscreen').hide();
-                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
+                $('.autoplayKaleidoBtn').css('right', '25%');
             }
             resize();
             g.clearRect(0, 0, width, height);
@@ -235,6 +237,8 @@ $(function () {
             fullscreen = false;
             $('.closeFullscreen').hide();
             resize();
+            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
+            $('.autoplayKaleidoBtn').css('right', '25%');
         });
 
         $('#MultiUpload').change(function () {
