@@ -196,15 +196,14 @@ $(function () {
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
-            if (transitionTimer != null) {
-                clearInterval(transitionTimer);
-                transitionTimer = null;
-            }
-
-            //to-do:fix here
-            else if (userImageArray.length > 0) {
-                transitionTimer = setInterval(imgTransition, 3500);
-            }
+            //if (transitionTimer != null) {
+            //    clearInterval(transitionTimer);
+            //    transitionTimer = null;
+            //}
+            ////to-do:fix here
+            //else if (userImageArray.length > 0) {
+            //    transitionTimer = setInterval(imgTransition, 3500);
+            //}
         });
 
         $('.fullBtn').click(function () {
