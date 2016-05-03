@@ -93,7 +93,7 @@ background-image: url("../images/mainBackground.jpg");
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     .ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .text, .MultiUpload+label .text {
     display: none;
     }
