@@ -36,6 +36,10 @@ $(document).ready(function() {
 })
 
 
+$(document).ready(function() {
+    $('.closeFullscreen').hide();
+})
+
 function titleScreen(navigation, opens) {
     var titleHeight;
     if (opens) {

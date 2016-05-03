@@ -24,6 +24,7 @@ $(function () {
     var shift = 0;
     var shiftDelta = 2;
 
+
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
@@ -216,11 +217,13 @@ $(function () {
                 document.getElementById("kaleidoscope").style.left = 0;
                 transitionTimer = setInterval(imgTransition, 3500);
                 $('.closeFullscreen').show();
+                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
             }
             else {
                 document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
                 $('.closeFullscreen').hide();
+                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "10%");
             }
             resize();
             g.clearRect(0, 0, width, height);
@@ -280,10 +283,6 @@ $(function () {
     }
 
 
-    $(document).ready(function () {
-        $(".closeFullscreen").hide();
-
-    })
 
 
 //Resize Kaleidoscope Canvas
