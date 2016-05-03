@@ -21,8 +21,7 @@ $(function () {
     //needs to be moved still along with some other stuff
     var shift = 0;
     var shiftDelta = 2;
-
-
+    
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
@@ -163,10 +162,7 @@ $(function () {
 
 
         $('.switchArrayBtn').click(function () {
-            if (userImageArray.length === 0) {
-                shuffleArray = imageArray;
-            }
-            else if (shuffleArray === userImageArray) {
+            if (userImageArray.length === 0 || shuffleArray === userImageArray) {
                 shuffleArray = imageArray;
             }
             else {
@@ -204,6 +200,7 @@ $(function () {
                 clearInterval(transitionTimer);
                 transitionTimer = null;
             }
+            //fix here
             else if (userImageArray.length > 0) {
                 transitionTimer = setInterval(imgTransition, 3500);
             }
@@ -255,7 +252,7 @@ $(function () {
         });
     })();
 
-    //REALLY not sure what to put here at all
+    //
     function imgTransition() {
         if (imgIndex >= shuffleArray.length) {
             imgIndex = 0;
@@ -272,22 +269,12 @@ $(function () {
         reader.onload = function () {
             userImageArray.push(reader.result);
             img.src = userImageArray[0];
+            shuffleArray = userImageArray;
         };
         reader.readAsDataURL(file);
     }
 
-
-//need more work here
-    var shuffleArray;
-    if (userImageArray.length > 1) {
-        shuffleArray = userImageArray;
-    }
-    else {
-        shuffleArray = imageArray;
-    }
-
-
-
+    var shuffleArray = imageArray;
 
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
