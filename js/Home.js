@@ -217,7 +217,7 @@ $(function () {
                 transitionTimer = setInterval(imgTransition, 3500);
             }
             else {
-                document.getElementById("kaleidoscope").style.left = "18%";
+                document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
             }
             resize();
