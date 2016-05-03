@@ -210,23 +210,25 @@ $(function () {
         });
 
         $('.fullBtn').click(function () {
-            fullscreen = !fullscreen;
-            if (fullscreen) {
-                document.getElementById("kaleidoscope").style.left = 0;
-                transitionTimer = setInterval(imgTransition, 3500);
-                $('.closeFullscreen').show();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
-                $('.autoplayKaleidoBtn').css('right', '7%');
+            if(animationTimer!=null) {
+                fullscreen = !fullscreen;
+                if (fullscreen) {
+                    transitionTimer = setInterval(imgTransition, 3500);
+                    document.getElementById("kaleidoscope").style.left = 0;
+                    $('.closeFullscreen').show();
+                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                    $('.autoplayKaleidoBtn').css('right', '7%');
+                }
+                else {
+                    document.getElementById("kaleidoscope").style.left = "0";
+                    clearInterval(transitionTimer);
+                    $('.closeFullscreen').hide();
+                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+                    $('.autoplayKaleidoBtn').css('right', '25%');
+                }
+                resize();
+                g.clearRect(0, 0, width, height);
             }
-            else {
-                document.getElementById("kaleidoscope").style.left = "0";
-                clearInterval(transitionTimer);
-                $('.closeFullscreen').hide();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
-                $('.autoplayKaleidoBtn').css('right', '25%');
-            }
-            resize();
-            g.clearRect(0, 0, width, height);
             draw();
         });
 
