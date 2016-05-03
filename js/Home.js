@@ -22,6 +22,7 @@ $(function () {
     var shift = 0;
     var shiftDelta = 2;
 
+
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
@@ -213,16 +214,30 @@ $(function () {
             if (fullscreen) {
                 document.getElementById("kaleidoscope").style.left = 0;
                 transitionTimer = setInterval(imgTransition, 3500);
+                $('.closeFullscreen').show();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                $('.autoplayKaleidoBtn').css('right', '7%');
             }
             else {
-                document.getElementById("kaleidoscope").style.left = "18%";
+                document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
+                $('.closeFullscreen').hide();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+                $('.autoplayKaleidoBtn').css('right', '25%');
             }
             resize();
             g.clearRect(0, 0, width, height);
             draw();
         });
 
+
+        $('.closeFullscreen').click(function () {
+            fullscreen = false;
+            $('.closeFullscreen').hide();
+            resize();
+            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+            $('.autoplayKaleidoBtn').css('right', '22%');
+        });
 
         $('#MultiUpload').change(function () {
             var imageType = /^image\/.*/;
@@ -270,21 +285,6 @@ $(function () {
     }
 
 
-    $(document).ready(function () {
-        $(".closeFullscreen").hide();
-        $(".fullBtn").click(function () {
-                $(".closeFullscreen").show();
-            }
-        )
-
-        $(".closeFullscreen").click(function () {
-                fullscreen = false;
-                resize();
-                $(".closeFullscreen").hide();
-                clearInterval(transitionTimer);
-            }
-        )
-    })
 
 
     // Download Image
@@ -340,4 +340,21 @@ var fullscreen = false;
         });
     });
 
+});
+
+//Disable Browser Zoom
+$(document).keydown(function(event) {
+    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+        event.preventDefault();
+    }
+    // 107 Num Key  +
+    // 109 Num Key  -
+    // 173 Min Key  hyphen/underscore key
+    // 61 Plus key  +/= key
+});
+
+$(window).bind('mousewheel DOMMouseScroll', function (event) {
+    if (event.ctrlKey == true) {
+        event.preventDefault();
+    }
 });

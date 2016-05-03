@@ -19,21 +19,6 @@ $(document).ready(function(){
     )}
 )
 
-/* Close button in full screen*/
-//$(document).ready(function() {
-//    $(".closeFullscreen").hide();
-//    $(".fullBtn").click(function () {
-//            $(".closeFullscreen").show();
-//        }
-//    )
-//    $(".closeFullscreen").click(function () {
-//            fullscreen = false;
-//            resize();
-//            $(".closeFullscreen").hide();
-//        }
-//    )
-//})
-
 //Buttons Appear!
 $(document).ready(function() {
     var buttonsAppeared;
@@ -50,6 +35,10 @@ $(document).ready(function() {
     })
 })
 
+
+$(document).ready(function() {
+    $('.closeFullscreen').hide();
+})
 
 function titleScreen(navigation, opens) {
     var titleHeight;
