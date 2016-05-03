@@ -210,17 +210,16 @@ $(function () {
         });
 
         $('.fullBtn').click(function () {
+            document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer!=null) {
                 fullscreen = !fullscreen;
                 if (fullscreen) {
                     transitionTimer = setInterval(imgTransition, 3500);
-                    document.getElementById("kaleidoscope").style.left = 0;
                     $('.closeFullscreen').show();
                     $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
                     $('.autoplayKaleidoBtn').css('right', '7%');
                 }
                 else {
-                    document.getElementById("kaleidoscope").style.left = "0";
                     clearInterval(transitionTimer);
                     $('.closeFullscreen').hide();
                     $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
