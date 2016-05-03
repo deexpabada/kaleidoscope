@@ -223,7 +223,7 @@ $(function () {
                 document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
                 $('.closeFullscreen').hide();
-                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "10%");
+                $('.switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
             }
             resize();
             g.clearRect(0, 0, width, height);

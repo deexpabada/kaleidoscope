@@ -133,7 +133,7 @@
     text-decoration: none;
     color: rgba(178, 43, 97, 0.66);
     margin: 1% 0.5%;
-    right: 10%;
+    right: 18%;
     font-size:3vw;
     cursor:pointer;
     display: inline-block;
@@ -148,6 +148,7 @@
 /*Basic Button Hover*/
 .switchArrayBtn:hover, .downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
 color: #5edfc9;
+
 }
 
 /* Hide default Upload Button*/
@@ -163,6 +164,20 @@ color: #5edfc9;
 /*Zoom In Button */
 .ZoomInBtn {
     bottom:68%;
+}
+
+.ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .text, .MultiUpload+label .text {
+    position:absolute;
+    right:-200%;
+    top:40%;
+    font-size: 1.5vw;
+    font-weight: 100;
+    visibility:hidden;
+    text-decoration: none;
+
+}
+.ZoomInBtn:hover .text, .ZoomOutBtn:hover .text, .switchBtn:hover .text, .switchArrayBtn:hover .text, .MultiUpload+label:hover .text{
+    visibility:visible;
 }
 
 /*Zoom Out Button */
@@ -194,6 +209,6 @@ color: #5edfc9;
 
 /*Auto-Play Kaleido Button */
 .autoplayKaleidoBtn {
-    right:19%;
+    right:25%;
     bottom:8%;
 }
