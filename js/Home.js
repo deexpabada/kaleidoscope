@@ -4,6 +4,7 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
+    var shuffleArray = imageArray;
     var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
 
     var fullscreen = false;
@@ -21,7 +22,7 @@ $(function () {
     //needs to be moved still along with some other stuff
     var shift = 0;
     var shiftDelta = 2;
-    
+
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
@@ -40,7 +41,6 @@ $(function () {
         //refactor lowercase variable names rename
         var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
-
 
         draw = function draw() {
             if (fullscreen) {
@@ -274,7 +274,6 @@ $(function () {
         reader.readAsDataURL(file);
     }
 
-    var shuffleArray = imageArray;
 
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
