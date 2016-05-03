@@ -234,6 +234,7 @@ $(function () {
         $('.closeFullscreen').click(function () {
             fullscreen = false;
             $('.closeFullscreen').hide();
+            clearInterval(transitionTimer);
             resize();
             $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
             $('.autoplayKaleidoBtn').css('right', '22%');
@@ -298,8 +299,6 @@ $(function () {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
-
-var fullscreen = false;
 
 //Resize Kaleidoscope Canvas
     function resize() {
