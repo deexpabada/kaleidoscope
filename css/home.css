@@ -84,12 +84,21 @@ background-image: url("../images/mainBackground.jpg");
 
 @media screen and (max-width: 1000px) and (max-height: 300px) {
 
-    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn {
+    .downloadBtn, .imageUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn, .MultiUpload+label, .switchArrayBtn {
         display: none;
     }
 
     .soundcloud {
         height: 10%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .text, .MultiUpload+label .text {
+    display: none;
+    }
+    .downloadBtn, .MultiUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn,.switchArrayBtn {
+        right:0;
     }
 }
 
