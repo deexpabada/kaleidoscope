@@ -224,7 +224,7 @@ $(function () {
                 document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
                 $('.closeFullscreen').hide();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
                 $('.autoplayKaleidoBtn').css('right', '25%');
             }
             resize();
@@ -237,8 +237,8 @@ $(function () {
             fullscreen = false;
             $('.closeFullscreen').hide();
             resize();
-            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "18%");
-            $('.autoplayKaleidoBtn').css('right', '25%');
+            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+            $('.autoplayKaleidoBtn').css('right', '22%');
         });
 
         $('#MultiUpload').change(function () {
