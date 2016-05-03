@@ -215,16 +215,24 @@ $(function () {
             if (fullscreen) {
                 document.getElementById("kaleidoscope").style.left = 0;
                 transitionTimer = setInterval(imgTransition, 3500);
+                $('.closeFullscreen').show();
             }
             else {
                 document.getElementById("kaleidoscope").style.left = "0";
                 clearInterval(transitionTimer);
+                $('.closeFullscreen').hide();
             }
             resize();
             g.clearRect(0, 0, width, height);
             draw();
         });
 
+
+        $('.closeFullscreen').click(function () {
+            fullscreen = false;
+            $('.closeFullscreen').hide();
+            resize();
+        });
 
         $('#MultiUpload').change(function () {
             var imageType = /^image\/.*/;
@@ -274,18 +282,7 @@ $(function () {
 
     $(document).ready(function () {
         $(".closeFullscreen").hide();
-        $(".fullBtn").click(function () {
-                $(".closeFullscreen").show();
-            }
-        )
 
-        $(".closeFullscreen").click(function () {
-                fullscreen = false;
-                resize();
-                $(".closeFullscreen").hide();
-                clearInterval(transitionTimer);
-            }
-        )
     })
 
 

@@ -19,21 +19,6 @@ $(document).ready(function(){
     )}
 )
 
-/* Close button in full screen*/
-//$(document).ready(function() {
-//    $(".closeFullscreen").hide();
-//    $(".fullBtn").click(function () {
-//            $(".closeFullscreen").show();
-//        }
-//    )
-//    $(".closeFullscreen").click(function () {
-//            fullscreen = false;
-//            resize();
-//            $(".closeFullscreen").hide();
-//        }
-//    )
-//})
-
 //Buttons Appear!
 $(document).ready(function() {
     var buttonsAppeared;
