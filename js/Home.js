@@ -200,7 +200,8 @@ $(function () {
                 clearInterval(transitionTimer);
                 transitionTimer = null;
             }
-            //fix here
+
+            //to-do:fix here
             else if (userImageArray.length > 0) {
                 transitionTimer = setInterval(imgTransition, 3500);
             }
@@ -208,23 +209,24 @@ $(function () {
 
         $('.fullBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
-            if(animationTimer!=null) {
-                fullscreen = !fullscreen;
-                if (fullscreen) {
-                    transitionTimer = setInterval(imgTransition, 3500);
-                    $('.closeFullscreen').show();
-                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
-                    $('.autoplayKaleidoBtn').css('right', '7%');
-                }
-                else {
-                    clearInterval(transitionTimer);
-                    $('.closeFullscreen').hide();
-                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
-                    $('.autoplayKaleidoBtn').css('right', '25%');
-                }
-                resize();
-                g.clearRect(0, 0, width, height);
+            if(animationTimer === null) {
+                animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
+            fullscreen = !fullscreen;
+            if (fullscreen) {
+                transitionTimer = setInterval(imgTransition, 3500);
+                $('.closeFullscreen').show();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                $('.autoplayKaleidoBtn').css('right', '7%');
+            }
+            else {
+                clearInterval(transitionTimer);
+                $('.closeFullscreen').hide();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+                $('.autoplayKaleidoBtn').css('right', '25%');
+            }
+            resize();
+            g.clearRect(0, 0, width, height);
             draw();
         });
 
@@ -252,7 +254,6 @@ $(function () {
         });
     })();
 
-    //
     function imgTransition() {
         if (imgIndex >= shuffleArray.length) {
             imgIndex = 0;
@@ -263,7 +264,7 @@ $(function () {
         console.log(imgIndex);
     }
 
-//multiple-image upload
+    //multiple-image upload
     function readImage(file) {
         var reader = new FileReader();
         reader.onload = function () {
@@ -273,7 +274,6 @@ $(function () {
         };
         reader.readAsDataURL(file);
     }
-
 
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
@@ -287,7 +287,7 @@ $(function () {
     }, false);
 
 
-//Resize Kaleidoscope Canvas
+    //Resize Kaleidoscope Canvas
     function resize() {
         var height = window.innerHeight;
         var width = window.innerWidth;
