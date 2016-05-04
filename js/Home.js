@@ -88,7 +88,7 @@ $(function () {
         function drawMultipleHexs() {
             g.translate(centerW, centerH);
             //this loop creates the start of the columns of images
-            for (var t = -4; t < 7; t++) {
+            for (var t = -2; t < 6; t++) {
                 g.save();
                 g.translate(triLength * 1.5 * t, triHeight * t);
                 //this loop actually renders the image
