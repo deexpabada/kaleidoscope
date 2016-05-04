@@ -156,6 +156,7 @@ $(function () {
         //Zoom out
         $('.ZoomOutBtn').click(function(){zoom(-.1)});
 
+        //
         function zoom(zoomChange){
             zoomMultiplier += zoomChange;
             if(zoomMultiplier < .1){
@@ -178,7 +179,7 @@ $(function () {
             }
         });
 
-        //Party Mode button
+        //Party Mode
         $('.partyBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
