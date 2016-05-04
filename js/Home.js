@@ -6,7 +6,7 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
-    var imageArray = ["../images/SPACE.png", "../images/squirrelNOTTHERE.jpg", "../images/Fries.jpg", "../images/k.jpg",  "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+    var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/k.jpg",  "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var shuffleArray = imageArray;
 
     var fullScreen = false;
