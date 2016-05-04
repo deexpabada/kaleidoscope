@@ -18,7 +18,7 @@ $(function () {
 
     var draw;
     var img = new Image();
-    img.src = "../images/SPACE.png";
+    img.src = imageArray[0];
     img.onload = draw;
 
     var shift = 0;
@@ -64,6 +64,7 @@ $(function () {
         }
 
         function drawWithCircle() {
+            //todo: fix
             drawCircle();
             g.save();
             g.beginPath();
@@ -182,7 +183,7 @@ $(function () {
             }
         });
 
-        //Party Mode
+        //Party Mode - enter full screen and start auto transitioning
         $('.partyBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
@@ -305,10 +306,7 @@ $(function () {
 
 //Disable Browser Zoom
 $(document).keydown(function(event) {
-    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
-        event.preventDefault();
-    }
-    if (event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+    if (event.ctrlKey==true || event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
     }
 });
