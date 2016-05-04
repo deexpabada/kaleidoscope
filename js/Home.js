@@ -19,7 +19,6 @@ $(function () {
     img.src = "../images/SPACE.png";
     img.onload = draw;
 
-
     var shift = 0;
     var shiftDelta = 2;
     function singleFrameAnimation() {
@@ -33,9 +32,9 @@ $(function () {
         var height = 650;
         var centerW = (width / 2);
         var centerH = (height / 2);
-        var TriLength = 150;
+        var triLength = 150;
         var pixelBuffer = 20;
-        var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
+        var triHeight = Math.sqrt((triLength * triLength) - (triLength * triLength / 4));
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
@@ -92,11 +91,11 @@ $(function () {
             //this loop creates the start of the columns of images
             for (var t = -4; t < 7; t++) {
                 g.save();
-                g.translate(TriLength * 1.5 * t, TriHeight * t);
+                g.translate(triLength * 1.5 * t, triHeight * t);
                 //this loop actually renders the image
                 for (var i = -4; i < 4; i++) {
                     g.save();
-                    g.translate(0, i * 2 * TriHeight);
+                    g.translate(0, i * 2 * triHeight);
                     drawHex();
                     g.restore();
                 }
@@ -123,8 +122,8 @@ $(function () {
         function drawTriangle(shift) {
             g.save();
             g.beginPath();
-            g.moveTo(TriLength, 0);
-            g.lineTo(TriLength / 2, TriHeight);
+            g.moveTo(triLength, 0);
+            g.lineTo(triLength / 2, triHeight);
             g.lineTo(0, 0);
             g.scale(zoomMultiplier, zoomMultiplier);
             g.translate(shift, shift);
