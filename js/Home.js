@@ -19,26 +19,22 @@ $(function () {
     img.src = "../images/SPACE.png";
     img.onload = draw;
 
-    //needs to be moved still along with some other stuff
+
     var shift = 0;
     var shiftDelta = 2;
-
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
     }
 
-//function contains methods for only drawing the kaleidoscope
+    //function contains methods for only drawing the kaleidoscope
     (function () {
-
         var width = 1000;
         var height = 650;
         var centerW = (width / 2);
         var centerH = (height / 2);
         var TriLength = 150;
         var pixelBuffer = 20;
-
-        //refactor lowercase variable names rename
         var TriHeight = Math.sqrt((TriLength * TriLength) - (TriLength * TriLength / 4));
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
