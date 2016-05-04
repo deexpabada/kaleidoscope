@@ -132,7 +132,6 @@ $(function () {
     (function () {
         // Download Image
         function downloadCanvas(link, canvasId, filename) {
-            console.log("clicked download");
             link.href = document.getElementById(canvasId).toDataURL();
             link.download = filename;
         }
@@ -178,7 +177,7 @@ $(function () {
             draw();
         }
 
-        //auto-play
+        //auto-play the kaleidoscope
         $('.autoplayKaleidoBtn').click(function () {
             if (animationTimer != null) {
                 clearInterval(animationTimer);
@@ -256,12 +255,10 @@ $(function () {
         img.src = shuffleArray[imgIndex];
         draw();
         imgIndex++;
-        console.log(imgIndex);
     }
 
     // Download Image
     function downloadCanvas(link, canvasId, filename) {
-        console.log("clicked download");
         link.href = document.getElementById(canvasId).toDataURL();
         link.download = filename;
     }
