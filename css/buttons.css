@@ -51,16 +51,6 @@
     height:100%;
 }
 
-.nameBox {
-    position: fixed;
-    left:5%;
-    font-size:1vw;
-    cursor:pointer;
-    text-align: center;
-    display: inline-block;
-    color: black;
-}
-
 /* The title screen navigation method*/
 .titleScreenNav {
     height: 100%;
@@ -131,7 +121,7 @@
     padding:0.5% 1%;
     text-align: center;
     text-decoration: none;
-    color: rgba(178, 43, 97, 0.66);
+    background-image: url("../images/mainBackground.jpg");
     margin: 1% 0.5%;
     right: 15%;
     font-size:3vw;
