@@ -189,7 +189,7 @@ $(function () {
         });
 
         //Party Mode - enter full screen and start auto transitioning
-        $('.switch-label').click(function () {
+        $('.partyBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
