@@ -183,7 +183,7 @@ $(function () {
         });
 
         //Party Mode
-        $('.partyBtn').click(function () {
+        $('.switch-label').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
