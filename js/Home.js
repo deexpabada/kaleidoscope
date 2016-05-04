@@ -4,8 +4,8 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
-    var shuffleArray = imageArray;
     var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+    var shuffleArray = imageArray;
 
     var fullscreen = false;
     var zoomMultiplier = 1.0;
@@ -196,14 +196,6 @@ $(function () {
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
-            //if (transitionTimer != null) {
-            //    clearInterval(transitionTimer);
-            //    transitionTimer = null;
-            //}
-            ////to-do:fix here
-            //else if (userImageArray.length > 0) {
-            //    transitionTimer = setInterval(imgTransition, 3500);
-            //}
         });
 
         $('.fullBtn').click(function () {
@@ -332,10 +324,11 @@ $(document).keydown(function(event) {
     if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
     }
-    // 107 Num Key  +
-    // 109 Num Key  -
-    // 173 Min Key  hyphen/underscore key
-    // 61 Plus key  +/= key
+
+
+    if (event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+        event.preventDefault();
+    }
 });
 
 $(window).bind('mousewheel DOMMouseScroll', function (event) {
