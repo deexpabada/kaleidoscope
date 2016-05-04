@@ -132,9 +132,12 @@ $(function () {
     (function () {
         // switch between images
         $('.switchBtn').click(function () {
-            newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
-            //todo: get a proper method of preventing duplicates, old one didn't work
-            img.src = newSrc;
+            //img.src = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
+            img.src = shuffleArray[imgIndex];
+            imgIndex++;
+            if (imgIndex >= shuffleArray.length) {
+                imgIndex = 0;
+            }
             draw();
         });
 
