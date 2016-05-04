@@ -1,6 +1,8 @@
 $(function () {
     var canvas = $('#kaleidoscope');
     var g = canvas[0].getContext('2d');
+    var width = 1000;
+    var height = 650;
 
     var imgIndex = 0;
     var userImageArray = [];
@@ -28,8 +30,6 @@ $(function () {
 
     //function contains methods for only drawing the kaleidoscope
     (function () {
-        var width = 1000;
-        var height = 650;
         var centerW = (width / 2);
         var centerH = (height / 2);
         var triLength = 150;
@@ -130,16 +130,6 @@ $(function () {
     })();
 
     (function () {
-        // Download Image
-        function downloadCanvas(link, canvasId, filename) {
-            link.href = document.getElementById(canvasId).toDataURL();
-            link.download = filename;
-        }
-
-        document.getElementById('downloadBtn').addEventListener('click', function () {
-            downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
-        }, false);
-
         // switch between images
         $('.switchBtn').click(function () {
             newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
