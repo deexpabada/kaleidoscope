@@ -18,8 +18,22 @@ $(function () {
 
     var draw;
     var img = new Image();
-    img.src = imageArray[0];
-    img.onload = draw;
+    var imgLoading = true;
+
+    img.onload = function() {
+        imgLoading = false;
+        draw();
+    }
+
+    function changeImage(newSrc) {
+        img.src = newSrc;
+        imgLoading = true;
+        if(draw) {
+            draw();
+        }
+    }
+
+    changeImage(imageArray[0]);
 
     var shift = 0;
     var shiftDelta = 2;
@@ -38,8 +52,7 @@ $(function () {
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
-            if(!img || !img.width) {
-                // Draw nothing if image isn't loaded yet
+            if(imgLoading) {
                 return;
             }
 
@@ -143,8 +156,7 @@ $(function () {
             if (imgIndex >= shuffleArray.length) {
                 imgIndex = 0;
             }
-            img.src = shuffleArray[imgIndex];
-            draw();
+            changeImage(shuffleArray[imgIndex]);
         });
 
         // switch between albums
@@ -155,8 +167,7 @@ $(function () {
             else {
                 shuffleArray = userImageArray;
             }
-            img.src = shuffleArray[0];
-            draw();
+            changeImage(shuffleArray[0]);
         });
 
         //Zoom in
@@ -240,7 +251,7 @@ $(function () {
             var reader = new FileReader();
             reader.onload = function () {
                 userImageArray.push(reader.result);
-                img.src = userImageArray[0];
+                changeImage(userImageArray[0]);
                 shuffleArray = userImageArray;
             };
             reader.readAsDataURL(file);
@@ -252,8 +263,7 @@ $(function () {
         if (imgIndex >= shuffleArray.length) {
             imgIndex = 0;
         }
-        img.src = shuffleArray[imgIndex];
-        draw();
+        changeImage(shuffleArray[imgIndex]);
         imgIndex++;
     }
 
