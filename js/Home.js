@@ -9,7 +9,7 @@ $(function () {
     var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/j.png", "../images/k.jpg", "../images/logo.png", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var shuffleArray = imageArray;
 
-    var fullscreen = false;
+    var fullScreen = false;
     var zoomMultiplier = 1.0;
 
     var refreshRate = 1000 / 30;
@@ -38,7 +38,7 @@ $(function () {
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
-            if (fullscreen) {
+            if (fullScreen) {
                 drawFull();
             }
             else {
@@ -184,8 +184,8 @@ $(function () {
             if(animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
-            fullscreen = !fullscreen;
-            if (fullscreen) {
+            fullScreen = !fullScreen;
+            if (fullScreen) {
                 transitionTimer = setInterval(imgTransition, 3500);
                 $('.closeFullscreen').show();
                 $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
@@ -204,7 +204,7 @@ $(function () {
 
         //exit party mode
         $('.closeFullscreen').click(function () {
-            fullscreen = false;
+            fullScreen = false;
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
             resize();
@@ -265,7 +265,7 @@ $(function () {
         var kaleidoscopeCanvas = document.querySelector('canvas');
         var origHeight = 650;
         var orgWidth = 1000;
-        if (fullscreen) {
+        if (fullScreen) {
             kaleidoscopeCanvas.style.height = height;
             kaleidoscopeCanvas.style.width = width;
             kaleidoscopeCanvas.height = height;
