@@ -46,7 +46,7 @@ $(function () {
             }
         };
 
-        //the background/border
+        //draw the background/border
         function drawCircle() {
             var grd = g.createLinearGradient(0, 0, width, 0);
             grd.addColorStop(0, "lightgreen");
@@ -73,7 +73,6 @@ $(function () {
             drawFull();
             g.restore();
         }
-
 
         function drawFull() {
             g.save();
@@ -115,7 +114,6 @@ $(function () {
                     g.restore()
                 }
                 g.rotate(60 * Math.PI / 180);
-
             }
         }
 
@@ -130,8 +128,6 @@ $(function () {
             g.fill(); //Translate before fill but after clip, to get animation
             g.restore();
         }
-
-
     })();
 
     (function () {
@@ -146,16 +142,15 @@ $(function () {
             downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
         }, false);
 
+        // switch between images
         $('.switchBtn').click(function () {
             newSrc = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
             //todo: get a proper method of preventing duplicates, old one didn't work
-            zoomMultiplier = 1.0;
-            shift = 0;
             img.src = newSrc;
             draw();
         });
 
-
+        // switch between albums
         $('.switchArrayBtn').click(function () {
             if (userImageArray.length === 0 || shuffleArray === userImageArray) {
                 shuffleArray = imageArray;
@@ -167,6 +162,7 @@ $(function () {
             draw();
         });
 
+        //Zoom in
         $('.ZoomInBtn').click(function () {
             zoomMultiplier += .1;
             if (zoomMultiplier > 4.0) {
@@ -175,6 +171,7 @@ $(function () {
             draw();
         });
 
+        //Zoom out
         $('.ZoomOutBtn').click(function () {
             zoomMultiplier -= .1;
             if (zoomMultiplier < 0.1) {
@@ -183,6 +180,8 @@ $(function () {
             draw();
         });
 
+
+        //auto-play
         $('.autoplayKaleidoBtn').click(function () {
             if (animationTimer != null) {
                 clearInterval(animationTimer);
@@ -193,6 +192,7 @@ $(function () {
             }
         });
 
+        //Party Mode button
         $('.fullBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
@@ -216,7 +216,7 @@ $(function () {
             draw();
         });
 
-
+        //exit party mode
         $('.closeFullscreen').click(function () {
             fullscreen = false;
             $('.closeFullscreen').hide();
@@ -226,6 +226,7 @@ $(function () {
             $('.autoplayKaleidoBtn').css('right', '22%');
         });
 
+        //multi-upload
         $('#MultiUpload').change(function () {
             var imageType = /^image\/.*/;
             for (var i = 0; i < document.getElementById("MultiUpload").files.length; i++) {
@@ -238,8 +239,19 @@ $(function () {
             }
             alert("Upload succeed");
         });
+
+        function readImage(file) {
+            var reader = new FileReader();
+            reader.onload = function () {
+                userImageArray.push(reader.result);
+                img.src = userImageArray[0];
+                shuffleArray = userImageArray;
+            };
+            reader.readAsDataURL(file);
+        }
     })();
 
+    //shuffle the images
     function imgTransition() {
         if (imgIndex >= shuffleArray.length) {
             imgIndex = 0;
@@ -248,17 +260,6 @@ $(function () {
         draw();
         imgIndex++;
         console.log(imgIndex);
-    }
-
-    //multiple-image upload
-    function readImage(file) {
-        var reader = new FileReader();
-        reader.onload = function () {
-            userImageArray.push(reader.result);
-            img.src = userImageArray[0];
-            shuffleArray = userImageArray;
-        };
-        reader.readAsDataURL(file);
     }
 
     // Download Image
@@ -299,13 +300,13 @@ $(function () {
     window.addEventListener('load', resize, false);
     window.addEventListener('resize', resize, false);
 
-//Change Soundcloud Playlist according to theme
+    //Change Soundcloud Playlist according to theme
     function changePlaylist(theme) {
         var playlist = document.getElementById('soundcloud');
         playlist.src = theme;
     }
 
-//toggle autoplay button
+    //toggle autoplay button
     $(document).ready(function () {
         $("#autoplayKaleidoBtn").click(function () {
             $(".glyphicon-play").toggleClass("glyphicon-pause");
@@ -319,8 +320,6 @@ $(document).keydown(function(event) {
     if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
     }
-
-
     if (event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
     }
