@@ -172,7 +172,7 @@ $(function () {
 
         //Zoom out
         $('.ZoomOutBtn').click(function () {
-            zoomMultiplier -= .1;
+            zoomMultiplier += -.1;
             if (zoomMultiplier < 0.1) {
                 zoomMultiplier = .1;
             }
