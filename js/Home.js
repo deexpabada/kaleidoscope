@@ -192,7 +192,7 @@ $(function () {
         });
 
         //Party Mode button
-        $('.fullBtn').click(function () {
+        $('.partyBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
