@@ -6,7 +6,7 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
-    var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/k.jpg",  "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+    var imageArray = ["../images/SPACE.png", "../images/squirrelNOTTHERE.jpg", "../images/Fries.jpg", "../images/k.jpg",  "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var shuffleArray = imageArray;
 
     var fullScreen = false;
@@ -38,6 +38,11 @@ $(function () {
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
+            if(!img || !img.width) {
+                // Draw nothing if image isn't loaded yet
+                return;
+            }
+
             if (fullScreen) {
                 drawFull();
             }
@@ -134,11 +139,11 @@ $(function () {
         // switch between images
         $('.switchBtn').click(function () {
             //img.src = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
-            img.src = shuffleArray[imgIndex];
             imgIndex++;
             if (imgIndex >= shuffleArray.length) {
                 imgIndex = 0;
             }
+            img.src = shuffleArray[imgIndex];
             draw();
         });
 
