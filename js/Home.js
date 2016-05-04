@@ -18,7 +18,7 @@ $(function () {
 
     var draw;
     var img = new Image();
-    img.src = "../images/SPACE.png";
+    img.src = imageArray[0];
     img.onload = draw;
 
     var shift = 0;
@@ -38,6 +38,11 @@ $(function () {
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
+            if(!img || !img.width) {
+                // Draw nothing if image isn't loaded yet
+                return;
+            }
+
             if (fullScreen) {
                 drawFull();
             }
@@ -64,6 +69,7 @@ $(function () {
         }
 
         function drawWithCircle() {
+            //todo: fix
             drawCircle();
             g.save();
             g.beginPath();
@@ -133,11 +139,11 @@ $(function () {
         // switch between images
         $('.switchBtn').click(function () {
             //img.src = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
-            img.src = shuffleArray[imgIndex];
             imgIndex++;
             if (imgIndex >= shuffleArray.length) {
                 imgIndex = 0;
             }
+            img.src = shuffleArray[imgIndex];
             draw();
         });
 
@@ -182,8 +188,8 @@ $(function () {
             }
         });
 
-        //Party Mode
-        $('.switch-label').click(function () {
+        //Party Mode - enter full screen and start auto transitioning
+        $('.partyBtn').click(function () {
             document.getElementById("kaleidoscope").style.left = 0;
             if(animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
@@ -305,10 +311,7 @@ $(function () {
 
 //Disable Browser Zoom
 $(document).keydown(function(event) {
-    if (event.ctrlKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
-        event.preventDefault();
-    }
-    if (event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
+    if (event.ctrlKey==true || event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
         event.preventDefault();
     }
 });
