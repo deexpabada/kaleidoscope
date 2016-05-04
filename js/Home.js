@@ -163,23 +163,21 @@ $(function () {
         });
 
         //Zoom in
-        $('.ZoomInBtn').click(function () {
-            zoomMultiplier += .1;
-            if (zoomMultiplier > 4.0) {
-                zoomMultiplier = 4.0;
-            }
-            draw();
-        });
+        $('.ZoomInBtn').click(function(){zoom(.1);});
 
         //Zoom out
-        $('.ZoomOutBtn').click(function () {
-            zoomMultiplier -= .1;
-            if (zoomMultiplier < 0.1) {
-                zoomMultiplier = .1;
+        $('.ZoomOutBtn').click(function(){zoom(-.1)});
+
+        function zoom(zoomChange){
+            zoomMultiplier += zoomChange;
+            if(zoomMultiplier < .1){
+                zoomMultiplier=.1;
+            }
+            else if(zoomMultiplier > 4.0){
+                zoomMultiplier=4.0;
             }
             draw();
-        });
-
+        }
 
         //auto-play
         $('.autoplayKaleidoBtn').click(function () {
