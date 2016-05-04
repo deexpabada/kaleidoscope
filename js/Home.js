@@ -63,7 +63,6 @@ $(function () {
             g.restore();
         }
 
-
         function drawWithCircle() {
             drawCircle();
             g.save();
