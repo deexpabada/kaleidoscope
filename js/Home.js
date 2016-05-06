@@ -310,13 +310,7 @@ $(function () {
     window.addEventListener('load', resize, false);
     window.addEventListener('resize', resize, false);
 
-    //Change Soundcloud Playlist according to theme
-    function changePlaylist(theme) {
-        var playlist = document.getElementById('soundcloud');
-        playlist.src = theme;
-    }
-
-    //Chnage Playlist
+    //Change Playlist
     $(document).ready(function() {
         var soundcloud = document.getElementById('soundcloud');
        $("#playlist1").click(function () {
