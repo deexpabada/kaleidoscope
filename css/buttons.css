@@ -1,5 +1,5 @@
 /* The side navigation menu */
-.sidenav {
+.sidebar {
     height: 100%;
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed;
@@ -14,7 +14,7 @@
 }
 
 /* The navigation menu links */
-.sidenav a {
+.sidebar a {
     padding: 2% 2% 2% 4%;
     text-decoration: none;
     font-size: 2vw;
@@ -24,7 +24,7 @@
 }
 
 /* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
+.sidebar a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
 

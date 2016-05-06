@@ -5,7 +5,7 @@
 /*Open Sidebar*/
 $(document).ready(function(){
     $("#interactionBtn").click(function() {
-        $("#InteractionBar").width("23%");
+        $("#sidebar").width("23%");
     }
     )}
 )
@@ -14,7 +14,7 @@ $(document).ready(function(){
 /*Close Sidebar */
 $(document).ready(function(){
     $(".closebtn").click(function() {
-            $("#InteractionBar").width("0%");
+            $("#sidebar").width("0%");
         }
     )}
 )
