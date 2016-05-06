@@ -6,7 +6,7 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
-    var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/k.jpg",  "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+    var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/k.jpg", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
     var shuffleArray = imageArray;
 
     var fullScreen = false;
@@ -20,7 +20,7 @@ $(function () {
     var img = new Image();
     var imgLoading = true;
 
-    img.onload = function() {
+    img.onload = function () {
         imgLoading = false;
         draw();
     }
@@ -28,7 +28,7 @@ $(function () {
     function changeImage(newSrc) {
         img.src = newSrc;
         imgLoading = true;
-        if(draw) {
+        if (draw) {
             draw();
         }
     }
@@ -37,6 +37,7 @@ $(function () {
 
     var shift = 0;
     var shiftDelta = 2;
+
     function singleFrameAnimation() {
         shift -= shiftDelta / zoomMultiplier;
         draw();
@@ -52,7 +53,7 @@ $(function () {
         animationTimer = setInterval(singleFrameAnimation, refreshRate);
 
         draw = function draw() {
-            if(imgLoading) {
+            if (imgLoading) {
                 return;
             }
 
@@ -171,19 +172,23 @@ $(function () {
         });
 
         //Zoom in
-        $('.ZoomInBtn').click(function(){zoom(.1);});
+        $('.ZoomInBtn').click(function () {
+            zoom(.1);
+        });
 
         //Zoom out
-        $('.ZoomOutBtn').click(function(){zoom(-.1)});
+        $('.ZoomOutBtn').click(function () {
+            zoom(-.1)
+        });
 
         //
-        function zoom(zoomChange){
+        function zoom(zoomChange) {
             zoomMultiplier += zoomChange;
-            if(zoomMultiplier < .1){
-                zoomMultiplier=.1;
+            if (zoomMultiplier < .1) {
+                zoomMultiplier = .1;
             }
-            else if(zoomMultiplier > 4.0){
-                zoomMultiplier=4.0;
+            else if (zoomMultiplier > 4.0) {
+                zoomMultiplier = 4.0;
             }
             draw();
         }
@@ -201,7 +206,7 @@ $(function () {
 
 
         //Party Mode Toggle
-        $("#partyToggle").change(function() {
+        $("#partyToggle").change(function () {
             if (this.checked) {
                 partyOn();
             } else {
@@ -209,46 +214,46 @@ $(function () {
             }
         });
 
-        $("#closeFullscreen").click(function() {
+        $("#closeFullscreen").click(function () {
             partyOff();
         });
 
         //Party Mode On
-        function partyOn () {
-                document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
-                document.getElementById('fullScreen').style.mozAnimation = 'bounce 0.3s infinite alternate';
-                document.getElementById('fullScreen').style.animation = 'bounce 0.3s infinite alternate';
+        function partyOn() {
+            document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
+            document.getElementById('fullScreen').style.mozAnimation = 'bounce 0.3s infinite alternate';
+            document.getElementById('fullScreen').style.animation = 'bounce 0.3s infinite alternate';
 
-                document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
-                document.getElementById("kaleidoscope").style.left = 0;
-                if (animationTimer === null) {
-                    animationTimer = setInterval(singleFrameAnimation, refreshRate);
-                }
-                fullScreen = !fullScreen;
-                if (fullScreen) {
-                    transitionTimer = setInterval(imgTransition, 3500);
-                    $('.closeFullscreen').show();
-                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
-                    $('.autoplayKaleidoBtn').css('right', '7%');
-                }
-                resize();
-                g.clearRect(0, 0, width, height);
-                draw();
+            document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
+            document.getElementById("kaleidoscope").style.left = 0;
+            if (animationTimer === null) {
+                animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
+            fullScreen = !fullScreen;
+            if (fullScreen) {
+                transitionTimer = setInterval(imgTransition, 3500);
+                $('.closeFullscreen').show();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                $('.autoplayKaleidoBtn').css('right', '7%');
+            }
+            resize();
+            g.clearRect(0, 0, width, height);
+            draw();
+        }
 
-            // Party Mode Off
+        // Party Mode Off
         function partyOff() {
-                document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0s';
-                document.getElementById('fullScreen').style.mozAnimation = 'bounce 0s';
-                document.getElementById('fullScreen').style.animation = 'bounce 0s';
-                document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
-                fullScreen = false;
-                $('.closeFullscreen').hide();
-                clearInterval(transitionTimer);
-                resize();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
-                $('.autoplayKaleidoBtn').css('right', '22%');
-            }
+            document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0s';
+            document.getElementById('fullScreen').style.mozAnimation = 'bounce 0s';
+            document.getElementById('fullScreen').style.animation = 'bounce 0s';
+            document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
+            fullScreen = false;
+            $('.closeFullscreen').hide();
+            clearInterval(transitionTimer);
+            resize();
+            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+            $('.autoplayKaleidoBtn').css('right', '22%');
+        }
 
 
         //multi-upload
@@ -291,7 +296,7 @@ $(function () {
         link.download = filename;
     }
 
-    document.getElementById('downloadBtn').addEventListener('click', function() {
+    document.getElementById('downloadBtn').addEventListener('click', function () {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
 
@@ -321,46 +326,5 @@ $(function () {
 
     window.addEventListener('load', resize, false);
     window.addEventListener('resize', resize, false);
-
-    //Change Playlist
-    $(document).ready(function() {
-        var soundcloud = document.getElementById('soundcloud');
-       $("#playlist1").click(function () {
-           soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/210079548&amp;auto_play=false&amp;' +
-               'hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false';
-       });
-        $("#playlist2").click(function () {
-            soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/13337125&amp;' +
-                'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false'
-        });
-        $("#playlist3").click(function () {
-            soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2747135&amp;' +
-                'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false'
-        });
-    });
-
-
-    //toggle autoplay button
-    $(document).ready(function () {
-        $("#autoplayKaleidoBtn").click(function () {
-            $(".glyphicon-play").toggleClass("glyphicon-pause");
-        });
-    });
-
-});
-
-//Disable Browser Zoom
-$(document).keydown(function(event) {
-    if (event.ctrlKey==true || event.metaKey==true && (event.which == '61' || event.which == '107' || event.which == '173' || event.which == '109'  || event.which == '187'  || event.which == '189'  ) ) {
-        event.preventDefault();
-    }
-});
-
-
-$(window).bind('mousewheel DOMMouseScroll', function (event) {
-    if (event.ctrlKey == true) {
-        event.preventDefault();
-    }
-});
-
+})
 
