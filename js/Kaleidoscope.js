@@ -216,6 +216,7 @@ $(function () {
 
         $("#closeFullscreen").click(function () {
             partyOff();
+            $("#partyToggle").attr("checked", false);
         });
 
         //Party Mode On
