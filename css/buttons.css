@@ -53,7 +53,7 @@
 
 /*Basic Button Hover*/
 .switchArrayBtn:hover, .downloadBtn:hover, .autoplayKaleidoBtn:hover, .switchBtn:hover, .ZoomInBtn:hover, .ZoomOutBtn:hover, .MultiUpload+label:hover, .interactionBtn:hover, #closeFullscreen:hover {
-color: #5edfc9;
+    color: #5edfc9;
 
 }
 

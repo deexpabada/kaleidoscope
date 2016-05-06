@@ -93,7 +93,7 @@ body {
 
 @media screen and (max-width: 600px) {
     .ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .text, .MultiUpload+label .text {
-    display: none;
+        display: none;
     }
     .downloadBtn, .MultiUpload+label, .autoplayKaleidoBtn, .ZoomOutBtn, .ZoomInBtn, .switchBtn,.switchArrayBtn {
         right:0;
