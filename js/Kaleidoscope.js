@@ -223,7 +223,12 @@ $(function () {
             document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('fullScreen').style.mozAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('fullScreen').style.animation = 'bounce 0.3s infinite alternate';
-
+            document.getElementById('interactionBtn').style.backgroundImage = 'url("../images/mainBackground.jpg")';
+            document.getElementById('interactionBtn').style.backgroundColor = '#464646';
+            document.getElementById('interactionBtn').style.top = '2%';
+            document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0s infinite alternate';
+            document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0s infinite alternate';
+            document.getElementById('interactionBtn').style.animation = 'bounce 0s infinite alternate';
             document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
             document.getElementById("kaleidoscope").style.left = 0;
             if (animationTimer === null) {
@@ -246,6 +251,12 @@ $(function () {
             document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0s';
             document.getElementById('fullScreen').style.mozAnimation = 'bounce 0s';
             document.getElementById('fullScreen').style.animation = 'bounce 0s';
+            document.getElementById('interactionBtn').style.backgroundImage = 'none';
+            document.getElementById('interactionBtn').style.backgroundColor = 'transparent';
+            document.getElementById('interactionBtn').style.top = '8%';
+            document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0.3s infinite alternate';
+            document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0.3s infinite alternate';
+            document.getElementById('interactionBtn').style.animation = 'bounce 0.3s infinite alternate';
             document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
             fullScreen = false;
             $('.closeFullscreen').hide();
