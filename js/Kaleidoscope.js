@@ -149,7 +149,6 @@ $(function () {
     })();
 
     (function () {
-
         // switch between images
         $('.switchBtn').click(function () {
             imgIndex++;
@@ -262,6 +261,7 @@ $(function () {
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
             resize();
+            draw();
             $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
             $('.autoplayKaleidoBtn').css('right', '22%');
         }
