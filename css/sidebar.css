@@ -79,7 +79,7 @@ input.partyToggle + label:before {
     transition: background 0.4s;
 }
 input.partyToggle + label:after {
-    width: 58px;
+    width: 50%;
     background-color: #fff;
     border-radius: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
