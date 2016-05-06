@@ -202,15 +202,22 @@ $(function () {
 
         //Party Mode Toggle
         $("#partyToggle").change(function() {
-            //Party Mode On
             if (this.checked) {
+                partyOn();
+            } else {
+                partyOff();
+            }
+        });
+
+        //Party Mode On
+        function partyOn () {
                 document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
                 document.getElementById('fullScreen').style.mozAnimation = 'bounce 0.3s infinite alternate';
                 document.getElementById('fullScreen').style.animation = 'bounce 0.3s infinite alternate';
 
                 document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
                 document.getElementById("kaleidoscope").style.left = 0;
-                if(animationTimer === null) {
+                if (animationTimer === null) {
                     animationTimer = setInterval(singleFrameAnimation, refreshRate);
                 }
                 fullScreen = !fullScreen;
@@ -223,9 +230,10 @@ $(function () {
                 resize();
                 g.clearRect(0, 0, width, height);
                 draw();
+            }
 
-                // Party Mode Off
-            } else {
+            // Party Mode Off
+        function partyOff() {
                 document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0s';
                 document.getElementById('fullScreen').style.mozAnimation = 'bounce 0s';
                 document.getElementById('fullScreen').style.animation = 'bounce 0s';
@@ -237,7 +245,7 @@ $(function () {
                 $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
                 $('.autoplayKaleidoBtn').css('right', '22%');
             }
-        });
+
 
         //multi-upload
         $('#MultiUpload').change(function () {
@@ -343,6 +351,7 @@ $(document).keydown(function(event) {
         event.preventDefault();
     }
 });
+
 
 $(window).bind('mousewheel DOMMouseScroll', function (event) {
     if (event.ctrlKey == true) {
