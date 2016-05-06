@@ -316,6 +316,24 @@ $(function () {
         playlist.src = theme;
     }
 
+    //Chnage Playlist
+    $(document).ready(function() {
+        var soundcloud = document.getElementById('soundcloud');
+       $("#playlist1").click(function () {
+           soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/210079548&amp;auto_play=false&amp;' +
+               'hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false';
+       });
+        $("#playlist2").click(function () {
+            soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/13337125&amp;' +
+                'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false'
+        });
+        $("#playlist3").click(function () {
+            soundcloud.src = 'https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2747135&amp;' +
+                'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false'
+        });
+    });
+
+
     //toggle autoplay button
     $(document).ready(function () {
         $("#autoplayKaleidoBtn").click(function () {
