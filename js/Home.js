@@ -1,8 +1,3 @@
-/**
- * Created by deexpabada on 4/12/2016.
- */
-
-
 $(document).ready(function(){
     //Initialize closeFullScreen Button
     $('.closeFullscreen').hide();
@@ -33,7 +28,6 @@ $(document).ready(function(){
         }
     })
 
-
     //Change Playlist
     var soundcloud = document.getElementById('soundcloud');
     $("#playlist1").click(function () {
@@ -49,12 +43,10 @@ $(document).ready(function(){
             'auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false'
     });
 
-
     //toggle autoplay button
     $("#autoplayKaleidoBtn").click(function () {
         $(".glyphicon-play").toggleClass("glyphicon-pause");
     })
-
 
     //Disable Browser Zoom by Key
     $(document).keydown(function(event) {

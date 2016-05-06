@@ -6,7 +6,7 @@ $(function () {
 
     var imgIndex = 0;
     var userImageArray = [];
-    var imageArray = ["../images/SPACE.png", "../images/squirrel.jpg", "../images/Fries.jpg", "../images/k.jpg", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/after.png", "../images/a.jpg"];
+    var imageArray = ["../images/SPACE.png", "../images/Fractal1.jpg", "../images/Fractal2.jpg", "../images/k.jpg", "../images/p.jpg", "../images/PaulAlt.jpg", "../images/Lemon.jpg", "../images/a.jpg"];
     var shuffleArray = imageArray;
 
     var fullScreen = false;
@@ -83,7 +83,6 @@ $(function () {
         }
 
         function drawWithCircle() {
-            //todo: fix
             drawCircle();
             g.save();
             g.beginPath();
@@ -150,9 +149,9 @@ $(function () {
     })();
 
     (function () {
+
         // switch between images
         $('.switchBtn').click(function () {
-            //img.src = shuffleArray[Math.floor(Math.random() * shuffleArray.length)];
             imgIndex++;
             if (imgIndex >= shuffleArray.length) {
                 imgIndex = 0;
@@ -189,7 +188,7 @@ $(function () {
             zoom(-.1)
         });
 
-        //
+        //zoom function that deals with zoom in and out
         function zoom(zoomChange) {
             zoomMultiplier += zoomChange;
             if (zoomMultiplier < .1) {
@@ -212,7 +211,6 @@ $(function () {
             }
         });
 
-
         //Party Mode Toggle
         $("#partyToggle").change(function () {
             if (this.checked) {
@@ -222,6 +220,7 @@ $(function () {
             }
         });
 
+        //button to close the full screen
         $("#closeFullscreen").click(function () {
             partyOff();
             $("#partyToggle").attr("checked", false);
@@ -245,7 +244,7 @@ $(function () {
             }
             fullScreen = !fullScreen;
             if (fullScreen) {
-                transitionTimer = setInterval(imgTransition, 3500);
+                transitionTimer = setInterval(imgTransition, 5000);
                 $('.closeFullscreen').show();
                 $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
                 $('.autoplayKaleidoBtn').css('right', '7%');
@@ -274,7 +273,6 @@ $(function () {
             $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
             $('.autoplayKaleidoBtn').css('right', '22%');
         }
-
 
         //multi-upload
         $('#MultiUpload').change(function () {
@@ -320,7 +318,6 @@ $(function () {
     document.getElementById('downloadBtn').addEventListener('click', function () {
         downloadCanvas(this, 'kaleidoscope', 'Kaleidoscope.png');
     }, false);
-
 
     //Resize Kaleidoscope Canvas
     function resize() {
