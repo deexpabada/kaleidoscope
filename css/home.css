@@ -56,13 +56,13 @@ background-image: url("../images/mainBackground.jpg");
     animation-iteration-count: infinite;
 }
 @-webkit-keyframes bounce {
-    to { -webkit-transform: scale(1.2); }
+    to { -webkit-transform: scale(1.1); }
 }
 @-moz-keyframes bounce {
-    to { -moz-transform: scale(1.2); }
+    to { -moz-transform: scale(1.1); }
 }
 @keyframes bounce {
-    to { transform: scale(1.2); }
+    to { transform: scale(1.1); }
 }
 
 
