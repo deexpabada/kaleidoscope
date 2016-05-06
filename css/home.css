@@ -1,6 +1,8 @@
-body {margin:0;
-background-size: cover;
-background-image: url("../images/mainBackground.jpg");
+body {
+    margin:0;
+    background-size: cover;
+    background-image: url("../images/mainBackground.jpg");
+    overflow: hidden;
 }
 
 .header {
