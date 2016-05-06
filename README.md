@@ -1,7 +1,7 @@
 # Dogaqita Kaleidoscope
 ## What it's about
 
-![TitleImg](https://github.com/QinxiWang/dogaqita/blob/master/Kaleidoscope.png "Kaleidoscope showing the Space image that comes default!")
+![TitleImg](https://github.com/QinxiWang/dogaqita/blob/master/ReadMeImages/Kaleidoscope.png "Kaleidoscope showing the Space image that comes default!")
 
 The Kaleidoscope is a webbased Kaleidoscope, offering six degrees of symmetry for images of the user's choice. Kaleidoscope primarily uses two javascript files, and the home.html file which displays the kaleidoscope. 
 
