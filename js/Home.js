@@ -209,6 +209,10 @@ $(function () {
             }
         });
 
+        $("#closeFullscreen").click(function() {
+            partyOff();
+        });
+
         //Party Mode On
         function partyOn () {
                 document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
@@ -358,3 +362,5 @@ $(window).bind('mousewheel DOMMouseScroll', function (event) {
         event.preventDefault();
     }
 });
+
+
