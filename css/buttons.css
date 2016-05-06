@@ -8,6 +8,7 @@
     left: 0;
     background-image: url("../images/Stage-Light-Design-ppt-Backgrounds.jpg");
     overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 4vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -26,6 +27,7 @@
 .sidenav a:hover, .offcanvas a:focus{
     color: #f1f1f1;
 }
+
 
 /* Position and style the close button ) */
 .closebtn {
@@ -177,7 +179,7 @@ input.partyToggle:checked + label:after {
     text-align: center;
     text-decoration: none;
     background-image: url("../images/mainBackground.jpg");
-    background-color: black;
+    background-color: #464646;
     margin: 1% 0.5%;
     right: 15%;
     font-size:3vw;
@@ -185,7 +187,6 @@ input.partyToggle:checked + label:after {
     display: inline-block;
     border-width: 0;
     z-index: 5000;
-    /*background-color: transparent;*/
     opacity: .6;
     box-shadow: 0 2px #7c7c7c;
     border-radius: 40%;
@@ -250,7 +251,9 @@ color: #5edfc9;
 
 /*Download Button */
 .downloadBtn {
-    bottom:8%;
+    bottom: 8%;
+    color: #464646;
+    opacity:0.6;
 }
 
 
