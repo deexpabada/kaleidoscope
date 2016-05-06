@@ -2,16 +2,17 @@
 .interactionBtn {
     position:absolute;
     border: none;
-    padding:2% 1%;
+    padding:1% 1%;
     text-align: center;
     text-decoration: none;
     left:0;
-    top: 6%;
+    top: 8%;
     font-size:3vw;
     cursor:pointer;
     display: inline-block;
     z-index: 10;
     background-color: transparent;
+    border-radius: 40%;
     opacity: .6;
     -webkit-animation: bounce .3s infinite alternate;
     -moz-animation: bounce .3s infinite alternate;
