@@ -4,10 +4,9 @@
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed;
     z-index: 100;
-    top: 0%;
+    top: 0;
     left: 0;
     background-image: url("../images/Stage-Light-Design-ppt-Backgrounds.jpg");
-    overflow-x: hidden; /* Disable horizontal scroll */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 4vw;
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -29,7 +28,7 @@
 }
 
 
-/* Position and style the close button ) */
+/* Position and style the close button in sidebar */
 .closebtn {
     position: absolute;
     top: 0;
@@ -37,38 +36,6 @@
     font-size: 3vw !important;
     margin-left: 2%;
     margin-bottom: 3%;
-}
-
-
-/* Style of the Title Screen */
-.titleScreen {
-    position: absolute;
-    top: 0;
-    font-family: 'Montserrat', sans-serif;
-    color: Black;
-    text-align: center;
-    font-size:10vw;
-    cursor: pointer;
-    width:100%;
-    height:100%;
-}
-
-/* The title screen navigation method*/
-.titleScreenNav {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    background-color: #5edfc9;
-    background-image: url("../images/Stage-Light-Design-ppt-Backgrounds.jpg");
-    background-size: cover;
-    overflow-x: hidden;
-    overflow-y:hidden;
-    transition: 0.9s;
-    z-index:1000;
-}
-
-.titleScreenNav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
 }
 
 
