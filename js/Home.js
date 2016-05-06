@@ -17,6 +17,8 @@ $(document).ready(function(){
         $("#sidebar").width("0%");
     })
 
+
+
     //Buttons Appear!
     var buttonsAppeared;
     $(".switchArrayBtn, .downloadBtn, .autoplayKaleidoBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label").hide();

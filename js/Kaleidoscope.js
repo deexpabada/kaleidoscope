@@ -162,14 +162,22 @@ $(function () {
 
         // switch between albums
         $('.switchArrayBtn').click(function () {
-            if (userImageArray.length === 0 || shuffleArray === userImageArray) {
+            if (userImageArray.length === 0) {
                 shuffleArray = imageArray;
+            }
+            else if(shuffleArray === userImageArray){
+                shuffleArray = imageArray;
+                document.getElementById('switchText').innerHTML = "Switch to <br> your album";
+
             }
             else {
                 shuffleArray = userImageArray;
+                document.getElementById('switchText').innerHTML = "Switch to <br> preset album";
+
             }
             changeImage(shuffleArray[0]);
         });
+
 
         //Zoom in
         $('.ZoomInBtn').click(function () {
@@ -280,6 +288,7 @@ $(function () {
                 }
             }
             alert("Upload succeed");
+            document.getElementById('switchText').innerHTML = "Switch to <br> preset album";
         });
 
         function readImage(file) {
