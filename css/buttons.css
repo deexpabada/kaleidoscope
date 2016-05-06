@@ -100,98 +100,58 @@
     to { transform: scale(1.2); }
 }
 
-/* Toggle Button Implementation, with help from HTMLlion SimpleCSS3ToggleSwitchButton */
 
-.switch {
+/*Party Toggle Button*/
+.partyToggle {
+    position: absolute;
+    margin-left: -9999px;
+    visibility: hidden;
+}
+.partyToggle + label {
+    display: inline-block;
     position: relative;
-    display: block;
-    vertical-align: top;
-    width: 100px;
-    height: 30px;
-    padding: 0px;
-    margin: 0 10px 10px 0;
-    background: linear-gradient(to bottom, #eeeeee, #FFFFFF 25px);
-    background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF 25px);
-    border-radius: 20px;
-    box-shadow: inset 0 -1px white, inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    padding:1%;
+    margin:1%;
     cursor: pointer;
+    outline: none;
+    user-select: none;
+    left:23%;
 }
-.switch-input {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    opacity: 0;
+
+input.partyToggle + label {
+    padding: 1%;
+    width: 40%;
+    height: 10%;
+    background-color: #dddddd;
+    border-radius: 60px;
 }
-.switch-label {
-    position: relative;
+input.partyToggle+ label:before,
+input.partyToggle + label:after {
     display: block;
-    height: inherit;
-    font-size: 10px;
-    text-transform: uppercase;
-    background: #eceeef;
-    border-radius: inherit;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
-}
-.switch-label:before, .switch-label:after {
-    position: absolute;
-    top: 50%;
-    margin-top: -5px;
-    line-height: 1;
-    -webkit-transition: inherit;
-    -moz-transition: inherit;
-    -o-transition: inherit;
-    transition: inherit;
-}
-.switch-label:before {
-    content: attr(data-off);
-    right: 11px;
-    color: #aaaaaa;
-    text-shadow: 0 1px rgba(255, 255, 255, 0.5);
-}
-.switch-label:after {
-    content: attr(data-on);
-    left: 11px;
-    color: #FFFFFF;
-    text-shadow: 0 1px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-}
-.switch-input:checked ~ .switch-label {
-    background: #5edfc9;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
-}
-.switch-input:checked ~ .switch-label:before {
-    opacity: 0;
-}
-.switch-input:checked ~ .switch-label:after {
-    opacity: 1;
-}
-.switch-handle {
     position: absolute;
     top: 1px;
-    left: 4px;
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
-    background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
-    border-radius: 100%;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-}
-.switch-handle:before {
+    left: 1px;
+    bottom: 1px;
     content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -6px 0 0 -6px;
-    width: 12px;
-    height: 12px;
-    background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
-    background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
-    border-radius: 6px;
-    box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
 }
-.switch-input:checked ~ .switch-handle {
-    left: 74px;
-    box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+input.partyToggle + label:before {
+    right: 1px;
+    background-color: #f1f1f1;
+    border-radius: 60px;
+    transition: background 0.4s;
+}
+input.partyToggle + label:after {
+    width: 58px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: margin 0.4s;
+}
+input.partyToggle:checked + label:before {
+    background-color: #5edfc9;
+}
+input.partyToggle:checked + label:after {
+    margin-left: 60px;
 }
 
 
