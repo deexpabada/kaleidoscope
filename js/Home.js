@@ -199,38 +199,44 @@ $(function () {
             }
         });
 
-        //Party Mode - enter full screen and start auto transitioning
-        $('.partyBtn').click(function () {
-            document.getElementById("kaleidoscope").style.left = 0;
-            if(animationTimer === null) {
-                animationTimer = setInterval(singleFrameAnimation, refreshRate);
-            }
-            fullScreen = !fullScreen;
-            if (fullScreen) {
-                transitionTimer = setInterval(imgTransition, 3500);
-                $('.closeFullscreen').show();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
-                $('.autoplayKaleidoBtn').css('right', '7%');
-            }
-            else {
-                clearInterval(transitionTimer);
-                $('.closeFullscreen').hide();
-                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
-                $('.autoplayKaleidoBtn').css('right', '25%');
-            }
-            resize();
-            g.clearRect(0, 0, width, height);
-            draw();
-        });
 
-        //exit party mode
-        $('.closeFullscreen').click(function () {
-            fullScreen = false;
-            $('.closeFullscreen').hide();
-            clearInterval(transitionTimer);
-            resize();
-            $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
-            $('.autoplayKaleidoBtn').css('right', '22%');
+        //Party Mode Toggle
+        $("#partyToggle").change(function() {
+            //Party Mode On
+            if (this.checked) {
+                document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0.3s infinite alternate';
+                document.getElementById('fullScreen').style.mozAnimation = 'bounce 0.3s infinite alternate';
+                document.getElementById('fullScreen').style.animation = 'bounce 0.3s infinite alternate';
+
+                document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
+                document.getElementById("kaleidoscope").style.left = 0;
+                if(animationTimer === null) {
+                    animationTimer = setInterval(singleFrameAnimation, refreshRate);
+                }
+                fullScreen = !fullScreen;
+                if (fullScreen) {
+                    transitionTimer = setInterval(imgTransition, 3500);
+                    $('.closeFullscreen').show();
+                    $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "0");
+                    $('.autoplayKaleidoBtn').css('right', '7%');
+                }
+                resize();
+                g.clearRect(0, 0, width, height);
+                draw();
+
+                // Party Mode Off
+            } else {
+                document.getElementById('fullScreen').style.webkitAnimation = 'bounce 0s';
+                document.getElementById('fullScreen').style.mozAnimation = 'bounce 0s';
+                document.getElementById('fullScreen').style.animation = 'bounce 0s';
+                document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
+                fullScreen = false;
+                $('.closeFullscreen').hide();
+                clearInterval(transitionTimer);
+                resize();
+                $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
+                $('.autoplayKaleidoBtn').css('right', '22%');
+            }
         });
 
         //multi-upload

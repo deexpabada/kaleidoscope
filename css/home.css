@@ -44,32 +44,28 @@ background-image: url("../images/mainBackground.jpg");
     position: static;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size:4.5vw;
+    font-size:3.2vw;
     color: #ccffff;
     text-align: center;
     padding:0.2%;
     margin: 0.2%;
     cursor: pointer;
-    -webkit-animation: bounce .3s infinite alternate;
-    -moz-animation: bounce .3s infinite alternate;
-    animation: bounce .3s infinite alternate;
+    -webkit-animation: bounce 0s infinite alternate;
+    -moz-animation: bounce 0s infinite alternate;
+    animation: bounce 0s infinite alternate;
     animation-iteration-count: infinite;
 }
 @-webkit-keyframes bounce {
-    to { -webkit-transform: scale(1.1); }
+    to { -webkit-transform: scale(1.2); }
 }
 @-moz-keyframes bounce {
-    to { -moz-transform: scale(1.1); }
+    to { -moz-transform: scale(1.2); }
 }
 @keyframes bounce {
-    to { transform: scale(1.1); }
+    to { transform: scale(1.2); }
 }
 
 
-.partyBtn:hover{
-    color: #5edfc9;
-    cursor: pointer;
-}
 
 .moreDescription{
     position: static;
