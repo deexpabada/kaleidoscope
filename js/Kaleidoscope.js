@@ -314,7 +314,7 @@ $(function () {
     //shuffle the images
     function imgTransition() {
         if (imgIndex >= shuffleArray.length) {
-            imgIndex = 1;
+            imgIndex = 0;
         }
         changeImage(shuffleArray[imgIndex]);
         imgIndex++;
