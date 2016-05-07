@@ -204,10 +204,14 @@ $(function () {
             if (animationTimer != null) {
                 clearInterval(animationTimer);
                 animationTimer = null;
+                if(transitionTimer != null){
+                    clearInterval(transitionTimer)
+                }
             }
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
             }
+
         });
 
         //Party Mode Toggle
@@ -266,6 +270,9 @@ $(function () {
             document.getElementById('interactionBtn').style.animation = 'bounce 0.3s infinite alternate';
             document.getElementById('onOrOff').innerHTML = "OFF"
             fullScreen = false;
+            if (animationTimer === null) {
+                animationTimer = setInterval(singleFrameAnimation, refreshRate);
+            }
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
             animationTimer = setInterval(singleFrameAnimation, refreshRate);
