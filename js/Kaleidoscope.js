@@ -211,7 +211,7 @@ $(function () {
             }
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
-                if(partyOn){
+                if($("#partyToggle").checked){
                     transitionTimer = setInterval(imgTransition, 5000)
                 }
             }
