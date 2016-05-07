@@ -19,7 +19,8 @@
 <!--Sidebar-->
 <div id="sidebar" class="sidebar">
     <a href="#" class="closebtn"> <span class="glyphicon glyphicon-remove"></span></a>
-    <div class="partyBtn" id ="fullScreen" title="Enter Full Screen!"> PARTY MODE Off</div>
+    <div class="partyBtn" id ="fullScreen" title="Enter Full Screen!">PARTY MODE</div>
+    <div class="partyBtn" id="onOrOff">OFF</div>
 
     <!-- Toggle Button for Party Mode -->
     <div class="switch">
@@ -29,9 +30,9 @@
 
     <p class="moreDescription">
         <br>Switch Music Playlist: </p>
-    <a href="#" id = "playlist1"> Party </a>
-    <a href="#" id = "playlist2"> Chill </a>
-    <a href="#" id = "playlist3"> Romance </a>
+    <a href="#" class = playlists id = "playlist1"> Party </a>
+    <a href="#" class = playlists id = "playlist2"> Chill </a>
+    <a href="#" class = playlists id = "playlist3"> Romance </a>
 
     <!--Soundcloud-->
     <iframe class = "soundcloud" id="soundcloud" width="100%" height="18%" scrolling="no" frameborder="no"
@@ -85,13 +86,13 @@ auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=fal
 <input type="file" name="MultiUpload" id="MultiUpload" class="MultiUpload" multiple=""/>
 <label for="MultiUpload">
     <span class="glyphicon glyphicon-duplicate" title="Upload Picture"> </span>
-    <p class="text">Upload Image</p>
+    <p class="text" id = "text">Upload Image</p>
 </label>
 
 <!--  Switch Array Button -->
 <button type="button" class="switchArrayBtn" id="switchArrayBtn" title="Switch Album">
     <span class="glyphicon glyphicon-transfer"></span>
-    <p class="text">Switch Album</p>
+    <p class="switchText" id = "switchText">No Album Yet</p>
 </button>
 
 <!--Kaleidoscope Canvas-->

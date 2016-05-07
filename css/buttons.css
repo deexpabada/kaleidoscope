@@ -74,7 +74,7 @@
 }
 
 /*Labels on buttons*/
-.ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .text, .MultiUpload+label .text, .downloadBtn .text {
+.ZoomInBtn .text, .ZoomOutBtn .text, .switchBtn .text, .switchArrayBtn .switchText, .MultiUpload+label .text, .downloadBtn .text {
     position:absolute;
     right:-200%;
     top:40%;
@@ -85,6 +85,15 @@
 
 }
 
+.switchArrayBtn .switchText {
+    position:absolute;
+    right:-200%;
+    top:10%;
+    font-size: 1.5vw;
+    font-weight: 100;
+    visibility:hidden;
+    text-decoration: none;
+}
 .autoplayKaleidoBtn .text {
     position:absolute;
     bottom:-90%;
@@ -96,7 +105,7 @@
 }
 
 /*Labels only visible on hover */
-.ZoomInBtn:hover .text, .ZoomOutBtn:hover .text, .switchBtn:hover .text, .switchArrayBtn:hover .text, .MultiUpload+label:hover .text, .downloadBtn:hover .text, .autoplayKaleidoBtn:hover .text{
+.ZoomInBtn:hover .text, .ZoomOutBtn:hover .text, .switchBtn:hover .text, .switchArrayBtn:hover .switchText, .MultiUpload+label:hover .text, .downloadBtn:hover .text, .autoplayKaleidoBtn:hover .text{
     visibility:visible;
 }
 

@@ -160,14 +160,22 @@ $(function () {
 
         // switch between albums
         $('.switchArrayBtn').click(function () {
-            if (userImageArray.length === 0 || shuffleArray === userImageArray) {
+            if (userImageArray.length === 0) {
                 shuffleArray = imageArray;
+            }
+            else if(shuffleArray === userImageArray){
+                shuffleArray = imageArray;
+                document.getElementById('switchText').innerHTML = "Switch to <br> your album";
+
             }
             else {
                 shuffleArray = userImageArray;
+                document.getElementById('switchText').innerHTML = "Switch to <br> preset album";
+
             }
             changeImage(shuffleArray[0]);
         });
+
 
         //Zoom in
         $('.ZoomInBtn').click(function () {
@@ -228,7 +236,7 @@ $(function () {
             document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0s infinite alternate';
             document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0s infinite alternate';
             document.getElementById('interactionBtn').style.animation = 'bounce 0s infinite alternate';
-            document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
+            document.getElementById('onOrOff').innerHTML = "ON!"
             document.getElementById("kaleidoscope").style.left = 0;
             if (animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
@@ -256,7 +264,7 @@ $(function () {
             document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('interactionBtn').style.animation = 'bounce 0.3s infinite alternate';
-            document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
+            document.getElementById('onOrOff').innerHTML = "OFF"
             fullScreen = false;
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
@@ -278,6 +286,7 @@ $(function () {
                 }
             }
             alert("Upload succeed");
+            document.getElementById('switchText').innerHTML = "Switch to <br> preset album";
         });
 
         function readImage(file) {
