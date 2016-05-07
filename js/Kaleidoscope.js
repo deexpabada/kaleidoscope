@@ -268,8 +268,8 @@ $(function () {
             fullScreen = false;
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
+            animationTimer = setInterval(singleFrameAnimation, refreshRate);
             resize();
-            draw();
             $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
             $('.autoplayKaleidoBtn').css('right', '22%');
         }
