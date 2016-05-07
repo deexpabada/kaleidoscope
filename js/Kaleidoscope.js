@@ -210,9 +210,9 @@ $(function () {
             }
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
-                //if(transitionTimer = null){
-                //    setInterval(transitionTimer)
-                //}
+                if(partyOn){
+                    transitionTimer = setInterval(imgTransition, 5000)
+                }
             }
 
         });
@@ -279,7 +279,6 @@ $(function () {
             }
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);
-            animationTimer = setInterval(singleFrameAnimation, refreshRate);
             resize();
             $('.switchArrayBtn, .downloadBtn, .switchBtn, .ZoomInBtn, .ZoomOutBtn, .MultiUpload + label').css("right", "15%");
             $('.autoplayKaleidoBtn').css('right', '22%');
