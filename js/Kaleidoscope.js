@@ -206,6 +206,7 @@ $(function () {
                 animationTimer = null;
                 if(transitionTimer != null){
                     clearInterval(transitionTimer);
+                    transitionTimer = null;
                 }
             }
             else {
