@@ -32,15 +32,12 @@ Fifth, create a new pull request.
 ## Using Kaleidoscope
 1. Download the Kaleidoscope project zip file and open it up! You can download the zip file [right here](https://github.com/QinxiWang/dogaqita/archive/master.zip)
 
-![Step1Img](https://github.com/QinxiWang/dogaqita/blob/master/ReadMeFiles/Step1.png "Step 1")
 
 2. Enter the html folder 
 
-![Step2Img](https://github.com/QinxiWang/dogaqita/blob/master/ReadMeFiles/step2.png "Step 2")
 
 3. Open home.html
 
-![Step3Img](https://github.com/QinxiWang/dogaqita/blob/master/ReadMeFiles/Step3.png "Step 3")
 
 4. Click anywhere to view the buttons shown above! Zoom in, zoom out, switch images, or upload your own!
 
