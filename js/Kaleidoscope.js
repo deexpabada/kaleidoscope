@@ -205,11 +205,14 @@ $(function () {
                 clearInterval(animationTimer);
                 animationTimer = null;
                 if(transitionTimer != null){
-                    clearInterval(transitionTimer)
+                    clearInterval(transitionTimer);
                 }
             }
             else {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
+                //if(transitionTimer = null){
+                //    setInterval(transitionTimer)
+                //}
             }
 
         });
