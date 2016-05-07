@@ -237,7 +237,7 @@ $(function () {
             document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0s infinite alternate';
             document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0s infinite alternate';
             document.getElementById('interactionBtn').style.animation = 'bounce 0s infinite alternate';
-            document.getElementById('fullScreen').innerHTML = "PARTY MODE ON!"
+            document.getElementById('onOrOff').innerHTML = "ON!"
             document.getElementById("kaleidoscope").style.left = 0;
             if (animationTimer === null) {
                 animationTimer = setInterval(singleFrameAnimation, refreshRate);
@@ -265,7 +265,7 @@ $(function () {
             document.getElementById('interactionBtn').style.webkitAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('interactionBtn').style.mozAnimation = 'bounce 0.3s infinite alternate';
             document.getElementById('interactionBtn').style.animation = 'bounce 0.3s infinite alternate';
-            document.getElementById('fullScreen').innerHTML = "PARTY MODE OFF"
+            document.getElementById('onOrOff').innerHTML = "OFF"
             fullScreen = false;
             $('.closeFullscreen').hide();
             clearInterval(transitionTimer);

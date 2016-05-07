@@ -13,13 +13,26 @@
 }
 
 /* The navigation menu links */
-.sidebar a {
+.playlists, .closebtn {
     padding: 2% 2% 2% 4%;
     text-decoration: none;
     font-size: 2vw;
     font-family: 'Montserrat', sans-serif;
     color: #ccffff;
     display: block;
+    position:absolute;
+}
+
+#playlist1 {
+    top: 52%;
+}
+
+#playlist2 {
+    top: 60%;
+}
+
+#playlist3 {
+    top: 68%;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -30,7 +43,6 @@
 
 /* Position and style the close button in sidebar */
 .closebtn {
-    position: absolute;
     top: 0;
     right: 2%;
     font-size: 3vw !important;
@@ -38,6 +50,25 @@
     margin-bottom: 3%;
 }
 
+
+#onOrOff{
+    position:absolute;
+    top: 36%;
+    right: 8%;
+    font-size:3vw;
+}
+.moreDescription{
+    position: absolute;
+    top:42%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    font-size:1.7vw;
+    color:white;
+    text-align:left;
+    padding: 0.2%;
+    margin: 0.2%;
+    display:inline-block;
+}
 /* -------------------------------------------------------------------------------------------------------*/
 /*Party Toggle Button*/
 .partyToggle {
@@ -47,21 +78,22 @@
 }
 .partyToggle + label {
     display: inline-block;
-    position: relative;
+    position: absolute;
     padding:1%;
     margin:1%;
     cursor: pointer;
     outline: none;
     user-select: none;
-    left:23%;
+    left:15%;
+    top:36%;
 }
 
 input.partyToggle + label {
-    padding: 1%;
-    width: 40%;
-    height: 10%;
+    padding: 2px;
+    width:90px;
+    height: 45px;
     background-color: #dddddd;
-    border-radius: 60px;
+    border-radius: 45px;
 }
 input.partyToggle+ label:before,
 input.partyToggle + label:after {
@@ -75,11 +107,11 @@ input.partyToggle + label:after {
 input.partyToggle + label:before {
     right: 1px;
     background-color: #f1f1f1;
-    border-radius: 60px;
+    border-radius: 45px;
     transition: background 0.4s;
 }
 input.partyToggle + label:after {
-    width: 50%;
+    width: 43.6px;
     background-color: #fff;
     border-radius: 100%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -89,7 +121,7 @@ input.partyToggle:checked + label:before {
     background-color: #5edfc9;
 }
 input.partyToggle:checked + label:after {
-    margin-left: 60px;
+    margin-left: 45px;
 }
 
 /*Close Button in Full Screen*/
