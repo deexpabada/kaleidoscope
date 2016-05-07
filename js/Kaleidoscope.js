@@ -227,6 +227,7 @@ $(function () {
         $("#closeFullscreen").click(function () {
             partyOff();
             $("#partyToggle").attr("checked", false);
+            draw();
         });
 
         //Party Mode On
@@ -310,7 +311,7 @@ $(function () {
     //shuffle the images
     function imgTransition() {
         if (imgIndex >= shuffleArray.length) {
-            imgIndex = 0;
+            imgIndex = 1;
         }
         changeImage(shuffleArray[imgIndex]);
         imgIndex++;
